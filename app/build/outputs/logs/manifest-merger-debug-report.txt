@@ -12,6 +12,7 @@ MERGED from [com.google.android.gms:play-services-basement:9.4.0] /root/.gradle/
 MERGED from [com.android.support:appcompat-v7:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0.aar/85480e5e72e2205bc45710dbca004766/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:transition:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/transition-26.0.0.aar/43ff2cae9462e375b03361bc844a48c4/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0.aar/ba7ee8a0758fc3c64daaec8581822b88/AndroidManifest.xml:17:1-31:12
+MERGED from [at.blogc:expandabletextview:1.0.5] /root/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/3cb6e08b4f755a36f9e1137e407a7cc3/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:recyclerview-v7:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0.aar/315f6152b257104fb07179be66424fc5/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:animated-vector-drawable:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0.aar/2a4014b759369a0e3fb07dd85a29005b/AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-fragment:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/support-fragment-26.0.0.aar/68a66440370f2066c132821cab56dde3/AndroidManifest.xml:17:1-31:12
@@ -70,6 +71,8 @@ MERGED from [com.android.support:transition:26.0.0] /root/.gradle/caches/transfo
 MERGED from [com.android.support:transition:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/transition-26.0.0.aar/43ff2cae9462e375b03361bc844a48c4/AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:support-v4:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0.aar/ba7ee8a0758fc3c64daaec8581822b88/AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:support-v4:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0.aar/ba7ee8a0758fc3c64daaec8581822b88/AndroidManifest.xml:25:5-29:19
+MERGED from [at.blogc:expandabletextview:1.0.5] /root/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/3cb6e08b4f755a36f9e1137e407a7cc3/AndroidManifest.xml:26:5-20
+MERGED from [at.blogc:expandabletextview:1.0.5] /root/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/3cb6e08b4f755a36f9e1137e407a7cc3/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:recyclerview-v7:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0.aar/315f6152b257104fb07179be66424fc5/AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:recyclerview-v7:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0.aar/315f6152b257104fb07179be66424fc5/AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:animated-vector-drawable:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0.aar/2a4014b759369a0e3fb07dd85a29005b/AndroidManifest.xml:22:5-26:19
@@ -148,6 +151,8 @@ MERGED from [com.android.support:transition:26.0.0] /root/.gradle/caches/transfo
 MERGED from [com.android.support:transition:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/transition-26.0.0.aar/43ff2cae9462e375b03361bc844a48c4/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0.aar/ba7ee8a0758fc3c64daaec8581822b88/AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-v4:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/support-v4-26.0.0.aar/ba7ee8a0758fc3c64daaec8581822b88/AndroidManifest.xml:21:5-23:54
+MERGED from [at.blogc:expandabletextview:1.0.5] /root/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/3cb6e08b4f755a36f9e1137e407a7cc3/AndroidManifest.xml:22:5-24:41
+MERGED from [at.blogc:expandabletextview:1.0.5] /root/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/3cb6e08b4f755a36f9e1137e407a7cc3/AndroidManifest.xml:22:5-24:41
 MERGED from [com.android.support:recyclerview-v7:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0.aar/315f6152b257104fb07179be66424fc5/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.0.0.aar/315f6152b257104fb07179be66424fc5/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:26.0.0] /root/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-26.0.0.aar/2a4014b759369a0e3fb07dd85a29005b/AndroidManifest.xml:20:5-44

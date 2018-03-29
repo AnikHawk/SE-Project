@@ -2,6 +2,8 @@
 package com.google.android.gms.samples.vision.ocrreader;
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -14,8 +16,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -27,7 +31,9 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,7 +65,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     public static final String UseFlash = "UseFlash";
     public static final String WordByWord = "WordByWord";
     public static final String LineByLine = "LineByLine";
-    public static final String BlockByBlock= "BlockByBlock";
+    public static final String BlockByBlock = "BlockByBlock";
     public static final String Translation = "Translation";
     public static final String TextBlockObject = "String";
 
@@ -70,6 +76,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
     private ClipboardManager myClipboard;
     private ClipData myClip;
+    boolean isUp;
 
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
@@ -77,9 +84,11 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     EditText textHolder;
     FloatingActionButton copyButton;
     FloatingActionButton cutButton;
+    RelativeLayout bottomView;
     // Helper objects for detecting taps and pinches.
     private ScaleGestureDetector scaleGestureDetector;
     private GestureDetector gestureDetector;
+    ExpandCollapseExtention animator = new ExpandCollapseExtention();
 
 
     /**
@@ -94,16 +103,16 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         cutButton = (FloatingActionButton) findViewById(R.id.cutButton);
         mPreview = (CameraSourcePreview) findViewById(R.id.preview);
         mGraphicOverlay = (GraphicOverlay<OcrGraphic>) findViewById(R.id.graphicOverlay);
+        bottomView = findViewById(R.id.bottomView);
 
+        animator.collapse(bottomView);
 
         copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 copyButton.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         copyToClipboard(textHolder.getText().toString());
-//                        CharSequence charSequence = textHolder.getText().toString();
-//                        String correctedText = AutoText.get(charSequence,0,charSequence.length(),v);
-//                        textHolder.setText(correctedText);
+                        animator.collapse(bottomView);
                     }
                 });
             }
@@ -115,6 +124,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         copyToClipboard(textHolder.getText().toString());
                         textHolder.setText("");
+                        animator.collapse(bottomView);
                     }
                 });
             }
@@ -123,7 +133,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         // read parameters from the intent used to launch the activity.
         boolean autoFocus = getIntent().getBooleanExtra(AutoFocus, false);
         boolean useFlash = getIntent().getBooleanExtra(UseFlash, false);
-        wordByWord = getIntent().getBooleanExtra(WordByWord , false);
+        wordByWord = getIntent().getBooleanExtra(WordByWord, false);
         lineByLine = getIntent().getBooleanExtra(LineByLine, false);
         blockByBlock = getIntent().getBooleanExtra(BlockByBlock, false);
         translation = getIntent().getBooleanExtra(Translation, false);
@@ -200,9 +210,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         textRecognizer.setProcessor(new OcrDetectorProcessor(mGraphicOverlay, view, translation, wordByWord, lineByLine, blockByBlock));
 
 
-
-
-
         if (!textRecognizer.isOperational()) {
 
             Log.w(TAG, "Detector dependencies are not yet available.");
@@ -219,12 +226,12 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
         mCameraSource =
                 new CameraSource.Builder(getApplicationContext(), textRecognizer)
-                .setFacing(CameraSource.CAMERA_FACING_BACK)
-                .setRequestedPreviewSize(1280, 1024)
-                .setRequestedFps(2.0f)
-                .setFlashMode(useFlash ? Camera.Parameters.FLASH_MODE_TORCH : null)
-                .setFocusMode(autoFocus ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : null)
-                .build();
+                        .setFacing(CameraSource.CAMERA_FACING_BACK)
+                        .setRequestedPreviewSize(1280, 1024)
+                        .setRequestedFps(2.0f)
+                        .setFlashMode(useFlash ? Camera.Parameters.FLASH_MODE_TORCH : null)
+                        .setFocusMode(autoFocus ? Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE : null)
+                        .build();
     }
 
     /**
@@ -270,7 +277,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "Camera permission granted - initialize the camera source");
             // We have permission, so create the camerasource
-            boolean autoFocus = getIntent().getBooleanExtra(AutoFocus,false);
+            boolean autoFocus = getIntent().getBooleanExtra(AutoFocus, false);
             boolean useFlash = getIntent().getBooleanExtra(UseFlash, false);
             createCameraSource(autoFocus, useFlash);
             return;
@@ -317,7 +324,9 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private boolean onTap(float rawX, float rawY) {
         OcrGraphic graphic = mGraphicOverlay.getGraphicAtLocation(rawX, rawY);
         TextBlock text = null;
+
         if (graphic != null) {
+            animator.expand(bottomView);
             text = graphic.getTextBlock();
             if (text != null && text.getValue() != null && translation) {
                 String textToBeTranslated = text.getValue();
@@ -328,16 +337,13 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 textHolder.setText(translatedText);
-            }
-            else if (text != null && text.getValue() != null) {
+            } else if (text != null && text.getValue() != null) {
                 textHolder.setText(text.getValue());
-            }
-            else {
+            } else {
                 Log.d(TAG, "text data is null");
             }
-        }
-        else {
-            Log.d(TAG,"no text detected");
+        } else {
+            Log.d(TAG, "no text detected");
         }
         return text != null;
     }
@@ -388,5 +394,36 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 "Text copied to clipboard", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM | Gravity.LEFT, 50, 50);
         toast.show();
+    }
+
+
+    public static void animateViewFromBottomToTop(final View view) {
+
+        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onGlobalLayout() {
+
+                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+
+                final int TRANSLATION_Y = view.getHeight();
+                view.setTranslationY(TRANSLATION_Y);
+                view.setVisibility(View.GONE);
+                view.animate()
+                        .translationYBy(-TRANSLATION_Y)
+                        .setDuration(500)
+                        .setStartDelay(200)
+                        .setListener(new AnimatorListenerAdapter() {
+
+                            @Override
+                            public void onAnimationStart(final Animator animation) {
+
+                                view.setVisibility(View.VISIBLE);
+                            }
+                        })
+                        .start();
+            }
+        });
     }
 }
