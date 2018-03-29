@@ -47,8 +47,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:checked="true"
-        android:text="@string/auto_focus"
         tools:ignore="NewApi" />
+
+    <TextView
+        android:id="@+id/auto_focus_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/auto_focus"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="@string/auto_focus"
+        android:textColor="#ffffff"
+        android:layout_toRightOf="@+id/auto_focus" />
 
     <Switch
         android:id="@+id/use_flash"
@@ -69,8 +80,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:checked="true"
-        android:text="@string/word_by_word"
         tools:ignore="NewApi" />
+
+    <TextView
+        android:id="@+id/word_by_word_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_alignBottom="@+id/word_by_word"
+        android:layout_toEndOf="@+id/auto_focus"
+        android:text="@string/word_by_word"
+        android:textColor="#ffffff"
+        android:layout_toRightOf="@+id/auto_focus" />
 
     <Switch
         android:id="@+id/line_by_line"
@@ -92,8 +114,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:checked="false"
-        android:text="@string/block_by_block"
         tools:ignore="NewApi" />
+
+    <TextView
+        android:id="@+id/block_by_block_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_above="@+id/auto_focus_text"
+        android:layout_toEndOf="@+id/auto_focus"
+        android:text="@string/block_by_block"
+        android:textColor="#ffffff"
+        android:layout_toRightOf="@+id/auto_focus" />
 
     <Switch
         android:id="@+id/translation"
@@ -105,5 +138,15 @@
         android:checked="false"
         android:text="@string/translation"
         tools:ignore="NewApi" />
+
+    <Spinner
+        android:id="@+id/lang_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/auto_focus"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/lang_arrays"
+        android:prompt="@string/lang_prompt"
+        android:visibility="invisible" />
 
 </RelativeLayout>

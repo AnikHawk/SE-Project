@@ -1,21 +1,16 @@
 
 package com.google.android.gms.samples.vision.ocrreader;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
+import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Detect;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Language;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
 import com.google.android.gms.vision.text.Text;
@@ -35,11 +30,13 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
     private final TextBlock mText;
 
     public boolean translation;
-    public boolean wordByWord;
-    public boolean lineByLine;
-    public boolean blockByBlock;
+    private boolean wordByWord;
+    private boolean lineByLine;
+    private boolean blockByBlock;
 
-    OcrGraphic(GraphicOverlay overlay, TextBlock text, View view, Boolean translation, Boolean wordByWord, Boolean lineByLine, Boolean blockByBlock) {
+    private String translateTo;
+
+    OcrGraphic(GraphicOverlay overlay, TextBlock text, View view, Boolean translation, Boolean wordByWord, Boolean lineByLine, Boolean blockByBlock, String translateTo) {
         super(overlay);
         this.view = view;
         mText = text;
@@ -47,6 +44,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
         this.wordByWord = wordByWord;
         this.lineByLine = lineByLine;
         this.blockByBlock = blockByBlock;
+        this.translateTo = translateTo;
 
         if (sRectPaint == null) {
             sRectPaint = new Paint();
@@ -90,6 +88,24 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
         return (rect.left < x && rect.right > x && rect.top < y && rect.bottom > y);
     }
 
+    private String getTranslationLanguage() {
+        if (translateTo.equalsIgnoreCase("Bangla"))
+            return "bn";
+        else if (translateTo.equalsIgnoreCase("English"))
+            return "en";
+        else if (translateTo.equalsIgnoreCase("French"))
+            return "fr";
+        else if (translateTo.equalsIgnoreCase("German"))
+            return "de";
+        else if (translateTo.equalsIgnoreCase("Italian"))
+            return "it";
+        else if (translateTo.equalsIgnoreCase("Spanish"))
+            return "es";
+        else if (translateTo.equalsIgnoreCase("Russian"))
+            return "ru";
+        else
+            return null;
+    }
 
     @Override
     public void draw(Canvas canvas) {
@@ -133,7 +149,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
                         String textToBeTranslated = currentText.getValue();
                         String translatedText = "";
                         try {
-                            translatedText = Translate.execute(textToBeTranslated, Language.ENGLISH, Language.BANGLA);
+                            translatedText = Translate.execute(textToBeTranslated, Detect.execute(textToBeTranslated), Language.fromString(getTranslationLanguage()));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -168,7 +184,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
                     String textToBeTranslated = currentLine.getValue();
                     String translatedText = "";
                     try {
-                        translatedText = Translate.execute(textToBeTranslated, Language.ENGLISH, Language.BANGLA);
+                        translatedText = Translate.execute(textToBeTranslated, Detect.execute(textToBeTranslated), Language.fromString(getTranslationLanguage()));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -197,7 +213,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
                 String textToBeTranslated = text.getValue();
                 String translatedText = "";
                 try {
-                    translatedText = Translate.execute(textToBeTranslated, Language.ENGLISH, Language.BANGLA);
+                    translatedText = Translate.execute(textToBeTranslated, Detect.execute(textToBeTranslated), Language.fromString(getTranslationLanguage()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

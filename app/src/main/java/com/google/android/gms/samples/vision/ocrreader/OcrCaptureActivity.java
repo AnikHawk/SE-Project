@@ -24,7 +24,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.text.AutoText;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -34,7 +33,6 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -48,7 +46,6 @@ import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 
 import java.io.IOException;
-import java.lang.Object;
 
 
 public final class OcrCaptureActivity extends AppCompatActivity {
@@ -67,12 +64,15 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     public static final String LineByLine = "LineByLine";
     public static final String BlockByBlock = "BlockByBlock";
     public static final String Translation = "Translation";
+    public static final String SelectedLanguage = "SelectedLanguage";
     public static final String TextBlockObject = "String";
 
     public boolean wordByWord;
     public boolean lineByLine;
     public boolean blockByBlock;
     public boolean translation;
+
+    public String translateTo = "";
 
     private ClipboardManager myClipboard;
     private ClipData myClip;
@@ -85,6 +85,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     FloatingActionButton copyButton;
     FloatingActionButton cutButton;
     RelativeLayout bottomView;
+
     // Helper objects for detecting taps and pinches.
     private ScaleGestureDetector scaleGestureDetector;
     private GestureDetector gestureDetector;
@@ -98,21 +99,21 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.ocr_capture);
-        textHolder = (EditText) findViewById(R.id.textHolder);
-        copyButton = (FloatingActionButton) findViewById(R.id.copyButton);
-        cutButton = (FloatingActionButton) findViewById(R.id.cutButton);
-        mPreview = (CameraSourcePreview) findViewById(R.id.preview);
-        mGraphicOverlay = (GraphicOverlay<OcrGraphic>) findViewById(R.id.graphicOverlay);
+        textHolder = findViewById(R.id.textHolder);
+        copyButton = findViewById(R.id.copyButton);
+        cutButton = findViewById(R.id.cutButton);
+        mPreview = findViewById(R.id.preview);
+        mGraphicOverlay = findViewById(R.id.graphicOverlay);
         bottomView = findViewById(R.id.bottomView);
 
-        animator.collapse(bottomView);
+        ExpandCollapseExtention.collapse(bottomView);
 
         copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 copyButton.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         copyToClipboard(textHolder.getText().toString());
-                        animator.collapse(bottomView);
+                        ExpandCollapseExtention.collapse(bottomView);
                     }
                 });
             }
@@ -124,7 +125,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         copyToClipboard(textHolder.getText().toString());
                         textHolder.setText("");
-                        animator.collapse(bottomView);
+                        ExpandCollapseExtention.collapse(bottomView);
                     }
                 });
             }
@@ -137,6 +138,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         lineByLine = getIntent().getBooleanExtra(LineByLine, false);
         blockByBlock = getIntent().getBooleanExtra(BlockByBlock, false);
         translation = getIntent().getBooleanExtra(Translation, false);
+
+        translateTo = getIntent().getStringExtra(SelectedLanguage);
 
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
@@ -207,7 +210,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         View view = getWindow().getDecorView().getRootView();
 
         TextRecognizer textRecognizer = new TextRecognizer.Builder(context).build();
-        textRecognizer.setProcessor(new OcrDetectorProcessor(mGraphicOverlay, view, translation, wordByWord, lineByLine, blockByBlock));
+        textRecognizer.setProcessor(new OcrDetectorProcessor(mGraphicOverlay, view, translation, wordByWord, lineByLine, blockByBlock, translateTo));
 
 
         if (!textRecognizer.isOperational()) {
@@ -326,7 +329,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         TextBlock text = null;
 
         if (graphic != null) {
-            animator.expand(bottomView);
+            ExpandCollapseExtention.expand(bottomView);
             text = graphic.getTextBlock();
             if (text != null && text.getValue() != null && translation) {
                 String textToBeTranslated = text.getValue();

@@ -1,14 +1,12 @@
 package com.google.android.gms.samples.vision.ocrreader;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.TextView;
-
-import com.google.android.gms.common.api.CommonStatusCodes;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -21,6 +19,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private CompoundButton blockByBlock;
     private CompoundButton translation;
 
+    private Spinner langSpinner;
+
     private TextView statusMessage;
     private TextView textValue;
 
@@ -32,23 +32,37 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        statusMessage = (TextView)findViewById(R.id.status_message);
-        textValue = (TextView)findViewById(R.id.text_value);
+        statusMessage = findViewById(R.id.status_message);
+        textValue = findViewById(R.id.text_value);
 
 
-        autoFocus = (CompoundButton) findViewById(R.id.auto_focus);
-        useFlash = (CompoundButton) findViewById(R.id.use_flash);
-        wordByWord = (CompoundButton) findViewById(R.id.word_by_word);
-        lineByline = (CompoundButton) findViewById(R.id.line_by_line);
-        blockByBlock = (CompoundButton) findViewById(R.id.block_by_block);
-        translation = (CompoundButton) findViewById(R.id.translation);
+        autoFocus = findViewById(R.id.auto_focus);
+        useFlash = findViewById(R.id.use_flash);
+        wordByWord = findViewById(R.id.word_by_word);
+        lineByline = findViewById(R.id.line_by_line);
+        blockByBlock = findViewById(R.id.block_by_block);
+        translation = findViewById(R.id.translation);
 
         wordByWord.setOnCheckedChangeListener(changeChecker);
         lineByline.setOnCheckedChangeListener(changeChecker);
         blockByBlock.setOnCheckedChangeListener(changeChecker);
 
+        langSpinner = findViewById(R.id.lang_spinner);
+        translation.setOnCheckedChangeListener(langChoice);
+
         findViewById(R.id.read_text).setOnClickListener(this);
     }
+
+    CompoundButton.OnCheckedChangeListener langChoice = new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (isChecked) {
+                langSpinner.setVisibility(View.VISIBLE);
+            } else {
+                langSpinner.setVisibility(View.INVISIBLE);
+            }
+        }
+    };
 
     CompoundButton.OnCheckedChangeListener changeChecker = new CompoundButton.OnCheckedChangeListener() {
 
@@ -68,6 +82,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     wordByWord.setChecked(false);
                 }
             }
+
+            if (!wordByWord.isChecked() && !lineByline.isChecked() && !blockByBlock.isChecked()) {
+                wordByWord.setChecked(true);
+            }
         }
     };
 
@@ -83,6 +101,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             intent.putExtra(OcrCaptureActivity.LineByLine, lineByline.isChecked());
             intent.putExtra(OcrCaptureActivity.BlockByBlock, blockByBlock.isChecked());
             intent.putExtra(OcrCaptureActivity.Translation, translation.isChecked());
+
+            intent.putExtra(OcrCaptureActivity.SelectedLanguage, String.valueOf(langSpinner.getSelectedItem()));
 
             startActivityForResult(intent, RC_OCR_CAPTURE);
         }

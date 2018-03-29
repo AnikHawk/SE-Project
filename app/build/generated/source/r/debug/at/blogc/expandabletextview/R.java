@@ -8,13 +8,13 @@ package at.blogc.expandabletextview;
 
 public final class R {
     public static final class attr {
-        public static final int animation_duration = 0x7f030029;
+        public static final int animation_duration = 0x7f040029;
     }
     public static final class string {
-        public static final int app_name = 0x7f0c001f;
+        public static final int app_name = 0x7f0d001f;
     }
     public static final class styleable {
-        public static final int[] ExpandableTextView = { 0x7f030029 };
+        public static final int[] ExpandableTextView = { 0x7f040029 };
         public static final int ExpandableTextView_animation_duration = 0;
     }
 }
