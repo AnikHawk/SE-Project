@@ -31,6 +31,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -50,7 +51,7 @@ import java.io.IOException;
 
 public final class OcrCaptureActivity extends AppCompatActivity {
     private static final String TAG = "OcrCaptureActivity";
-
+    public static boolean resetFlag = false;
     // Intent request code to handle updating play services if needed.
     private static final int RC_HANDLE_GMS = 9001;
 
@@ -86,6 +87,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     FloatingActionButton cutButton;
     RelativeLayout bottomView;
 
+    boolean isExpanded;
     // Helper objects for detecting taps and pinches.
     private ScaleGestureDetector scaleGestureDetector;
     private GestureDetector gestureDetector;
@@ -107,13 +109,14 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         bottomView = findViewById(R.id.bottomView);
 
         ExpandCollapseExtention.collapse(bottomView);
+        isExpanded = false;
 
         copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 copyButton.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         copyToClipboard(textHolder.getText().toString());
-                        ExpandCollapseExtention.collapse(bottomView);
+                        //ExpandCollapseExtention.collapse(bottomView);
                     }
                 });
             }
@@ -125,9 +128,20 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         copyToClipboard(textHolder.getText().toString());
                         textHolder.setText("");
-                        ExpandCollapseExtention.collapse(bottomView);
+                        if (isExpanded) ExpandCollapseExtention.collapse(bottomView);
+                        isExpanded = false;
                     }
                 });
+            }
+        });
+
+
+        textHolder.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (!isExpanded) ExpandCollapseExtention.expand(bottomView);
+                isExpanded = true;
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+                return false;
             }
         });
 
@@ -210,8 +224,14 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         View view = getWindow().getDecorView().getRootView();
 
         TextRecognizer textRecognizer = new TextRecognizer.Builder(context).build();
-        textRecognizer.setProcessor(new OcrDetectorProcessor(mGraphicOverlay, view, translation, wordByWord, lineByLine, blockByBlock, translateTo));
+        OcrDetectorProcessor ocrDetectorProcessor = new OcrDetectorProcessor(mGraphicOverlay, view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
+        textRecognizer.setProcessor(ocrDetectorProcessor);
 
+        if (resetFlag) {
+            ocrDetectorProcessor = new OcrDetectorProcessor(mGraphicOverlay, view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
+            textRecognizer.setProcessor(ocrDetectorProcessor);
+            resetFlag = false;
+        }
 
         if (!textRecognizer.isOperational()) {
 
@@ -325,11 +345,14 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
 
     private boolean onTap(float rawX, float rawY) {
+
+
         OcrGraphic graphic = mGraphicOverlay.getGraphicAtLocation(rawX, rawY);
         TextBlock text = null;
 
         if (graphic != null) {
             ExpandCollapseExtention.expand(bottomView);
+            isExpanded = true;
             text = graphic.getTextBlock();
             if (text != null && text.getValue() != null && translation) {
                 String textToBeTranslated = text.getValue();
@@ -346,7 +369,13 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 Log.d(TAG, "text data is null");
             }
         } else {
+//            View view = getWindow().getDecorView().getRootView();
+//            TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
+//            OcrDetectorProcessor ocrDetectorProcessor = new OcrDetectorProcessor(mGraphicOverlay, view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
+//            textRecognizer.setProcessor(ocrDetectorProcessor);
+//            resetFlag = false;
             Log.d(TAG, "no text detected");
+
         }
         return text != null;
     }

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Android Studio Projects\\SE-Project-master\\SE-Project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "outputFile": "/root/Downloads/ocr-reader-v3/ocr-reader/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0.aar\\0e9c8c648fc530d4bcfbea3e2b1a7bed\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0.aar/efa4a0ad13657e5f72ac6e45c0ef9871/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.0.0.aar\\bc6ef16bade09abbddeea6b47a2f5d2b\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "/root/.gradle/caches/transforms-1/files-1.1/design-26.0.0.aar/7544eb8d921679a48604b783cd49e029/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

@@ -3,6 +3,8 @@ package com.google.android.gms.samples.vision.ocrreader;
 
 import android.util.SparseArray;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.Detector;
@@ -37,6 +39,18 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
             TextBlock item = items.valueAt(i);
             OcrGraphic graphic = new OcrGraphic(mGraphicOverlay, item, view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
             mGraphicOverlay.add(graphic);
+
+            try {
+                Animation anim = new AlphaAnimation(0.0f, 1.0f);
+                anim.setDuration(300);
+                //anim.setStartOffset(20);
+                //anim.setRepeatMode(Animation.REVERSE);
+                anim.setRepeatCount(Animation.ABSOLUTE);
+                mGraphicOverlay.startAnimation(anim);
+            }
+            catch (Exception e){
+                OcrCaptureActivity.resetFlag = true;
+            }
         }
     }
 

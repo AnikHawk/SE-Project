@@ -17,7 +17,7 @@ public class ExpandCollapseExtention {
         final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         view.measure(widthSpec, heightSpec);
-        int height = 380;
+        int height = 360;
         ValueAnimator mAnimator = slideAnimator(view, 0, height);
         mAnimator.setDuration(500);
         mAnimator.start();
@@ -27,13 +27,13 @@ public class ExpandCollapseExtention {
     public static void collapse(final View view) {
         int finalHeight = view.getHeight();
 
-        ValueAnimator mAnimator = slideAnimator(view, finalHeight, 0);
+        ValueAnimator mAnimator = slideAnimator(view, finalHeight, 170);
         mAnimator.setDuration(500);
         mAnimator.addListener(new Animator.AnimatorListener() {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                view.setVisibility(View.GONE);
+                view.setVisibility(View.VISIBLE);
             }
 
 
