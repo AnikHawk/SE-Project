@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -34,6 +35,7 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.ThemedSpinnerAdapter;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -45,6 +47,7 @@ import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Language;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
 
@@ -83,10 +86,11 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private CameraSourcePreview mPreview;
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
     EditText textHolder;
-    FloatingActionButton copyButton;
-    FloatingActionButton cutButton;
+    com.github.clans.fab.FloatingActionButton copyButton;
+    com.github.clans.fab.FloatingActionButton cutButton;
+    com.github.clans.fab.FloatingActionButton translateButton;
     RelativeLayout bottomView;
-
+    AVLoadingIndicatorView load;
     boolean isExpanded;
     // Helper objects for detecting taps and pinches.
     private ScaleGestureDetector scaleGestureDetector;
@@ -104,12 +108,29 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         textHolder = findViewById(R.id.textHolder);
         copyButton = findViewById(R.id.copyButton);
         cutButton = findViewById(R.id.cutButton);
+        translateButton = findViewById(R.id.translateButton);
         mPreview = findViewById(R.id.preview);
         mGraphicOverlay = findViewById(R.id.graphicOverlay);
         bottomView = findViewById(R.id.bottomView);
-
+        load = findViewById(R.id.loading);
         ExpandCollapseExtention.collapse(bottomView);
         isExpanded = false;
+
+
+
+
+        cutButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                cutButton.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        copyToClipboard(textHolder.getText().toString());
+                        textHolder.setText("");
+                        ExpandCollapseExtention.collapse(bottomView);
+                        isExpanded = false;
+                    }
+                });
+            }
+        });
 
         copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -122,14 +143,43 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             }
         });
 
-        cutButton.setOnClickListener(new View.OnClickListener() {
+        translateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                cutButton.setOnClickListener(new View.OnClickListener() {
+                translateButton.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        copyToClipboard(textHolder.getText().toString());
-                        textHolder.setText("");
-                        if (isExpanded) ExpandCollapseExtention.collapse(bottomView);
-                        isExpanded = false;
+                        load.show();
+                         class FetchTranslatedData extends AsyncTask<String, Integer, String> {
+
+                            @Override
+                            protected void onPreExecute() {
+                                load.show();
+                            }
+                            protected String doInBackground(String... strings) {
+                                String textToBeTranslated = strings[0];
+                                String translatedText = "";
+                                try {
+                                    Thread.sleep(1000);
+                                    while(translatedText==null || translatedText.equals(""))
+                                    translatedText = Translate.execute(textToBeTranslated, Language.ENGLISH, Language.BANGLA);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                return translatedText;
+                            }
+
+                            protected void onPostExecute(String result) {
+                                //super.onPostExecute(result);
+                                EditText textHolder = findViewById(R.id.textHolder);
+                                textHolder.setText(result);
+                                load.hide();
+
+                            }
+                        }
+                        new FetchTranslatedData().execute(textHolder.getText().toString());
+                        //copyToClipboard(textHolder.getText().toString());
+                        //textHolder.setText();
+                        //if (isExpanded) ExpandCollapseExtention.collapse(bottomView);
+                        //isExpanded = false;
                     }
                 });
             }

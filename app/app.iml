@@ -132,8 +132,10 @@
     <orderEntry type="library" name="com.android.support:design-26.0.0" level="project" />
     <orderEntry type="library" name="com.android.support:transition-26.0.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-utils-26.0.0" level="project" />
+    <orderEntry type="library" name="com.wang.avi:library-2.1.3" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-ui-26.0.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-annotations:26.0.0@jar" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-base-9.4.0" level="project" />
+    <orderEntry type="library" name="com.github.clans:fab-1.6.4" level="project" />
   </component>
 </module>

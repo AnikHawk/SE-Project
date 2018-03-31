@@ -2,11 +2,12 @@
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
     android:id="@+id/topLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:keepScreenOn="true">
+    android:keepScreenOn="true"
+    android:orientation="vertical">
 
     <com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview
         android:id="@+id/preview"
@@ -21,45 +22,109 @@
 
 
     <RelativeLayout
+        android:id="@+id/bottomView"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:layout_gravity="bottom"
-        android:id="@+id/bottomView"
-        >
+        android:layout_gravity="bottom">
+
         <EditText
             android:id="@+id/textHolder"
-            android:background="#CC000000"
-            android:text=""
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
+            android:background="#CC000000"
+            android:text="" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/copyButton"
+        <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:id="@+id/copyButton"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:src="@drawable/clip"-->
+            <!--android:tint="@color/common_google_signin_btn_text_dark"-->
+            <!--app:backgroundTint="#454545"-->
+            <!--app:elevation="16dp" />-->
+
+
+        <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:id="@+id/cutButton"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@id/copyButton"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_margin="12dp"-->
+            <!--android:src="@drawable/translate"-->
+            <!--android:tint="@color/common_google_signin_btn_text_dark"-->
+            <!--app:backgroundTint="#454545"-->
+            <!--app:elevation="16dp" />-->
+
+
+
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/loading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:tint="@color/common_google_signin_btn_text_dark"
-            android:src="@drawable/clip"
-            app:backgroundTint="#454545"
-            android:layout_margin="12dp"
-            app:elevation="16dp"/>
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            app:indicatorName="BallPulseIndicator" />
+    </RelativeLayout>
 
 
-        <android.support.design.widget.FloatingActionButton
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="20dp"
+        app:indicatorName="BallScaleMultipleIndicator" />
+
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        fab:menu_labels_singleLine="true"
+        fab:menu_animationDelayPerItem="0"
+        fab:menu_colorNormal="#1565C0"
+        fab:menu_colorPressed="#2272CD"
+        fab:menu_colorRipple="#62B2FF"
+        fab:menu_labels_maxLines="2"
+        fab:menu_labels_ellipsize="end">
+
+
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/cutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/copyButton"
-            android:layout_alignParentRight="true"
-            android:tint="@color/common_google_signin_btn_text_dark"
             android:src="@drawable/cut"
-            app:backgroundTint="#454545"
-            android:layout_margin="12dp"
-            app:elevation="16dp"/>
-    </RelativeLayout>
+            fab:fab_size="mini"
+            fab:fab_label="Cut" />
 
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/copyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/copy"
+            fab:fab_size="mini"
+            fab:fab_label="Copy" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/translateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/translate"
+            fab:fab_size="mini"
+            fab:fab_label="Translate" />
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 
 

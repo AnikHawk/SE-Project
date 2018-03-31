@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Mar 30 15:45:41 BDT 2018
+#Sat Mar 31 16:56:24 BDT 2018
 1.base=/root/Downloads/ocr-reader-v3/ocr-reader/app/build/intermediates/transforms/dexMerger/debug/12
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY

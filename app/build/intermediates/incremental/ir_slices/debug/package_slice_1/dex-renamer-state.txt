@@ -1,4 +1,4 @@
-#Fri Mar 30 15:45:41 BDT 2018
+#Sat Mar 31 16:51:28 BDT 2018
 base.0=/root/Downloads/ocr-reader-v3/ocr-reader/app/build/intermediates/transforms/dexMerger/debug/2
 path.0=classes.dex
 renamed.0=classes.dex
