@@ -1,7 +1,7 @@
-#Sat Mar 31 16:56:24 BDT 2018
-base.0=/root/Downloads/ocr-reader-v3/ocr-reader/app/build/intermediates/transforms/dexMerger/debug/13
+#Sun Apr 01 03:09:38 BDT 2018
+base.0=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/root/Downloads/ocr-reader-v3/ocr-reader/app/build/intermediates/transforms/dexMerger/debug/12
+base.1=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11

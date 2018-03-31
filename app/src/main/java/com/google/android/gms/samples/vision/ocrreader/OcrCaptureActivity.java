@@ -21,7 +21,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -35,7 +34,6 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.ThemedSpinnerAdapter;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -89,6 +87,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     com.github.clans.fab.FloatingActionButton copyButton;
     com.github.clans.fab.FloatingActionButton cutButton;
     com.github.clans.fab.FloatingActionButton translateButton;
+    com.github.clans.fab.FloatingActionButton pdfButton;
     RelativeLayout bottomView;
     AVLoadingIndicatorView load;
     boolean isExpanded;
@@ -109,15 +108,13 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         copyButton = findViewById(R.id.copyButton);
         cutButton = findViewById(R.id.cutButton);
         translateButton = findViewById(R.id.translateButton);
+        pdfButton = findViewById(R.id.pdf_button);
         mPreview = findViewById(R.id.preview);
         mGraphicOverlay = findViewById(R.id.graphicOverlay);
         bottomView = findViewById(R.id.bottomView);
         load = findViewById(R.id.loading);
         ExpandCollapseExtention.collapse(bottomView);
         isExpanded = false;
-
-
-
 
         cutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -185,6 +182,22 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             }
         });
 
+        pdfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pdfButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("copied", textHolder.getText().toString());
+                        Intent intent = new Intent(OcrCaptureActivity.this, PdfActivity.class);
+                        intent.putExtras(bundle);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                        OcrCaptureActivity.this.startActivity(intent);
+                    }
+                });
+            }
+        });
 
         textHolder.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent motionEvent) {

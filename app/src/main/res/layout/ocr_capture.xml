@@ -124,6 +124,14 @@
             fab:fab_size="mini"
             fab:fab_label="Translate" />
 
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/pdf_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/btn_star_big_on"
+            fab:fab_label="PDF"
+            fab:fab_size="mini" />
+
     </com.github.clans.fab.FloatingActionMenu>
 
 
