@@ -57,11 +57,11 @@ ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\app\src\main\
 	android:name
 		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\app\src\main\AndroidManifest.xml:9:22-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\app\src\main\AndroidManifest.xml:10:5-80
+ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\app\src\main\AndroidManifest.xml:10:5-81
 	android:name
 		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\app\src\main\AndroidManifest.xml:10:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\app\src\main\AndroidManifest.xml:11:5-79
+ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\app\src\main\AndroidManifest.xml:11:5-80
 	android:name
 		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\app\src\main\AndroidManifest.xml:11:22-77
 application

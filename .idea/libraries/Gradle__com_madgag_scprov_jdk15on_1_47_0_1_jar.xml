@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.madgag:scprov-jdk15on:1.47.0.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.madgag/scprov-jdk15on/1.47.0.1/12e5fa71f9d623892dfc8a670133019bed819fd5/scprov-jdk15on-1.47.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.madgag/scprov-jdk15on/1.47.0.1/8c976eb582b717017a7fb6a0a65864a97ff6af6a/scprov-jdk15on-1.47.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
