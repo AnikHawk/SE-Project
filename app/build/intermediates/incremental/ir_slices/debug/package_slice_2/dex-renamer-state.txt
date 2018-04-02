@@ -1,4 +1,4 @@
-#Sun Apr 01 04:38:09 BDT 2018
-base.0=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\2
+#Sun Apr 01 10:07:43 BDT 2018
+base.0=/root/Downloads/ocr-reader-v3/ocr-reader/app/build/intermediates/transforms/dexMerger/debug/2
 path.0=classes.dex
 renamed.0=classes.dex

@@ -20,6 +20,7 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
     private boolean lineByLine;
     private boolean blockByBlock;
     private String translateTo;
+    public static boolean frameDone = true;
 
     OcrDetectorProcessor(GraphicOverlay<OcrGraphic> ocrGraphicOverlay, View view, boolean translation, boolean wordByWord, boolean lineByLine, boolean blockByBlock, String translateTo) {
         mGraphicOverlay = ocrGraphicOverlay;
@@ -34,24 +35,29 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
     @Override
     public void receiveDetections(Detector.Detections<TextBlock> detections) {
         mGraphicOverlay.clear();
-        SparseArray<TextBlock> items = detections.getDetectedItems();
-        for (int i = 0; i < items.size(); ++i) {
-            TextBlock item = items.valueAt(i);
-            OcrGraphic graphic = new OcrGraphic(mGraphicOverlay, item, view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
-            mGraphicOverlay.add(graphic);
 
-            try {
-                Animation anim = new AlphaAnimation(0.0f, 1.0f);
-                anim.setDuration(300);
-                //anim.setStartOffset(20);
-                //anim.setRepeatMode(Animation.REVERSE);
-                anim.setRepeatCount(Animation.ABSOLUTE);
-                mGraphicOverlay.startAnimation(anim);
+        if (frameDone) {
+            frameDone = false;
+            SparseArray<TextBlock> items = detections.getDetectedItems();
+            for (int i = 0; i < items.size(); ++i) {
+                TextBlock item = items.valueAt(i);
+                OcrGraphic graphic = new OcrGraphic(mGraphicOverlay, item, view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
+                mGraphicOverlay.add(graphic);
+
+                try {
+                    Animation anim = new AlphaAnimation(0.0f, 1.0f);
+                    anim.setDuration(300);
+                    //anim.setStartOffset(20);
+                    //anim.setRepeatMode(Animation.REVERSE);
+                    anim.setRepeatCount(Animation.ABSOLUTE);
+                    mGraphicOverlay.startAnimation(anim);
+                } catch (Exception e) {
+                    //OcrCaptureActivity.resetFlag = true;
+                }
             }
-            catch (Exception e){
-                OcrCaptureActivity.resetFlag = true;
-            }
+
         }
+        frameDone = true;
     }
 
 

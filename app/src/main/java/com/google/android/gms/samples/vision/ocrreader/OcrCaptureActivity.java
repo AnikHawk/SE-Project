@@ -41,6 +41,7 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSource;
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview;
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
+import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Detect;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Language;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
 import com.google.android.gms.vision.text.TextBlock;
@@ -88,8 +89,11 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     com.github.clans.fab.FloatingActionButton cutButton;
     com.github.clans.fab.FloatingActionButton translateButton;
     com.github.clans.fab.FloatingActionButton pdfButton;
+    com.github.clans.fab.FloatingActionMenu fab;
     RelativeLayout bottomView;
     AVLoadingIndicatorView load;
+    AVLoadingIndicatorView effect;
+
     boolean isExpanded;
     // Helper objects for detecting taps and pinches.
     private ScaleGestureDetector scaleGestureDetector;
@@ -113,91 +117,104 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         mGraphicOverlay = findViewById(R.id.graphicOverlay);
         bottomView = findViewById(R.id.bottomView);
         load = findViewById(R.id.loading);
+        fab = findViewById(R.id.fab);
+        effect = findViewById(R.id.effect);
         ExpandCollapseExtention.collapse(bottomView);
         isExpanded = false;
 
+        effect.bringToFront();
+
+
         cutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                cutButton.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        copyToClipboard(textHolder.getText().toString());
-                        textHolder.setText("");
-                        ExpandCollapseExtention.collapse(bottomView);
-                        isExpanded = false;
-                    }
-                });
+                copyToClipboard(textHolder.getText().toString());
+                textHolder.setText("");
+                ExpandCollapseExtention.collapse(bottomView);
+                isExpanded = false;
             }
         });
+
 
         copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                copyButton.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        copyToClipboard(textHolder.getText().toString());
-                        //ExpandCollapseExtention.collapse(bottomView);
-                    }
-                });
+                copyToClipboard(textHolder.getText().toString());
+                //ExpandCollapseExtention.collapse(bottomView);
             }
         });
+
 
         translateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                translateButton.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
+                load.show();
+                class FetchTranslatedData extends AsyncTask<String, Integer, String> {
+
+                    @Override
+                    protected void onPreExecute() {
                         load.show();
-                         class FetchTranslatedData extends AsyncTask<String, Integer, String> {
-
-                            @Override
-                            protected void onPreExecute() {
-                                load.show();
-                            }
-                            protected String doInBackground(String... strings) {
-                                String textToBeTranslated = strings[0];
-                                String translatedText = "";
-                                try {
-                                    Thread.sleep(1000);
-                                    while(translatedText==null || translatedText.equals(""))
-                                    translatedText = Translate.execute(textToBeTranslated, Language.ENGLISH, Language.BANGLA);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                                return translatedText;
-                            }
-
-                            protected void onPostExecute(String result) {
-                                //super.onPostExecute(result);
-                                EditText textHolder = findViewById(R.id.textHolder);
-                                textHolder.setText(result);
-                                load.hide();
-
-                            }
-                        }
-                        new FetchTranslatedData().execute(textHolder.getText().toString());
-                        //copyToClipboard(textHolder.getText().toString());
-                        //textHolder.setText();
-                        //if (isExpanded) ExpandCollapseExtention.collapse(bottomView);
-                        //isExpanded = false;
                     }
-                });
+
+                    protected String doInBackground(String... strings) {
+                        String textToBeTranslated = strings[0];
+                        String translatedText = "";
+                        try {
+                            Thread.sleep(1000);
+                            while (translatedText == null || translatedText.equals(""))
+                                translatedText = Translate.execute(textToBeTranslated, Detect.execute(textToBeTranslated), Language.fromString(getTranslationLanguage()));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        return translatedText;
+                    }
+
+                    protected void onPostExecute(String result) {
+                        //super.onPostExecute(result);
+                        EditText textHolder = findViewById(R.id.textHolder);
+                        textHolder.setText(result);
+                        load.hide();
+
+                    }
+
+
+                    private String getTranslationLanguage() {
+                        if (translateTo.equalsIgnoreCase("Bangla"))
+                            return "bn";
+                        else if (translateTo.equalsIgnoreCase("English"))
+                            return "en";
+                        else if (translateTo.equalsIgnoreCase("French"))
+                            return "fr";
+                        else if (translateTo.equalsIgnoreCase("German"))
+                            return "de";
+                        else if (translateTo.equalsIgnoreCase("Italian"))
+                            return "it";
+                        else if (translateTo.equalsIgnoreCase("Spanish"))
+                            return "es";
+                        else if (translateTo.equalsIgnoreCase("Russian"))
+                            return "ru";
+                        else
+                            return null;
+                    }
+                }
+                new FetchTranslatedData().execute(textHolder.getText().toString());
+                //copyToClipboard(textHolder.getText().toString());
+                //textHolder.setText();
+                //if (isExpanded) ExpandCollapseExtention.collapse(bottomView);
+                //isExpanded = false;
             }
         });
+
 
         pdfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pdfButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Bundle bundle = new Bundle();
-                        bundle.putString("copied", textHolder.getText().toString());
-                        Intent intent = new Intent(OcrCaptureActivity.this, PdfActivity.class);
-                        intent.putExtras(bundle);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                        OcrCaptureActivity.this.startActivity(intent);
-                    }
-                });
+                Bundle bundle = new Bundle();
+                bundle.putString("copied", textHolder.getText().toString());
+                Intent intent = new Intent(OcrCaptureActivity.this, PdfActivity.class);
+                intent.putExtras(bundle);
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                OcrCaptureActivity.this.startActivity(intent);
             }
         });
+
 
         textHolder.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -278,23 +295,12 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     @SuppressLint("InlinedApi")
     private void createCameraSource(boolean autoFocus, boolean useFlash) {
         Context context = getApplicationContext();
-
-        // A text recognizer is created to find text.  An associated processor instance
-        // is set to receive the text recognition results and display graphics for each text block
-        // on screen.
-
-        //pass imageView
         View view = getWindow().getDecorView().getRootView();
-
         TextRecognizer textRecognizer = new TextRecognizer.Builder(context).build();
-        OcrDetectorProcessor ocrDetectorProcessor = new OcrDetectorProcessor(mGraphicOverlay, view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
+        OcrDetectorProcessor ocrDetectorProcessor = new OcrDetectorProcessor(mGraphicOverlay,
+                view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
         textRecognizer.setProcessor(ocrDetectorProcessor);
 
-        if (resetFlag) {
-            ocrDetectorProcessor = new OcrDetectorProcessor(mGraphicOverlay, view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
-            textRecognizer.setProcessor(ocrDetectorProcessor);
-            resetFlag = false;
-        }
 
         if (!textRecognizer.isOperational()) {
 

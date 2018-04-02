@@ -1,152 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.google.android.gms.samples.vision.ocrreader.MainActivity">
 
+
+    <com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview
+        android:id="@+id/preview"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/switches"
+        android:layout_below="@id/app_name"
+        android:layout_centerHorizontal="true">
+
+
+        <com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay
+            android:id="@+id/graphicOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview>
+
+
     <TextView
+        android:id="@+id/app_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
         android:text="@string/ocr_header"
-        android:id="@+id/status_message"
-        android:layout_alignParentEnd="true"
         android:textAlignment="center"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentRight="true" />
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/text_value"
-        android:layout_below="@+id/status_message"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="110dp"
-        android:layout_alignEnd="@+id/status_message"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/status_message" />
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@id/app_name"
+        android:src="@drawable/logo" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/read_text"
+
+    <me.rishabhkhanna.customtogglebutton.CustomToggleButton
         android:id="@+id/read_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <Switch
-        android:id="@+id/auto_focus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/use_flash"
-        android:layout_alignBottom="@+id/use_flash"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="true"
-        tools:ignore="NewApi" />
-
-    <TextView
-        android:id="@+id/auto_focus_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/auto_focus"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:text="@string/auto_focus"
-        android:textColor="#ffffff"
-        android:layout_toRightOf="@+id/auto_focus" />
-
-    <Switch
-        android:id="@+id/use_flash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:checked="false"
-        android:text="@string/use_flash"
-        tools:ignore="NewApi" />
-
-    <Switch
-        android:id="@+id/word_by_word"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/block_by_block"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="true"
-        tools:ignore="NewApi" />
-
-    <TextView
-        android:id="@+id/word_by_word_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_alignBottom="@+id/word_by_word"
-        android:layout_toEndOf="@+id/auto_focus"
-        android:text="@string/word_by_word"
-        android:textColor="#ffffff"
-        android:layout_toRightOf="@+id/auto_focus" />
-
-    <Switch
-        android:id="@+id/line_by_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/word_by_word"
-        android:layout_alignBottom="@+id/word_by_word"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:checked="false"
-        android:text="@string/line_by_line"
-        tools:ignore="NewApi" />
-
-    <Switch
-        android:id="@+id/block_by_block"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/auto_focus"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:checked="false"
-        tools:ignore="NewApi" />
-
-    <TextView
-        android:id="@+id/block_by_block_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_above="@+id/auto_focus_text"
-        android:layout_toEndOf="@+id/auto_focus"
-        android:text="@string/block_by_block"
-        android:textColor="#ffffff"
-        android:layout_toRightOf="@+id/auto_focus" />
-
-    <Switch
-        android:id="@+id/translation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/line_by_line"
-        android:checked="false"
-        android:text="@string/translation"
-        tools:ignore="NewApi" />
-
-    <Spinner
-        android:id="@+id/lang_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/auto_focus"
         android:layout_centerHorizontal="true"
-        android:entries="@array/lang_arrays"
-        android:prompt="@string/lang_prompt"
-        android:visibility="invisible" />
+        android:layout_gravity="center"
+        android:text="@string/read_text"
+        android:textOff="@string/read_text"
+        android:textOn="@string/read_text"
+        app:borderWidth="3dp"
+        app:checkedColor="@color/md_light_blue_A700"
+        app:checkedTextColor="#ffffff"
+        app:radius="7dp"
+        app:uncheckedColor="@color/md_light_blue_A700"
+        app:uncheckedTextColor="#ffffff"></me.rishabhkhanna.customtogglebutton.CustomToggleButton>
+
+
+    <RelativeLayout
+        android:id="@+id/switches"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/read_text"
+        android:layout_below="@id/logo">
+
+        <com.nightonke.jellytogglebutton.JellyToggleButton
+            android:id="@+id/auto_focus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/use_flash"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:checked="true"
+            app:jtbDuration="500"
+            app:jtbJelly="random"
+            tools:ignore="NewApi" />
+
+
+        <com.nightonke.jellytogglebutton.JellyToggleButton
+            android:id="@+id/use_flash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:checked="false"
+            app:jtbDuration="500"
+            app:jtbJelly="random"
+            tools:ignore="NewApi" />
+
+        <com.nightonke.jellytogglebutton.JellyToggleButton
+            android:id="@+id/translation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/use_flash"
+            android:layout_margin="10dp"
+            android:checked="false"
+            app:jtbDuration="500"
+            app:jtbJelly="random"
+            tools:ignore="NewApi" />
+
+
+        <com.nightonke.jellytogglebutton.JellyToggleButton
+            android:id="@+id/word_by_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/line_by_line"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="10dp"
+            android:checked="true"
+            app:jtbDuration="500"
+            app:jtbJelly="lazy_tremble_tail_slim_jim"
+            tools:ignore="NewApi" />
+
+
+        <com.nightonke.jellytogglebutton.JellyToggleButton
+            android:id="@+id/line_by_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:checked="false"
+            app:jtbDuration="500"
+            app:jtbJelly="random"
+            tools:ignore="NewApi" />
+
+
+        <com.nightonke.jellytogglebutton.JellyToggleButton
+            android:id="@+id/block_by_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/translation"
+            android:layout_alignLeft="@+id/line_by_line"
+            android:layout_alignStart="@+id/line_by_line"
+            android:checked="false"
+            app:jtbDuration="500"
+            app:jtbJelly="random"
+            tools:ignore="NewApi" />
+
+
+        <TextView
+            android:id="@+id/auto_focus_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/translation_text"
+            android:layout_alignStart="@+id/translation_text"
+            android:layout_alignTop="@+id/auto_focus"
+            android:text="@string/auto_focus"
+            android:textColor="#ffffff" />
+
+
+        <TextView
+            android:id="@+id/flash_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/auto_focus_text"
+            android:layout_alignRight="@+id/auto_focus_text"
+            android:layout_alignTop="@+id/use_flash"
+            android:text="@string/use_flash"
+            android:textColor="#ffffff" />
+
+
+        <TextView
+            android:id="@+id/translation_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/translation"
+            android:layout_toLeftOf="@+id/translation"
+            android:layout_toStartOf="@+id/translation"
+            android:text="@string/translation"
+            android:textColor="#ffffff" />
+
+
+        <TextView
+            android:id="@+id/word_by_word_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/line_by_line_text"
+            android:layout_alignRight="@+id/line_by_line_text"
+            android:layout_alignTop="@+id/word_by_word"
+            android:text="@string/word_by_word"
+            android:textColor="#ffffff" />
+
+
+        <TextView
+            android:id="@+id/line_by_line_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/block_by_block_text"
+            android:layout_alignRight="@+id/block_by_block_text"
+            android:layout_alignTop="@+id/line_by_line"
+            android:text="@string/line_by_line"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/block_by_block_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/block_by_block"
+            android:layout_toEndOf="@+id/line_by_line"
+            android:layout_toRightOf="@+id/line_by_line"
+            android:text="@string/block_by_block"
+            android:textColor="#ffffff" />
+
+
+        <Spinner
+            android:id="@+id/lang_spinner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/block_by_block"
+            android:layout_centerHorizontal="true"
+            android:entries="@array/lang_arrays"
+            android:padding="5dp"
+            android:prompt="@string/lang_prompt"
+            android:textAlignment="center"
+            android:visibility="visible" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.google.android.gms.samples.vision.ocrreader"
     android:installLocation="auto">
 
@@ -16,6 +17,7 @@
         android:hardwareAccelerated="true"
         android:icon="@drawable/eye"
         android:label="OCR"
+        tools:replace="android:label"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <meta-data
