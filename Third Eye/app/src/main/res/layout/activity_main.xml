@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -36,6 +37,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="15dp"
         android:text="@string/ocr_header"
+        android:textSize="30sp"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -44,7 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_below="@id/app_name"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        android:contentDescription="@string/back_cam_view" />
 
 
     <me.rishabhkhanna.customtogglebutton.CustomToggleButton
@@ -62,7 +65,8 @@
         app:checkedTextColor="#ffffff"
         app:radius="7dp"
         app:uncheckedColor="@color/md_light_blue_A700"
-        app:uncheckedTextColor="#ffffff"></me.rishabhkhanna.customtogglebutton.CustomToggleButton>
+        app:uncheckedTextColor="#ffffff">
+    </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
 
     <RelativeLayout
@@ -77,37 +81,40 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/use_flash"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_margin="10dp"
             android:checked="true"
             app:jtbDuration="500"
             app:jtbJelly="random"
-            tools:ignore="NewApi" />
+            tools:ignore="NewApi"
+            android:layout_alignParentRight="true" />
 
 
         <com.nightonke.jellytogglebutton.JellyToggleButton
             android:id="@+id/use_flash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
             android:checked="false"
             app:jtbDuration="500"
             app:jtbJelly="random"
-            tools:ignore="NewApi" />
+            tools:ignore="NewApi"
+            android:layout_alignParentRight="true" />
 
         <com.nightonke.jellytogglebutton.JellyToggleButton
             android:id="@+id/translation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_below="@+id/use_flash"
             android:layout_margin="10dp"
             android:checked="false"
             app:jtbDuration="500"
             app:jtbJelly="random"
-            tools:ignore="NewApi" />
+            tools:ignore="NewApi"
+            android:layout_alignParentRight="true" />
 
 
         <com.nightonke.jellytogglebutton.JellyToggleButton
@@ -115,25 +122,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/line_by_line"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_margin="10dp"
             android:checked="true"
             app:jtbDuration="500"
             app:jtbJelly="lazy_tremble_tail_slim_jim"
-            tools:ignore="NewApi" />
+            tools:ignore="NewApi"
+            android:layout_alignParentLeft="true" />
 
 
         <com.nightonke.jellytogglebutton.JellyToggleButton
             android:id="@+id/line_by_line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
             android:checked="false"
             app:jtbDuration="500"
             app:jtbJelly="random"
-            tools:ignore="NewApi" />
+            tools:ignore="NewApi"
+            android:layout_alignParentLeft="true" />
 
 
         <com.nightonke.jellytogglebutton.JellyToggleButton
@@ -157,7 +166,8 @@
             android:layout_alignStart="@+id/translation_text"
             android:layout_alignTop="@+id/auto_focus"
             android:text="@string/auto_focus"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:paddingTop="7dp"/>
 
 
         <TextView
@@ -168,7 +178,8 @@
             android:layout_alignRight="@+id/auto_focus_text"
             android:layout_alignTop="@+id/use_flash"
             android:text="@string/use_flash"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:paddingTop="7dp"/>
 
 
         <TextView
@@ -179,7 +190,8 @@
             android:layout_toLeftOf="@+id/translation"
             android:layout_toStartOf="@+id/translation"
             android:text="@string/translation"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:paddingTop="7dp"/>
 
 
         <TextView
@@ -190,7 +202,8 @@
             android:layout_alignRight="@+id/line_by_line_text"
             android:layout_alignTop="@+id/word_by_word"
             android:text="@string/word_by_word"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:paddingTop="7dp"/>
 
 
         <TextView
@@ -201,7 +214,8 @@
             android:layout_alignRight="@+id/block_by_block_text"
             android:layout_alignTop="@+id/line_by_line"
             android:text="@string/line_by_line"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:paddingTop="7dp"/>
 
         <TextView
             android:id="@+id/block_by_block_text"
@@ -211,7 +225,8 @@
             android:layout_toEndOf="@+id/line_by_line"
             android:layout_toRightOf="@+id/line_by_line"
             android:text="@string/block_by_block"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:paddingTop="7dp"/>
 
 
         <Spinner
@@ -224,7 +239,9 @@
             android:padding="5dp"
             android:prompt="@string/lang_prompt"
             android:textAlignment="center"
-            android:visibility="visible" />
+            android:visibility="invisible"
+            android:dropDownSelector="@color/md_light_blue_900"
+            android:alwaysDrawnWithCache="true"/>
 
     </RelativeLayout>
 

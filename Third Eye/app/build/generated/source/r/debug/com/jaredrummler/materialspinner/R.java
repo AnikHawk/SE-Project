@@ -34,13 +34,13 @@ public final class R {
         public static final int ms__shadow_background = 0x7f080099;
     }
     public static final class id {
-        public static final int fill_parent = 0x7f09007d;
-        public static final int match_parent = 0x7f0900a7;
-        public static final int tv_tinted_spinner = 0x7f090109;
-        public static final int wrap_content = 0x7f090115;
+        public static final int fill_parent = 0x7f0a007d;
+        public static final int match_parent = 0x7f0a00a7;
+        public static final int tv_tinted_spinner = 0x7f0a010a;
+        public static final int wrap_content = 0x7f0a0116;
     }
     public static final class layout {
-        public static final int ms__list_item = 0x7f0b002c;
+        public static final int ms__list_item = 0x7f0c002c;
     }
     public static final class styleable {
         public static final int[] MaterialSpinner = { 0x7f040162, 0x7f040163, 0x7f040164, 0x7f040165, 0x7f040166, 0x7f040167, 0x7f040168, 0x7f040169, 0x7f04016a };

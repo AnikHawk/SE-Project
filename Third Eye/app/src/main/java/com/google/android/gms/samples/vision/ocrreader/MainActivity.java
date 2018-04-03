@@ -26,7 +26,7 @@ import static com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity
 import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    // Use a compound button so either checkbox or switch widgets work.
+    // Use a compound createButton so either checkbox or switch widgets work.
     private JellyToggleButton autoFocus;
     private JellyToggleButton useFlash;
     private JellyToggleButton wordByWord;
@@ -38,8 +38,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Spinner langSpinner;
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
 
-    private TextView statusMessage;
-    private TextView textValue;
+    public TextView statusMessage;
+    //private TextView textValue;
 
     private static final int RC_OCR_CAPTURE = 9003;
     private static final String TAG = "MainActivity";
@@ -69,7 +69,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         createCameraSource(true, false);
     }
 
-    JellyToggleButton.OnCheckedChangeListener langChoice = new CompoundButton.OnCheckedChangeListener() {
+    JellyToggleButton.OnCheckedChangeListener langChoice = new JellyToggleButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             if (isChecked) {
@@ -80,7 +80,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     };
 
-    JellyToggleButton.OnCheckedChangeListener changeChecker = new CompoundButton.OnCheckedChangeListener() {
+    JellyToggleButton.OnCheckedChangeListener changeChecker = new JellyToggleButton.OnCheckedChangeListener() {
 
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -194,4 +194,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {}
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
+
 }

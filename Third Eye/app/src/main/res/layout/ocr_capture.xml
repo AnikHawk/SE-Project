@@ -32,7 +32,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#CC000000"
-            android:text="" />
+            android:text=""
+            android:inputType="text"
+            android:hint="@string/empty"/>
 
 
         <com.wang.avi.AVLoadingIndicatorView
@@ -49,16 +51,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        android:layout_gravity="right|bottom"
-        android:layout_marginRight="19dp"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="19dp"
         android:layout_marginBottom="21dp"
-        app:indicatorName="BallScaleMultipleIndicator" />
+        app:indicatorName="BallScaleMultipleIndicator"
+        android:layout_marginRight="19dp" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|end"
         android:layout_margin="20dp"
         app:indicatorName="BallScaleMultipleIndicator" />
 
@@ -67,8 +70,6 @@
         android:id="@+id/fab"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"

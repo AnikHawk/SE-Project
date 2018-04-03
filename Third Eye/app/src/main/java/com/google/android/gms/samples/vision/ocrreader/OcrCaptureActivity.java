@@ -53,7 +53,7 @@ import java.io.IOException;
 
 public final class OcrCaptureActivity extends AppCompatActivity {
     private static final String TAG = "OcrCaptureActivity";
-    public static boolean resetFlag = false;
+    //public static boolean resetFlag = false;
     // Intent request code to handle updating play services if needed.
     private static final int RC_HANDLE_GMS = 9001;
 
@@ -68,7 +68,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     public static final String BlockByBlock = "BlockByBlock";
     public static final String Translation = "Translation";
     public static final String SelectedLanguage = "SelectedLanguage";
-    public static final String TextBlockObject = "String";
+    //public static final String TextBlockObject = "String";
 
     public boolean wordByWord;
     public boolean lineByLine;
@@ -77,9 +77,9 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
     public String translateTo = "";
 
-    private ClipboardManager myClipboard;
-    private ClipData myClip;
-    boolean isUp;
+    //private ClipboardManager myClipboard;
+    //private ClipData myClip;
+    //boolean isUp;
 
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
@@ -100,10 +100,14 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private GestureDetector gestureDetector;
     ExpandCollapseExtention animator = new ExpandCollapseExtention();
 
+    private Language fromLang;
+    private Language toLang;
+
 
     /**
      * Initializes the UI and creates the detector pipeline.
      */
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -124,6 +128,14 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
         effect.bringToFront();
 
+        // read parameters from the intent used to launch the activity.
+        boolean autoFocus = getIntent().getBooleanExtra(AutoFocus, false);
+        boolean useFlash = getIntent().getBooleanExtra(UseFlash, false);
+        wordByWord = getIntent().getBooleanExtra(WordByWord, false);
+        lineByLine = getIntent().getBooleanExtra(LineByLine, false);
+        blockByBlock = getIntent().getBooleanExtra(BlockByBlock, false);
+        translation = getIntent().getBooleanExtra(Translation, false);
+        translateTo = getIntent().getStringExtra(SelectedLanguage);
 
         cutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -134,7 +146,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             }
         });
 
-
         copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 copyToClipboard(textHolder.getText().toString());
@@ -142,10 +153,10 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             }
         });
 
-
         translateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 load.show();
+                @SuppressLint("StaticFieldLeak")
                 class FetchTranslatedData extends AsyncTask<String, Integer, String> {
 
                     @Override
@@ -157,9 +168,15 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                         String textToBeTranslated = strings[0];
                         String translatedText = "";
                         try {
+                            fromLang = Detect.execute(textToBeTranslated);
+                            toLang = Language.fromString(getTranslationLanguage());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        try {
                             Thread.sleep(1000);
-                            while (translatedText == null || translatedText.equals(""))
-                                translatedText = Translate.execute(textToBeTranslated, Detect.execute(textToBeTranslated), Language.fromString(getTranslationLanguage()));
+                            while (translatedText.equals(""))
+                                translatedText = Translate.execute(textToBeTranslated,fromLang, toLang);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -172,26 +189,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                         textHolder.setText(result);
                         load.hide();
 
-                    }
-
-
-                    private String getTranslationLanguage() {
-                        if (translateTo.equalsIgnoreCase("Bangla"))
-                            return "bn";
-                        else if (translateTo.equalsIgnoreCase("English"))
-                            return "en";
-                        else if (translateTo.equalsIgnoreCase("French"))
-                            return "fr";
-                        else if (translateTo.equalsIgnoreCase("German"))
-                            return "de";
-                        else if (translateTo.equalsIgnoreCase("Italian"))
-                            return "it";
-                        else if (translateTo.equalsIgnoreCase("Spanish"))
-                            return "es";
-                        else if (translateTo.equalsIgnoreCase("Russian"))
-                            return "ru";
-                        else
-                            return null;
                     }
                 }
                 new FetchTranslatedData().execute(textHolder.getText().toString());
@@ -218,22 +215,15 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
         textHolder.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (!isExpanded) ExpandCollapseExtention.expand(bottomView);
+                if (!isExpanded)
+                    ExpandCollapseExtention.expand(bottomView);
                 isExpanded = true;
                 getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
                 return false;
             }
         });
 
-        // read parameters from the intent used to launch the activity.
-        boolean autoFocus = getIntent().getBooleanExtra(AutoFocus, false);
-        boolean useFlash = getIntent().getBooleanExtra(UseFlash, false);
-        wordByWord = getIntent().getBooleanExtra(WordByWord, false);
-        lineByLine = getIntent().getBooleanExtra(LineByLine, false);
-        blockByBlock = getIntent().getBooleanExtra(BlockByBlock, false);
-        translation = getIntent().getBooleanExtra(Translation, false);
 
-        translateTo = getIntent().getStringExtra(SelectedLanguage);
 
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
@@ -253,7 +243,24 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
 
     }
-
+    private String getTranslationLanguage() {
+        if (translateTo.equalsIgnoreCase("Bangla"))
+            return "bn";
+        else if (translateTo.equalsIgnoreCase("English"))
+            return "en";
+        else if (translateTo.equalsIgnoreCase("French"))
+            return "fr";
+        else if (translateTo.equalsIgnoreCase("German"))
+            return "de";
+        else if (translateTo.equalsIgnoreCase("Italian"))
+            return "it";
+        else if (translateTo.equalsIgnoreCase("Spanish"))
+            return "es";
+        else if (translateTo.equalsIgnoreCase("Russian"))
+            return "ru";
+        else
+            return null;
+    }
 
     private void requestCameraPermission() {
         Log.w(TAG, "Camera permission is not granted. Requesting permission");
@@ -414,8 +421,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
 
     private boolean onTap(float rawX, float rawY) {
-
-
         if(fab.isOpened()) ExpandCollapseExtention.expand(bottomView);
         if(!fab.isOpened()) ExpandCollapseExtention.collapse(bottomView);
 
@@ -430,7 +435,15 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 String textToBeTranslated = text.getValue();
                 String translatedText = "";
                 try {
-                    translatedText = Translate.execute(textToBeTranslated, Language.ENGLISH, Language.BANGLA);
+                    fromLang = Detect.execute(textToBeTranslated);
+                    toLang = Language.fromString(getTranslationLanguage());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try {
+                    if (toLang != null) {
+                        translatedText = Translate.execute(textToBeTranslated, fromLang, toLang);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -486,17 +499,21 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
             android.text.ClipboardManager clipboard = (android.text.ClipboardManager)
                     getSystemService(Context.CLIPBOARD_SERVICE);
-            clipboard.setText(copyText);
+            if (clipboard != null) {
+                clipboard.setText(copyText);
+            }
         } else {
             android.content.ClipboardManager clipboard = (android.content.ClipboardManager)
                     getSystemService(Context.CLIPBOARD_SERVICE);
             android.content.ClipData clip = android.content.ClipData
                     .newPlainText("Your OTP", copyText);
-            clipboard.setPrimaryClip(clip);
+            if (clipboard != null) {
+                clipboard.setPrimaryClip(clip);
+            }
         }
         Toast toast = Toast.makeText(getApplicationContext(),
                 "Text copied to clipboard", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.BOTTOM | Gravity.LEFT, 50, 50);
+        toast.setGravity(Gravity.BOTTOM | Gravity.START, 50, 50);
         toast.show();
     }
 

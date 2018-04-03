@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
@@ -36,13 +35,15 @@ public class PdfActivity extends AppCompatActivity {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
 
-    private BaseFont bfBold;
+    //private BaseFont bfBold;
     private EditText editName;
     private EditText editText;
-    private Button button;
+    public Button createButton;
+    public Button resetButton;
     private String fileName;
-    private String fileContent;
-    private String value;
+    public String fileContent;
+    public String value;
+    //public Typeface customFont = Typeface.createFromPath("fonts/arialuni.TTF");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,21 +51,30 @@ public class PdfActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pdf);
         editName = findViewById(R.id.name_edit);
         editText = findViewById(R.id.text_edit);
-        button = findViewById(R.id.create_button);
+        createButton = findViewById(R.id.create_button);
+        resetButton = findViewById(R.id.reset_button);
         if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
             value = bundle.getString("copied");
             editText.setText(value);
         }
 
+        //editText.setTypeface(customFont);
 
         verifyStoragePermissions(this);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 fileName = editName.getText().toString();
                 GeneratePDF(view, fileName);
+            }
+        });
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editName.setText("");
+                editText.setText("");
             }
         });
     }
@@ -81,14 +91,16 @@ public class PdfActivity extends AppCompatActivity {
                 file.mkdir();
             }
             Log.d(LOG_TAG, "PDF Path: " + fPath);
+            BaseFont urName = BaseFont.createFont("res/font/arialuni.TTF", "UTF-8",BaseFont.EMBEDDED);
+            Font urFontName = new Font(urName, 12);
 
-            Font bfBold12 = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD, new BaseColor(0, 0, 0));
-            Font bf12 = new Font(Font.FontFamily.TIMES_ROMAN, 12);
+            //Font bfBold12 = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD, new BaseColor(0, 0, 0));
+            //Font bf12 = new Font(Font.FontFamily.TIMES_ROMAN, 12);
 
             FileOutputStream fOut = new FileOutputStream(file.getAbsoluteFile());
             Document document = new Document();
             fileContent = editText.getText().toString();
-            Paragraph paragraph = new Paragraph(fileContent);
+            Paragraph paragraph = new Paragraph(fileContent, urFontName);
 
             PdfWriter.getInstance(document, fOut);
 

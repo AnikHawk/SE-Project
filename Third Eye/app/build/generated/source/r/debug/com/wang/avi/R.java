@@ -16,12 +16,12 @@ public final class R {
         public static final int minWidth = 0x7f040161;
     }
     public static final class string {
-        public static final int app_name = 0x7f0d001f;
+        public static final int app_name = 0x7f0e001f;
     }
     public static final class style {
-        public static final int AVLoadingIndicatorView = 0x7f0e0000;
-        public static final int AVLoadingIndicatorView_Large = 0x7f0e0001;
-        public static final int AVLoadingIndicatorView_Small = 0x7f0e0002;
+        public static final int AVLoadingIndicatorView = 0x7f0f0000;
+        public static final int AVLoadingIndicatorView_Large = 0x7f0f0001;
+        public static final int AVLoadingIndicatorView_Small = 0x7f0f0002;
     }
     public static final class styleable {
         public static final int[] AVLoadingIndicatorView = { 0x7f0400c6, 0x7f0400c7, 0x7f040135, 0x7f040136, 0x7f040160, 0x7f040161 };

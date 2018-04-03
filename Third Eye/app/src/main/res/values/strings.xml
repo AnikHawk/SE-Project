@@ -18,6 +18,14 @@
     <string name="ocr_error">"Error reading text: %1$s"</string>
 
     <string name="lang_prompt">Choose a Language</string>
+    <string name="enter_text">Enter Text Here</string>
+    <string name="enter_name">Enter Name Here</string>
+    <string name="create_pdf">CREATE PDF</string>
+    <string name="back_cam_view">Back Camera View</string>
+    <string name="empty" />
+    <string name="reset">RESET</string>
+    <string name="title_activity_pdf">PDF</string>
+    <string name="title_activity_ocr_capture">Read Text</string>
 
     <string-array name="lang_arrays">
         <item>Bangla</item>
