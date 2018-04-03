@@ -36,8 +36,4 @@ dependencies {
     compile 'com.nightonke:jellytogglebutton:1.0.2'
     compile 'com.jaredrummler:material-spinner:1.2.5'
     compile 'me.rishabhkhanna:CustomToggle:1.0.0'
-
-
-
-
 }

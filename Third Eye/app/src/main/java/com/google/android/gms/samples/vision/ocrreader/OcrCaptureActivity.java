@@ -416,6 +416,9 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private boolean onTap(float rawX, float rawY) {
 
 
+        if(fab.isOpened()) ExpandCollapseExtention.expand(bottomView);
+        if(!fab.isOpened()) ExpandCollapseExtention.collapse(bottomView);
+
         OcrGraphic graphic = mGraphicOverlay.getGraphicAtLocation(rawX, rawY);
         TextBlock text = null;
 

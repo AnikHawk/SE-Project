@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/root/Downloads/ocr-reader-v3/ocr-reader/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "outputFile": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.0.0.aar/efa4a0ad13657e5f72ac6e45c0ef9871/res/values-v16/values-v16.xml",
+                    "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.0.0.aar\\2aa58a0b0202af69dd4d7af6155a7c68\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/root/.gradle/caches/transforms-1/files-1.1/support-compat-26.0.0.aar/227735a1f387b6875c9707e9950f7af3/res/values-v16/values-v16.xml",
+                    "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.0.0.aar\\000cc604360aa73ec10dc8ae99198024\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
