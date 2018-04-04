@@ -64,7 +64,7 @@ public enum Language {
    * Enum constructor.
    * @param pLanguage The language identifier.
    */
-  private Language(final String pLanguage) {
+  Language(final String pLanguage) {
     language = pLanguage;
   }
 

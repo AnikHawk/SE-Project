@@ -150,8 +150,6 @@ public class MainActivity extends AppCompatActivity {
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

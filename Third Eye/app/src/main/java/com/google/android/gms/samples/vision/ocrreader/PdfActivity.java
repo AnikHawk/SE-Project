@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -43,7 +44,6 @@ public class PdfActivity extends AppCompatActivity {
     private String fileName;
     public String fileContent;
     public String value;
-    //public Typeface customFont = Typeface.createFromPath("fonts/arialuni.TTF");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +58,6 @@ public class PdfActivity extends AppCompatActivity {
             value = bundle.getString("copied");
             editText.setText(value);
         }
-
-        //editText.setTypeface(customFont);
 
         verifyStoragePermissions(this);
 
@@ -91,16 +89,18 @@ public class PdfActivity extends AppCompatActivity {
                 file.mkdir();
             }
             Log.d(LOG_TAG, "PDF Path: " + fPath);
-            BaseFont urName = BaseFont.createFont("res/font/arialuni.TTF", "UTF-8",BaseFont.EMBEDDED);
-            Font urFontName = new Font(urName, 12);
-
-            //Font bfBold12 = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD, new BaseColor(0, 0, 0));
-            //Font bf12 = new Font(Font.FontFamily.TIMES_ROMAN, 12);
+            //BaseFont baseFontArial = BaseFont.createFont("res/font/arialuni.TTF", "UTF-8",BaseFont.EMBEDDED);
+            //Font fontArial = new Font(baseFontArial, 12);
+            // baseFontNikosh = BaseFont.createFont("res/font/nikosh.ttf", "UTF-8",BaseFont.EMBEDDED);
+            //Font fontNikosh = new Font(baseFontNikosh, 12);
+            //Font fontCzech = FontFactory.getFont(FONT, "Cp1250", BaseFont.EMBEDDED);
+            //Font fontRussian = FontFactory.getFont(FONT, "Cp1251", BaseFont.EMBEDDED);
+            Font font = FontFactory.getFont("res/font/arialunicodems.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
 
             FileOutputStream fOut = new FileOutputStream(file.getAbsoluteFile());
             Document document = new Document();
             fileContent = editText.getText().toString();
-            Paragraph paragraph = new Paragraph(fileContent, urFontName);
+            Paragraph paragraph = new Paragraph(fileContent, font);
 
             PdfWriter.getInstance(document, fOut);
 

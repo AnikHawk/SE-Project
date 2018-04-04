@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -17,13 +18,17 @@ import com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSource;
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview;
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.text.TextRecognizer;
+//com.suke.widget.JellyToggleButton;
+//import com.suke.widget.JellyToggleButton;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
+//import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 
 import java.io.IOException;
 
+import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
+
 import static com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity.AutoFocus;
 import static com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity.UseFlash;
-import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 public class MainActivity extends Activity implements View.OnClickListener {
 
     // Use a compound createButton so either checkbox or switch widgets work.
@@ -38,6 +43,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Spinner langSpinner;
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
 
+    private CustomToggleButton detectText;
     public TextView statusMessage;
     //private TextView textValue;
 
@@ -57,10 +63,33 @@ public class MainActivity extends Activity implements View.OnClickListener {
         lineByline = findViewById(R.id.line_by_line);
         blockByBlock = findViewById(R.id.block_by_block);
         translation = findViewById(R.id.translation);
+        detectText = findViewById(R.id.read_text);
 
-        wordByWord.setOnCheckedChangeListener(changeChecker);
-        lineByline.setOnCheckedChangeListener(changeChecker);
-        blockByBlock.setOnCheckedChangeListener(changeChecker);
+        wordByWord.setOnClickListener(new JellyToggleButton.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    wordByWord.setChecked(true);
+                    lineByline.setChecked(false);
+                    blockByBlock.setChecked(false);
+            }
+        });
+
+        lineByline.setOnClickListener(new JellyToggleButton.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    wordByWord.setChecked(false);
+                    lineByline.setChecked(true);
+                    blockByBlock.setChecked(false);
+            }
+        });
+        blockByBlock.setOnClickListener(new JellyToggleButton.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    wordByWord.setChecked(false);
+                    lineByline.setChecked(false);
+                    blockByBlock.setChecked(true);
+            }
+        });
 
         langSpinner = findViewById(R.id.lang_spinner);
         translation.setOnCheckedChangeListener(langChoice);
@@ -71,7 +100,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     JellyToggleButton.OnCheckedChangeListener langChoice = new JellyToggleButton.OnCheckedChangeListener() {
         @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
             if (isChecked) {
                 langSpinner.setVisibility(View.VISIBLE);
             } else {
@@ -80,35 +109,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     };
 
-    JellyToggleButton.OnCheckedChangeListener changeChecker = new JellyToggleButton.OnCheckedChangeListener() {
-
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if (isChecked) {
-                if (buttonView == wordByWord) {
-                    lineByline.setChecked(false);
-                    blockByBlock.setChecked(false);
-                }
-                if (buttonView == lineByline) {
-                    wordByWord.setChecked(false);
-                    blockByBlock.setChecked(false);
-                }
-                if (buttonView == blockByBlock) {
-                    lineByline.setChecked(false);
-                    wordByWord.setChecked(false);
-                }
-            }
-
-            if (!wordByWord.isChecked() && !lineByline.isChecked() && !blockByBlock.isChecked()) {
-                wordByWord.setChecked(true);
-            }
-        }
-    };
-
-
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.read_text) {
+        if (v.getId() == detectText.getId()) {
             // launch Ocr capture activity.
             Intent intent = new Intent(this, OcrCaptureActivity.class);
             intent.putExtra(AutoFocus, autoFocus.isChecked());

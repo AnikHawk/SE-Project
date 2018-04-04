@@ -27,7 +27,7 @@ public class ExpandCollapseExtention {
     public static void collapse(final View view) {
         int finalHeight = view.getHeight();
 
-        ValueAnimator mAnimator = slideAnimator(view, finalHeight, 170);
+        ValueAnimator mAnimator = slideAnimator(view, finalHeight, 0);
         mAnimator.setDuration(500);
         mAnimator.addListener(new Animator.AnimatorListener() {
 

@@ -8,8 +8,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,7 +21,12 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -50,8 +53,10 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
 
+import static com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity.NUM_PAGES;
 
-public final class OcrCaptureActivity extends AppCompatActivity {
+
+public final class OcrCaptureActivity extends FragmentActivity {
     private static final String TAG = "OcrCaptureActivity";
     //public static boolean resetFlag = false;
     // Intent request code to handle updating play services if needed.
@@ -84,13 +89,15 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
+
+    RelativeLayout bottomView;
     EditText textHolder;
     com.github.clans.fab.FloatingActionButton copyButton;
     com.github.clans.fab.FloatingActionButton cutButton;
     com.github.clans.fab.FloatingActionButton translateButton;
     com.github.clans.fab.FloatingActionButton pdfButton;
     com.github.clans.fab.FloatingActionMenu fab;
-    RelativeLayout bottomView;
+
     AVLoadingIndicatorView load;
     AVLoadingIndicatorView effect;
 
@@ -103,15 +110,20 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private Language fromLang;
     private Language toLang;
 
+    //The number of pages (wizard steps) to show in this demo.
+    public static final int NUM_PAGES = 2;
 
-    /**
-     * Initializes the UI and creates the detector pipeline.
-     */
+    //The pager widget, which handles animation and allows swiping horizontally to access
+    // previous and next wizard steps.
+    private ViewPager mPager;
+    private PagerAdapter mPagerAdapter;
+
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        setContentView(R.layout.ocr_capture);
+        setContentView(R.layout.activity_ocr_capture);
         textHolder = findViewById(R.id.textHolder);
         copyButton = findViewById(R.id.copyButton);
         cutButton = findViewById(R.id.cutButton);
@@ -127,6 +139,11 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         isExpanded = false;
 
         effect.bringToFront();
+
+        mPager = findViewById(R.id.pager);
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        mPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
         // read parameters from the intent used to launch the activity.
         boolean autoFocus = getIntent().getBooleanExtra(AutoFocus, false);
@@ -243,6 +260,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
 
     }
+
     private String getTranslationLanguage() {
         if (translateTo.equalsIgnoreCase("Bangla"))
             return "bn";
@@ -421,8 +439,13 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
 
     private boolean onTap(float rawX, float rawY) {
-        if(fab.isOpened()) ExpandCollapseExtention.expand(bottomView);
-        if(!fab.isOpened()) ExpandCollapseExtention.collapse(bottomView);
+        if(fab.isOpened()) {
+            textHolder.setVisibility(View.VISIBLE);
+            ExpandCollapseExtention.expand(bottomView);
+        }
+        if(!fab.isOpened()) {
+            ExpandCollapseExtention.collapse(bottomView);
+        }
 
         OcrGraphic graphic = mGraphicOverlay.getGraphicAtLocation(rawX, rawY);
         TextBlock text = null;
@@ -430,6 +453,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         if (graphic != null) {
             ExpandCollapseExtention.expand(bottomView);
             isExpanded = true;
+            textHolder.setVisibility(View.VISIBLE);
             text = graphic.getTextBlock();
             if (text != null && text.getValue() != null && translation) {
                 String textToBeTranslated = text.getValue();
@@ -547,4 +571,16 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void onBackPressed() {
+        if (mPager.getCurrentItem() == 0) {
+            // If the user is currently looking at the first step, allow the system to handle the
+            // Back button. This calls finish() on this activity and pops the back stack.
+            super.onBackPressed();
+        } else {
+            // Otherwise, select the previous step.
+            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+        }
+    }
 }
+
