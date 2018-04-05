@@ -50,6 +50,10 @@
             android:name="com.google.android.gms.samples.vision.ocrreader.ImagePickerActivity"
             android:label="@string/title_activity_image_picker" >
         </activity>
+        <activity
+            android:name="com.google.android.gms.samples.vision.ocrreader.PagerActivity"
+            android:label="@string/title_activity_pager" >
+        </activity>
 
         <meta-data
             android:name="android.support.VERSION"

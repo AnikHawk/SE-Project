@@ -9,6 +9,8 @@
     android:keepScreenOn="true"
     android:orientation="vertical">
 
+
+
     <com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview
         android:id="@+id/preview"
         android:layout_width="match_parent"
@@ -45,6 +47,54 @@
             android:layout_centerHorizontal="true"
             android:visibility="gone"
             app:indicatorName="BallPulseIndicator" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#CC000000"
+        android:layout_gravity="top"
+        android:orientation="horizontal"
+        >
+
+        <mazouri.statebutton.StateButton
+            android:id="@+id/flashButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="50dp"
+            android:layout_alignParentLeft="true"
+            app:enabledBackground="@drawable/flashon"
+            app:selectedBackground="@drawable/flashoff"
+            app:state="selected"
+            />
+
+
+        <mazouri.statebutton.StateButton
+            android:id="@+id/scanModeButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="50dp"
+            app:enabledBackground="@drawable/more"
+            android:layout_alignParentRight="true"
+            app:selectedBackground="@drawable/more"
+            app:state="enabled"
+            />
+
+
+        <mazouri.statebutton.StateButton
+            android:id="@+id/focusButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="50dp"
+            app:enabledBackground="@drawable/focuson"
+            android:layout_centerInParent="true"
+            app:selectedBackground="@drawable/focusoff"
+            app:state="enabled"
+            />
+
+
     </RelativeLayout>
 
     <com.wang.avi.AVLoadingIndicatorView
@@ -125,10 +175,5 @@
 
     </com.github.clans.fab.FloatingActionMenu>
 
-    <android.support.v4.view.ViewPager
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
 </FrameLayout>

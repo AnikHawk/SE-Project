@@ -1,9 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-49:12
+ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\842afba67e9a36307c1f08477cfce0d7\AndroidManifest.xml:2:1-17:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\d26cfd0cd8d528520b3e8c8107cd066b\AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\43361646cbffa42ce3a2c7b0ff8757c0\AndroidManifest.xml:2:1-9:12
@@ -35,22 +36,22 @@ MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\
 MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\6ea072a7ffd6690309020181bb1b4a03\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-12.0.1.aar\ade0fc540a1dde9b969dc60bb1d520d0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\b79f9cd0565de9b0179021880cee7151\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-49:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
 	package
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:4:11-68
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
-		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-49:12
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:3:11-57
 	android:versionCode
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
-		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-49:12
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:11-69
@@ -77,7 +78,9 @@ ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:12:5-
 	android:name
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:12:22-77
 application
-ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:14:5-47:19
+ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:14:5-51:19
+MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\842afba67e9a36307c1f08477cfce0d7\AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\842afba67e9a36307c1f08477cfce0d7\AndroidManifest.xml:11:5-15:19
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support:design:26.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\d26cfd0cd8d528520b3e8c8107cd066b\AndroidManifest.xml:25:5-29:19
@@ -138,6 +141,7 @@ MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:20:9-35
 	android:label
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:19:9-28
+		REJECTED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\842afba67e9a36307c1f08477cfce0d7\AndroidManifest.xml:13:9-41
 		REJECTED from [com.nightonke:jellytogglebutton:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\jellytogglebutton-1.0.2.aar\6f10d7730117379ac79e2789eb92d5a0\AndroidManifest.xml:13:9-41
 		REJECTED from [me.rishabhkhanna:CustomToggle:1.0.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\CustomToggle-1.0.0.aar\d6878d05b4caa2f4eef9de5dcc119aff\AndroidManifest.xml:13:9-41
 	android:hardwareAccelerated
@@ -192,10 +196,18 @@ ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:43:9-
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:45:13-64
 	android:name
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:44:13-48
+activity#com.google.android.gms.samples.vision.ocrreader.PagerActivity
+ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:47:9-50:20
+	android:label
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:49:13-57
+	android:name
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:48:13-42
 uses-sdk
 INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
+MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\842afba67e9a36307c1f08477cfce0d7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\842afba67e9a36307c1f08477cfce0d7\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:design:26.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\d26cfd0cd8d528520b3e8c8107cd066b\AndroidManifest.xml:21:5-23:62

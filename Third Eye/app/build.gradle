@@ -38,4 +38,5 @@ dependencies {
     implementation 'me.rishabhkhanna:CustomToggle:1.0.0'
     //implementation 'com.itextpdf:itext7-core:7.0.2'
     implementation 'com.github.zcweng:switch-button:0.0.3@aar'
+    compile 'com.github.mazouri:android-state-button:1.0'
 }

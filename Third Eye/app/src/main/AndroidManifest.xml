@@ -44,6 +44,10 @@
             android:name=".ImagePickerActivity"
             android:label="@string/title_activity_image_picker">
         </activity>
+        <activity
+            android:name=".PagerActivity"
+            android:label="@string/title_activity_pager">
+        </activity>
     </application>
 
 </manifest>

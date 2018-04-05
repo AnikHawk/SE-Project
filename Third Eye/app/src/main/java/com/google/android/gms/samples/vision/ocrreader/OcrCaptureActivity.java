@@ -21,10 +21,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -53,18 +50,15 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
 
-import static com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity.NUM_PAGES;
-
+import mazouri.statebutton.StateButton;
 
 public final class OcrCaptureActivity extends FragmentActivity {
     private static final String TAG = "OcrCaptureActivity";
     //public static boolean resetFlag = false;
     // Intent request code to handle updating play services if needed.
     private static final int RC_HANDLE_GMS = 9001;
-
     // Permission request codes need to be < 256
     private static final int RC_HANDLE_CAMERA_PERM = 2;
-
     // Constants used to pass extra data in the intent
     public static final String AutoFocus = "AutoFocus";
     public static final String UseFlash = "UseFlash";
@@ -74,22 +68,20 @@ public final class OcrCaptureActivity extends FragmentActivity {
     public static final String Translation = "Translation";
     public static final String SelectedLanguage = "SelectedLanguage";
     //public static final String TextBlockObject = "String";
-
+    StateButton flashButton;
+    StateButton focusButton;
+    StateButton scanModeButton;
     public boolean wordByWord;
     public boolean lineByLine;
     public boolean blockByBlock;
     public boolean translation;
-
     public String translateTo = "";
-
     //private ClipboardManager myClipboard;
     //private ClipData myClip;
     //boolean isUp;
-
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
-
     RelativeLayout bottomView;
     EditText textHolder;
     com.github.clans.fab.FloatingActionButton copyButton;
@@ -97,28 +89,22 @@ public final class OcrCaptureActivity extends FragmentActivity {
     com.github.clans.fab.FloatingActionButton translateButton;
     com.github.clans.fab.FloatingActionButton pdfButton;
     com.github.clans.fab.FloatingActionMenu fab;
-
     AVLoadingIndicatorView load;
     AVLoadingIndicatorView effect;
-
     boolean isExpanded;
     // Helper objects for detecting taps and pinches.
     private ScaleGestureDetector scaleGestureDetector;
     private GestureDetector gestureDetector;
     ExpandCollapseExtention animator = new ExpandCollapseExtention();
-
     private Language fromLang;
     private Language toLang;
-
     //The number of pages (wizard steps) to show in this demo.
     public static final int NUM_PAGES = 2;
-
     //The pager widget, which handles animation and allows swiping horizontally to access
     // previous and next wizard steps.
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
-
-
+    boolean frontFacing = false;
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate(Bundle icicle) {
@@ -137,22 +123,67 @@ public final class OcrCaptureActivity extends FragmentActivity {
         effect = findViewById(R.id.effect);
         ExpandCollapseExtention.collapse(bottomView);
         isExpanded = false;
-
+        flashButton = (StateButton) findViewById(R.id.flashButton);
+        focusButton = (StateButton) findViewById(R.id.focusButton);
+        scanModeButton = (StateButton) findViewById(R.id.scanModeButton);
         effect.bringToFront();
-
-        mPager = findViewById(R.id.pager);
-        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-        mPager.setAdapter(mPagerAdapter);
-        mPager.setPageTransformer(true, new ZoomOutPageTransformer());
-
         // read parameters from the intent used to launch the activity.
-        boolean autoFocus = getIntent().getBooleanExtra(AutoFocus, false);
-        boolean useFlash = getIntent().getBooleanExtra(UseFlash, false);
+        final boolean[] autoFocus = {getIntent().getBooleanExtra(AutoFocus, false)};
+        final boolean[] useFlash = {getIntent().getBooleanExtra(UseFlash, false)};
         wordByWord = getIntent().getBooleanExtra(WordByWord, false);
         lineByLine = getIntent().getBooleanExtra(LineByLine, false);
         blockByBlock = getIntent().getBooleanExtra(BlockByBlock, false);
         translation = getIntent().getBooleanExtra(Translation, false);
         translateTo = getIntent().getStringExtra(SelectedLanguage);
+
+
+        flashButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String flashMode = mCameraSource.getFlashMode();
+                if (flashMode.equals(Camera.Parameters.FLASH_MODE_OFF)) {
+                    mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                    flashButton.setState(StateButton.BUTTON_STATES.ENABLED);
+                    useFlash[0] = true;
+                } else {
+                    mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+                    flashButton.setState(StateButton.BUTTON_STATES.SELECTED);
+                    useFlash[0] = false;
+                }
+            }
+        });
+
+
+//        facingButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                StateButton.BUTTON_STATES state = facingButton.getState();
+//                if (state == StateButton.BUTTON_STATES.SELECTED) {
+//                    frontFacing = true;
+//                    facingButton.setState(StateButton.BUTTON_STATES.ENABLED);
+//                } else {
+//                    frontFacing = false;
+//                    facingButton.setState(StateButton.BUTTON_STATES.SELECTED);
+//                }
+//                //createCameraSource(autoFocus[0],useFlash[0]);
+//
+//            }
+//        });
+
+        focusButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                StateButton.BUTTON_STATES state = focusButton.getState();
+                if (state == StateButton.BUTTON_STATES.SELECTED) {
+                    mCameraSource.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+                    focusButton.setState(StateButton.BUTTON_STATES.ENABLED);
+                    autoFocus[0] = true;
+                } else {
+                    mCameraSource.cancelAutoFocus();
+                    focusButton.setState(StateButton.BUTTON_STATES.SELECTED);
+                    autoFocus[0] = false;
+                }
+
+            }
+        });
+
 
         cutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -162,20 +193,17 @@ public final class OcrCaptureActivity extends FragmentActivity {
                 isExpanded = false;
             }
         });
-
         copyButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 copyToClipboard(textHolder.getText().toString());
                 //ExpandCollapseExtention.collapse(bottomView);
             }
         });
-
         translateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 load.show();
                 @SuppressLint("StaticFieldLeak")
                 class FetchTranslatedData extends AsyncTask<String, Integer, String> {
-
                     @Override
                     protected void onPreExecute() {
                         load.show();
@@ -193,7 +221,7 @@ public final class OcrCaptureActivity extends FragmentActivity {
                         try {
                             Thread.sleep(1000);
                             while (translatedText.equals(""))
-                                translatedText = Translate.execute(textToBeTranslated,fromLang, toLang);
+                                translatedText = Translate.execute(textToBeTranslated, fromLang, toLang);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -205,7 +233,6 @@ public final class OcrCaptureActivity extends FragmentActivity {
                         EditText textHolder = findViewById(R.id.textHolder);
                         textHolder.setText(result);
                         load.hide();
-
                     }
                 }
                 new FetchTranslatedData().execute(textHolder.getText().toString());
@@ -215,8 +242,6 @@ public final class OcrCaptureActivity extends FragmentActivity {
                 //isExpanded = false;
             }
         });
-
-
         pdfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -228,8 +253,6 @@ public final class OcrCaptureActivity extends FragmentActivity {
                 OcrCaptureActivity.this.startActivity(intent);
             }
         });
-
-
         textHolder.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (!isExpanded)
@@ -239,26 +262,19 @@ public final class OcrCaptureActivity extends FragmentActivity {
                 return false;
             }
         });
-
-
-
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
         int rc = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
         if (rc == PackageManager.PERMISSION_GRANTED) {
-            createCameraSource(autoFocus, useFlash);
+            createCameraSource(autoFocus[0], useFlash[0]);
         } else {
             requestCameraPermission();
         }
-
         gestureDetector = new GestureDetector(this, new CaptureGestureListener());
         scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
-
         Snackbar.make(mGraphicOverlay, "Tap to capture. Pinch/Stretch to zoom",
                 Snackbar.LENGTH_LONG)
                 .show();
-
-
     }
 
     private String getTranslationLanguage() {
@@ -282,17 +298,13 @@ public final class OcrCaptureActivity extends FragmentActivity {
 
     private void requestCameraPermission() {
         Log.w(TAG, "Camera permission is not granted. Requesting permission");
-
         final String[] permissions = new String[]{Manifest.permission.CAMERA};
-
         if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.CAMERA)) {
             ActivityCompat.requestPermissions(this, permissions, RC_HANDLE_CAMERA_PERM);
             return;
         }
-
         final Activity thisActivity = this;
-
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -300,7 +312,6 @@ public final class OcrCaptureActivity extends FragmentActivity {
                         RC_HANDLE_CAMERA_PERM);
             }
         };
-
         Snackbar.make(mGraphicOverlay, R.string.permission_camera_rationale,
                 Snackbar.LENGTH_INDEFINITE)
                 .setAction(R.string.ok, listener)
@@ -310,12 +321,9 @@ public final class OcrCaptureActivity extends FragmentActivity {
     @Override
     public boolean onTouchEvent(MotionEvent e) {
         boolean b = scaleGestureDetector.onTouchEvent(e);
-
         boolean c = gestureDetector.onTouchEvent(e);
-
         return b || c || super.onTouchEvent(e);
     }
-
 
     @SuppressLint("InlinedApi")
     private void createCameraSource(boolean autoFocus, boolean useFlash) {
@@ -325,25 +333,18 @@ public final class OcrCaptureActivity extends FragmentActivity {
         OcrDetectorProcessor ocrDetectorProcessor = new OcrDetectorProcessor(mGraphicOverlay,
                 view, translation, wordByWord, lineByLine, blockByBlock, translateTo);
         textRecognizer.setProcessor(ocrDetectorProcessor);
-
-
         if (!textRecognizer.isOperational()) {
-
             Log.w(TAG, "Detector dependencies are not yet available.");
-
             IntentFilter lowstorageFilter = new IntentFilter(Intent.ACTION_DEVICE_STORAGE_LOW);
             boolean hasLowStorage = registerReceiver(null, lowstorageFilter) != null;
-
             if (hasLowStorage) {
                 Toast.makeText(this, R.string.low_storage_error, Toast.LENGTH_LONG).show();
                 Log.w(TAG, getString(R.string.low_storage_error));
             }
         }
-
-
         mCameraSource =
                 new CameraSource.Builder(getApplicationContext(), textRecognizer)
-                        .setFacing(CameraSource.CAMERA_FACING_BACK)
+                        .setFacing(frontFacing ? CameraSource.CAMERA_FACING_FRONT : CameraSource.CAMERA_FACING_BACK)
                         .setRequestedPreviewSize(1280, 1024)
                         .setRequestedFps(2.0f)
                         .setFlashMode(useFlash ? Camera.Parameters.FLASH_MODE_TORCH : null)
@@ -371,7 +372,6 @@ public final class OcrCaptureActivity extends FragmentActivity {
         }
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -379,7 +379,6 @@ public final class OcrCaptureActivity extends FragmentActivity {
             mPreview.release();
         }
     }
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -390,7 +389,6 @@ public final class OcrCaptureActivity extends FragmentActivity {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
             return;
         }
-
         if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "Camera permission granted - initialize the camera source");
             // We have permission, so create the camerasource
@@ -399,16 +397,13 @@ public final class OcrCaptureActivity extends FragmentActivity {
             createCameraSource(autoFocus, useFlash);
             return;
         }
-
         Log.e(TAG, "Permission not granted: results len = " + grantResults.length +
                 " Result code = " + (grantResults.length > 0 ? grantResults[0] : "(empty)"));
-
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 finish();
             }
         };
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Multitracker sample")
                 .setMessage(R.string.no_camera_permission)
@@ -425,7 +420,6 @@ public final class OcrCaptureActivity extends FragmentActivity {
                     GoogleApiAvailability.getInstance().getErrorDialog(this, code, RC_HANDLE_GMS);
             dlg.show();
         }
-
         if (mCameraSource != null) {
             try {
                 mPreview.start(mCameraSource, mGraphicOverlay);
@@ -437,19 +431,16 @@ public final class OcrCaptureActivity extends FragmentActivity {
         }
     }
 
-
     private boolean onTap(float rawX, float rawY) {
-        if(fab.isOpened()) {
+        if (fab.isOpened()) {
             textHolder.setVisibility(View.VISIBLE);
             ExpandCollapseExtention.expand(bottomView);
         }
-        if(!fab.isOpened()) {
+        if (!fab.isOpened()) {
             ExpandCollapseExtention.collapse(bottomView);
         }
-
         OcrGraphic graphic = mGraphicOverlay.getGraphicAtLocation(rawX, rawY);
         TextBlock text = null;
-
         if (graphic != null) {
             ExpandCollapseExtention.expand(bottomView);
             isExpanded = true;
@@ -484,13 +475,11 @@ public final class OcrCaptureActivity extends FragmentActivity {
 //            textRecognizer.setProcessor(ocrDetectorProcessor);
 //            resetFlag = false;
             Log.d(TAG, "no text detected");
-
         }
         return text != null;
     }
 
     private class CaptureGestureListener extends GestureDetector.SimpleOnGestureListener {
-
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
             return onTap(e.getRawX(), e.getRawY()) || super.onSingleTapConfirmed(e);
@@ -498,19 +487,15 @@ public final class OcrCaptureActivity extends FragmentActivity {
     }
 
     private class ScaleListener implements ScaleGestureDetector.OnScaleGestureListener {
-
-
         @Override
         public boolean onScale(ScaleGestureDetector detector) {
             return false;
         }
 
-
         @Override
         public boolean onScaleBegin(ScaleGestureDetector detector) {
             return true;
         }
-
 
         @Override
         public void onScaleEnd(ScaleGestureDetector detector) {
@@ -541,17 +526,12 @@ public final class OcrCaptureActivity extends FragmentActivity {
         toast.show();
     }
 
-
     public static void animateViewFromBottomToTop(final View view) {
-
         view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onGlobalLayout() {
-
                 view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-
                 final int TRANSLATION_Y = view.getHeight();
                 view.setTranslationY(TRANSLATION_Y);
                 view.setVisibility(View.GONE);
@@ -560,10 +540,8 @@ public final class OcrCaptureActivity extends FragmentActivity {
                         .setDuration(500)
                         .setStartDelay(200)
                         .setListener(new AnimatorListenerAdapter() {
-
                             @Override
                             public void onAnimationStart(final Animator animation) {
-
                                 view.setVisibility(View.VISIBLE);
                             }
                         })
@@ -573,14 +551,7 @@ public final class OcrCaptureActivity extends FragmentActivity {
     }
 
     public void onBackPressed() {
-        if (mPager.getCurrentItem() == 0) {
-            // If the user is currently looking at the first step, allow the system to handle the
-            // Back button. This calls finish() on this activity and pops the back stack.
-            super.onBackPressed();
-        } else {
-            // Otherwise, select the previous step.
-            mPager.setCurrentItem(mPager.getCurrentItem() - 1);
-        }
+        super.onBackPressed();
     }
 }
 

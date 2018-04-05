@@ -5,6 +5,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/eye"/>
+        android:src="@drawable/eye"
+        android:background="@color/md_yellow_A200"/>
 
 </LinearLayout>
