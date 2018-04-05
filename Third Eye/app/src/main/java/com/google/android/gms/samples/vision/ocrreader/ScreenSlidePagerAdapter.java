@@ -12,8 +12,12 @@ public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return new ScreenSlidePageFragment();
+    public Fragment getItem(int position)
+    {
+        if (position == 0) {
+            return new ScreenSlidePageFragment();
+        } else
+            return new ImagePickerFragment();
     }
 
     @Override

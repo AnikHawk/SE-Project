@@ -46,6 +46,10 @@
             android:name="com.google.android.gms.samples.vision.ocrreader.PdfActivity"
             android:label="@string/title_activity_pdf" >
         </activity>
+        <activity
+            android:name="com.google.android.gms.samples.vision.ocrreader.ImagePickerActivity"
+            android:label="@string/title_activity_image_picker" >
+        </activity>
 
         <meta-data
             android:name="android.support.VERSION"
