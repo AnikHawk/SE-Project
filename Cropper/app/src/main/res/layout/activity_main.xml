@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.samiul_siddiqui.cropper.MainActivity">
+    tools:context="com.example.samiul_siddiqui.cropper.CropperActivity">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,26 +14,46 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:src="@mipmap/ic_launcher"
             />
         <Button
-            android:layout_width="wrap_content"
+
+            android:backgroundTint="@color/CadetBlue"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="GET TEXT"
+            android:layout_gravity="center_horizontal"
             android:textSize="25dp"
             android:id="@+id/get_text_button"/>
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
+            android:backgroundTint="@color/DeepSkyBlue"
             android:layout_height="wrap_content"
             android:text="Select Image"
             android:textSize="25dp"
+            android:layout_gravity="center_horizontal"
             android:id="@+id/select_button"/>
+        <Spinner
+            android:id="@+id/lang_spinner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/block_by_block"
+            android:layout_centerHorizontal="true"
+            android:entries="@array/lang_arrays"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:prompt="@string/lang_prompt"
+            android:textAlignment="center"
+            android:dropDownSelector="#ddeeff"
+            android:alwaysDrawnWithCache="true"/>
         <TextView
             android:hint="retrieved text"
             android:id="@+id/textView"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"
             android:textSize="20dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
 

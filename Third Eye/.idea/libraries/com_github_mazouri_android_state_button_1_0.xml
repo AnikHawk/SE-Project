@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.github.mazouri:android-state-button-1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-state-button-1.0.aar/4ea33374c382305dd3273896dad03d76/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-state-button-1.0.aar/4ea33374c382305dd3273896dad03d76/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

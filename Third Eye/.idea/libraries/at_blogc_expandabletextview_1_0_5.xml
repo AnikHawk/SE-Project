@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="at.blogc:expandabletextview-1.0.5">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/52b6074fb11984473146b0b27d71c28b/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/52b6074fb11984473146b0b27d71c28b/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/2a064888c3bf67de784e5457936be8dd/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/2a064888c3bf67de784e5457936be8dd/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

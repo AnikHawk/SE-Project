@@ -37,7 +37,7 @@ public class CropperActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cropperActivity);
+        setContentView(R.layout.cropper_activity);
         getTextButton = findViewById(R.id.get_text_button);
         selectImageButton = findViewById(R.id.select_button);
         image = null;
@@ -118,7 +118,7 @@ public class CropperActivity extends AppCompatActivity {
             copyFiles();
         }
         if(dir.exists()) {
-            String datafilepath = datapath+ "/tessdata/bengood.traineddata";
+            String datafilepath = datapath+ "/tessdata/ben.traineddata";
             File datafile = new File(datafilepath);
 
             if (!datafile.exists()) {
@@ -129,10 +129,10 @@ public class CropperActivity extends AppCompatActivity {
 
     private void copyFiles() {
         try {
-            String filepath = datapath + "/tessdata/bengood.traineddata";
+            String filepath = datapath + "/tessdata/ben.traineddata";
             AssetManager assetManager = getAssets();
 
-            InputStream instream = assetManager.open("tessdata/bengood.traineddata");
+            InputStream instream = assetManager.open("tessdata/ben.traineddata");
             OutputStream outstream = new FileOutputStream(filepath);
 
             byte[] buffer = new byte[1024];

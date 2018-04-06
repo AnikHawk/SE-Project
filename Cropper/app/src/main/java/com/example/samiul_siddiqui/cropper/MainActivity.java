@@ -11,11 +11,15 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.googlecode.tesseract.android.TessBaseAPI;
+import com.mapzen.speakerbox.Speakerbox;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -25,12 +29,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    HashMap<String,String> mp = new HashMap<>();
+    String language = "eng";
     Bitmap image;
     Button getTextButton, selectImageButton;
-
+    Spinner selectLang;
     private TessBaseAPI mTess;
     String datapath = "";
     ImageView imv;
@@ -41,12 +51,29 @@ public class MainActivity extends AppCompatActivity {
         getTextButton = findViewById(R.id.get_text_button);
         selectImageButton = findViewById(R.id.select_button);
         image = null;
-
+        selectLang = findViewById(R.id.lang_spinner);
         final Context context = this;
 
 
+
+        mp.put("English", "eng");
+        mp.put("Bangla", "ben");
+
+        selectLang.setOnItemSelectedListener(this);
+
+
+
+        List<String> languageList = new ArrayList<String>();
+        languageList.add("English");
+        languageList.add("Bangla");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, languageList);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        selectLang.setAdapter(dataAdapter);
+
         //initialize Tesseract API
-        String language = "bengood";
+
         datapath = getFilesDir()+ "/tesseract/";
         mTess = new TessBaseAPI();
 
@@ -62,8 +89,19 @@ public class MainActivity extends AppCompatActivity {
         getTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                processImage();
-            }
+
+                try {
+                    processImage();
+                    TextView OCRTextView = findViewById(R.id.textView);
+                    Speakerbox speakerBox = new Speakerbox(getApplication());
+                    speakerBox.play(OCRTextView.getText().toString());
+                }
+                catch (Exception e)
+                {
+
+                }
+                }
+
         });
 
 
@@ -118,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
             copyFiles();
         }
         if(dir.exists()) {
-            String datafilepath = datapath+ "/tessdata/bengood.traineddata";
+            String datafilepath = datapath+ "/tessdata/"+language+".traineddata";
             File datafile = new File(datafilepath);
 
             if (!datafile.exists()) {
@@ -129,10 +167,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void copyFiles() {
         try {
-            String filepath = datapath + "/tessdata/bengood.traineddata";
+            String filepath = datapath + "/tessdata/"+language+".traineddata";
             AssetManager assetManager = getAssets();
 
-            InputStream instream = assetManager.open("tessdata/bengood.traineddata");
+            InputStream instream = assetManager.open("tessdata/"+language+".traineddata");
             OutputStream outstream = new FileOutputStream(filepath);
 
             byte[] buffer = new byte[1024];
@@ -155,4 +193,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+        String item = parent.getItemAtPosition(position).toString();
+        language = mp.get(item);
+        checkFile(new File(datapath + "tessdata/"));
+        mTess.init(datapath, language);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }

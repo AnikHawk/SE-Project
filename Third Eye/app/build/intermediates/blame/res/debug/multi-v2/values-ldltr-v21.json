@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ldltr-v21\\values-ldltr-v21.xml",
+            "outputFile": "/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\8c5cb676e3eac1333a352ff1a3318478\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "/home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/53bbc7fbdebae9fc0da87feebd603f4f/res/values-ldltr-v21/values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

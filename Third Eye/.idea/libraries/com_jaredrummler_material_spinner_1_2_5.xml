@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.jaredrummler:material-spinner-1.2.5">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/material-spinner-1.2.5.aar/cf2099685ae995ef4d3d83b7a98e983b/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/material-spinner-1.2.5.aar/cf2099685ae995ef4d3d83b7a98e983b/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/material-spinner-1.2.5.aar/85325c672452143c082ba6c0174cfc78/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/material-spinner-1.2.5.aar/85325c672452143c082ba6c0174cfc78/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
