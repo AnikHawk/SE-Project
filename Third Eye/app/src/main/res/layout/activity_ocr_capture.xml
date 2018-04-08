@@ -9,8 +9,6 @@
     android:keepScreenOn="true"
     android:orientation="vertical">
 
-
-
     <com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview
         android:id="@+id/preview"
         android:layout_width="match_parent"
@@ -65,8 +63,7 @@
             android:layout_alignParentLeft="true"
             app:enabledBackground="@drawable/flashon"
             app:selectedBackground="@drawable/flashoff"
-            app:state="selected"
-            />
+            app:state="selected"/>
 
 
         <mazouri.statebutton.StateButton
@@ -78,8 +75,7 @@
             app:enabledBackground="@drawable/more"
             android:layout_alignParentRight="true"
             app:selectedBackground="@drawable/more"
-            app:state="enabled"
-            />
+            app:state="enabled"/>
 
 
         <mazouri.statebutton.StateButton
@@ -91,8 +87,7 @@
             app:enabledBackground="@drawable/focuson"
             android:layout_centerInParent="true"
             app:selectedBackground="@drawable/focusoff"
-            app:state="enabled"
-            />
+            app:state="enabled"/>
 
 
     </RelativeLayout>

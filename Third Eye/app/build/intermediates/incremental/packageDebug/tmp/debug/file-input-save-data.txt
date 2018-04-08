@@ -1,11 +1,11 @@
 #Internal package file, do not edit.
-#Fri Apr 06 00:48:48 BDT 2018
-1.base=D\:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
+#Sun Apr 08 02:58:19 BDT 2018
+1.base=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\Third Eye\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
 count=2
 1.set=DEX
 0.path=classes.dex
 0.set=DEX
-0.base=D\:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
+0.base=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\Third Eye\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
 1.path=classes.dex

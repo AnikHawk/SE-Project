@@ -8,6 +8,8 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -24,18 +26,25 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.GestureDetector;
 import android.view.Gravity;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSource;
@@ -52,7 +61,7 @@ import java.io.IOException;
 
 import mazouri.statebutton.StateButton;
 
-public final class OcrCaptureActivity extends FragmentActivity {
+public final class OcrCaptureActivity extends AppCompatActivity {
     private static final String TAG = "OcrCaptureActivity";
     //public static boolean resetFlag = false;
     // Intent request code to handle updating play services if needed.
@@ -84,11 +93,11 @@ public final class OcrCaptureActivity extends FragmentActivity {
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
     RelativeLayout bottomView;
     EditText textHolder;
-    com.github.clans.fab.FloatingActionButton copyButton;
-    com.github.clans.fab.FloatingActionButton cutButton;
-    com.github.clans.fab.FloatingActionButton translateButton;
-    com.github.clans.fab.FloatingActionButton pdfButton;
-    com.github.clans.fab.FloatingActionMenu fab;
+    FloatingActionButton copyButton;
+    FloatingActionButton cutButton;
+    FloatingActionButton translateButton;
+    FloatingActionButton pdfButton;
+    FloatingActionMenu fab;
     AVLoadingIndicatorView load;
     AVLoadingIndicatorView effect;
     boolean isExpanded;
@@ -105,6 +114,10 @@ public final class OcrCaptureActivity extends FragmentActivity {
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
     boolean frontFacing = false;
+
+    int scanModeSelection = 1;
+
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate(Bundle icicle) {
@@ -123,9 +136,9 @@ public final class OcrCaptureActivity extends FragmentActivity {
         effect = findViewById(R.id.effect);
         ExpandCollapseExtention.collapse(bottomView);
         isExpanded = false;
-        flashButton = (StateButton) findViewById(R.id.flashButton);
-        focusButton = (StateButton) findViewById(R.id.focusButton);
-        scanModeButton = (StateButton) findViewById(R.id.scanModeButton);
+        flashButton = findViewById(R.id.flashButton);
+        focusButton = findViewById(R.id.focusButton);
+        scanModeButton = findViewById(R.id.scanModeButton);
         effect.bringToFront();
         // read parameters from the intent used to launch the activity.
         final boolean[] autoFocus = {getIntent().getBooleanExtra(AutoFocus, false)};
@@ -140,14 +153,16 @@ public final class OcrCaptureActivity extends FragmentActivity {
         flashButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String flashMode = mCameraSource.getFlashMode();
-                if (flashMode.equals(Camera.Parameters.FLASH_MODE_OFF)) {
-                    mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-                    flashButton.setState(StateButton.BUTTON_STATES.ENABLED);
-                    useFlash[0] = true;
-                } else {
-                    mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-                    flashButton.setState(StateButton.BUTTON_STATES.SELECTED);
-                    useFlash[0] = false;
+                if (flashMode != null) {
+                    if (flashMode.equals(Camera.Parameters.FLASH_MODE_OFF)) {
+                        mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                        flashButton.setState(StateButton.BUTTON_STATES.ENABLED);
+                        useFlash[0] = true;
+                    } else {
+                        mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+                        flashButton.setState(StateButton.BUTTON_STATES.SELECTED);
+                        useFlash[0] = false;
+                    }
                 }
             }
         });
@@ -181,6 +196,22 @@ public final class OcrCaptureActivity extends FragmentActivity {
                     autoFocus[0] = false;
                 }
 
+            }
+        });
+        scanModeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                StateButton.BUTTON_STATES state = scanModeButton.getState();
+                if (state == StateButton.BUTTON_STATES.SELECTED) {
+                    registerForContextMenu(view);
+                    openContextMenu(view);
+                    scanModeButton.setState(StateButton.BUTTON_STATES.ENABLED);
+                }
+                else{
+                    registerForContextMenu(view);
+                    openContextMenu(view);
+                    scanModeButton.setState(StateButton.BUTTON_STATES.SELECTED);
+                }
             }
         });
 
@@ -504,17 +535,17 @@ public final class OcrCaptureActivity extends FragmentActivity {
     }
 
     public void copyToClipboard(String copyText) {
-        int sdk = android.os.Build.VERSION.SDK_INT;
-        if (sdk < android.os.Build.VERSION_CODES.HONEYCOMB) {
+        int sdk = Build.VERSION.SDK_INT;
+        if (sdk < Build.VERSION_CODES.HONEYCOMB) {
             android.text.ClipboardManager clipboard = (android.text.ClipboardManager)
                     getSystemService(Context.CLIPBOARD_SERVICE);
             if (clipboard != null) {
                 clipboard.setText(copyText);
             }
         } else {
-            android.content.ClipboardManager clipboard = (android.content.ClipboardManager)
+            ClipboardManager clipboard = (ClipboardManager)
                     getSystemService(Context.CLIPBOARD_SERVICE);
-            android.content.ClipData clip = android.content.ClipData
+            ClipData clip = ClipData
                     .newPlainText("Your OTP", copyText);
             if (clipboard != null) {
                 clipboard.setPrimaryClip(clip);
@@ -548,6 +579,58 @@ public final class OcrCaptureActivity extends FragmentActivity {
                         .start();
             }
         });
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(contextMenu, view, menuInfo);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.options_scan_mode_menu, contextMenu);
+        MenuItem word = contextMenu.findItem(R.id.word);
+        MenuItem line = contextMenu.findItem(R.id.line);
+        MenuItem block = contextMenu.findItem(R.id.block);
+        if(scanModeSelection==1){
+            word.setChecked(true);
+        }
+        else if(scanModeSelection==2){
+            line.setChecked(true);
+        }
+        else if(scanModeSelection==3){
+            block.setChecked(true);
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item){
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()){
+            case R.id.word:
+                Toast.makeText(getApplicationContext(), "Word Scan Selected", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                scanModeSelection = 1;
+                wordByWord = true;
+                lineByLine = false;
+                blockByBlock = false;
+                return true;
+            case R.id.line:
+                Toast.makeText(getApplicationContext(), "Line Scan Selected", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                scanModeSelection = 2;
+                wordByWord = false;
+                lineByLine = true;
+                blockByBlock = false;
+                return true;
+            case R.id.block:
+                Toast.makeText(getApplicationContext(), "Block Scan Selected", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                scanModeSelection = 3;
+                wordByWord = false;
+                lineByLine = false;
+                blockByBlock = true;
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     public void onBackPressed() {

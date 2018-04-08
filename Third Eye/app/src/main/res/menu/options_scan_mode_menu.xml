@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <group
+            android:checkableBehavior="single"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+            <item
+                android:id="@+id/word"
+                android:title="@string/word_by_word"
+                android:checked="true"></item>
+            <item
+                android:id="@+id/line"
+                android:title="@string/line_by_line"
+                android:checked="false"></item>
+            <item
+                android:id="@+id/block"
+                android:title="@string/block_by_block"
+                android:checked="false"></item>
+        </group>
+</menu>
