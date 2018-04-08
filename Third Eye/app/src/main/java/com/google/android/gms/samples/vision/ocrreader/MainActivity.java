@@ -44,10 +44,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
 
     private CustomToggleButton detectText;
+    private CustomToggleButton imagePickerButton;
+
     public TextView statusMessage;
     //private TextView textValue;
 
     private static final int RC_OCR_CAPTURE = 9003;
+    private static final int RC_IMAGE_PICKER = 9004;
+
     private static final String TAG = "MainActivity";
 
     @Override
@@ -64,6 +68,15 @@ public class MainActivity extends Activity implements View.OnClickListener {
         blockByBlock = findViewById(R.id.block_by_block);
         translation = findViewById(R.id.translation);
         detectText = findViewById(R.id.read_text);
+        imagePickerButton = findViewById(R.id.picker_button);
+
+
+        imagePickerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ImagePickerActivity.class));
+            }
+        });
 
         wordByWord.setOnClickListener(new JellyToggleButton.OnClickListener() {
             @Override
@@ -125,6 +138,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             startActivityForResult(intent, RC_OCR_CAPTURE);
         }
+
     }
 
     @SuppressLint("InlinedApi")
