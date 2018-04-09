@@ -42,5 +42,6 @@
     <string name="lorem_ipsum">New Fragment</string>
     <string name="title_activity_image_picker">ImagePickerActivity</string>
     <string name="title_activity_pager">Pager</string>
+    <string name="title_activity_qr_code_scanner">QrCodeScannerActivity</string>
 
 </resources>

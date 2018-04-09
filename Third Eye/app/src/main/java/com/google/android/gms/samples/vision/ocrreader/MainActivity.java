@@ -45,6 +45,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private CustomToggleButton detectText;
     private CustomToggleButton imagePickerButton;
+    private CustomToggleButton qrButton;
 
     public TextView statusMessage;
     //private TextView textValue;
@@ -69,12 +70,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
         translation = findViewById(R.id.translation);
         detectText = findViewById(R.id.read_text);
         imagePickerButton = findViewById(R.id.picker_button);
+        qrButton = findViewById(R.id.qr_button);
 
 
         imagePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ImagePickerActivity.class));
+            }
+        });
+
+        qrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, QrCodeScannerActivity.class));
             }
         });
 

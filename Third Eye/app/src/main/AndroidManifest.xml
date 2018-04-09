@@ -44,10 +44,13 @@
             android:name=".ImagePickerActivity"
             android:label="@string/title_activity_image_picker">
         </activity>
-
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat"/>
+        <activity
+            android:name=".QrCodeScannerActivity"
+            android:label="@string/title_activity_qr_code_scanner">
+        </activity>
     </application>
 
 </manifest>

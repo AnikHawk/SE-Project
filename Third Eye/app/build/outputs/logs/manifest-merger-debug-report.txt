@@ -1,11 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-56:12
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\7a285a955399cc7144a7794cf83ac0fe\AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:design:27.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\2d13be98eef12d1a719cde64534e58c4\AndroidManifest.xml:17:1-22:12
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\8f795e5081752f007ec0a6756ce2bf6c\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\43361646cbffa42ce3a2c7b0ff8757c0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-12.0.1.aar\b014bd404546d8260f57b9e2c4eb5efe\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\59db4ab131537888341b92c6b997e6c3\AndroidManifest.xml:17:1-29:12
@@ -37,30 +39,30 @@ MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Anik\.gradl
 MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\d4eb8982b07d2f6a36a2c47ad72d3e86\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-12.0.1.aar\cad7439afc50c0a94594eebcb69f51e0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:exifinterface:27.1.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.1.aar\262c8287f7c2da7e1ba0c46f2142e08e\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\295077fb1a90832ad7eaefb4c63c1565\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\c2d8dea25c39b6a4954ed4e2cf6bfee2\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\2302172123e6b038bad4344088f9078f\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\faeed3172d76a4f49ad2b60e640c9b29\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\6ea072a7ffd6690309020181bb1b4a03\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-12.0.1.aar\ade0fc540a1dde9b969dc60bb1d520d0\AndroidManifest.xml:17:1-24:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\e164685f374bd23eb13f81e1fe6279a7\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\b79f9cd0565de9b0179021880cee7151\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\295077fb1a90832ad7eaefb4c63c1565\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\c2d8dea25c39b6a4954ed4e2cf6bfee2\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\e164685f374bd23eb13f81e1fe6279a7\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\2302172123e6b038bad4344088f9078f\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-56:12
 	package
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:4:11-68
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
-		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-56:12
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:3:11-57
 	android:versionCode
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
-		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-53:12
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:1-56:12
 		INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:2:11-69
@@ -87,9 +89,13 @@ ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:12:5-
 	android:name
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:12:22-77
 application
-ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:14:5-51:19
+ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:14:5-54:19
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\7a285a955399cc7144a7794cf83ac0fe\AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\7a285a955399cc7144a7794cf83ac0fe\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:9:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\8f795e5081752f007ec0a6756ce2bf6c\AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\8f795e5081752f007ec0a6756ce2bf6c\AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\43361646cbffa42ce3a2c7b0ff8757c0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\43361646cbffa42ce3a2c7b0ff8757c0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-12.0.1.aar\b014bd404546d8260f57b9e2c4eb5efe\AndroidManifest.xml:7:5-20
@@ -186,19 +192,29 @@ ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:43:9-
 	android:name
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:44:13-48
 activity#com.theartofdev.edmodo.cropper.CropImageActivity
-ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:48:9-50:58
+ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:47:9-49:58
 	android:theme
-		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:50:13-56
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:49:13-56
 	android:name
-		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:49:13-76
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:48:13-76
+activity#com.google.android.gms.samples.vision.ocrreader.QrCodeScannerActivity
+ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:50:9-53:20
+	android:label
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:52:13-67
+	android:name
+		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:51:13-50
 uses-sdk
 INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\7a285a955399cc7144a7794cf83ac0fe\AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\7a285a955399cc7144a7794cf83ac0fe\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\ab7c8d3968f937e4c15e31329cf5036e\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:design:27.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\2d13be98eef12d1a719cde64534e58c4\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:27.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\2d13be98eef12d1a719cde64534e58c4\AndroidManifest.xml:20:5-44
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\8f795e5081752f007ec0a6756ce2bf6c\AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\8f795e5081752f007ec0a6756ce2bf6c\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\43361646cbffa42ce3a2c7b0ff8757c0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\43361646cbffa42ce3a2c7b0ff8757c0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-12.0.1.aar\b014bd404546d8260f57b9e2c4eb5efe\AndroidManifest.xml:5:5-44
@@ -261,22 +277,22 @@ MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\User
 MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-12.0.1.aar\cad7439afc50c0a94594eebcb69f51e0\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:exifinterface:27.1.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.1.aar\262c8287f7c2da7e1ba0c46f2142e08e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:exifinterface:27.1.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.1.aar\262c8287f7c2da7e1ba0c46f2142e08e\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\295077fb1a90832ad7eaefb4c63c1565\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\295077fb1a90832ad7eaefb4c63c1565\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\c2d8dea25c39b6a4954ed4e2cf6bfee2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\c2d8dea25c39b6a4954ed4e2cf6bfee2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\2302172123e6b038bad4344088f9078f\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\2302172123e6b038bad4344088f9078f\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\faeed3172d76a4f49ad2b60e640c9b29\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\faeed3172d76a4f49ad2b60e640c9b29\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\6ea072a7ffd6690309020181bb1b4a03\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\6ea072a7ffd6690309020181bb1b4a03\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-12.0.1.aar\ade0fc540a1dde9b969dc60bb1d520d0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-12.0.1.aar\ade0fc540a1dde9b969dc60bb1d520d0\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\e164685f374bd23eb13f81e1fe6279a7\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\e164685f374bd23eb13f81e1fe6279a7\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\b79f9cd0565de9b0179021880cee7151\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\b79f9cd0565de9b0179021880cee7151\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\295077fb1a90832ad7eaefb4c63c1565\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\295077fb1a90832ad7eaefb4c63c1565\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\c2d8dea25c39b6a4954ed4e2cf6bfee2\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\c2d8dea25c39b6a4954ed4e2cf6bfee2\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\e164685f374bd23eb13f81e1fe6279a7\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\e164685f374bd23eb13f81e1fe6279a7\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\2302172123e6b038bad4344088f9078f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\2302172123e6b038bad4344088f9078f\AndroidManifest.xml:20:5-44
 INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 INJECTED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion

@@ -54,6 +54,10 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity
+            android:name="com.google.android.gms.samples.vision.ocrreader.QrCodeScannerActivity"
+            android:label="@string/title_activity_qr_code_scanner" >
+        </activity>
+        <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
