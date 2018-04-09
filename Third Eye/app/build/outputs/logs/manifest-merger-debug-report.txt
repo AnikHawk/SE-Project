@@ -20,10 +20,12 @@ MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] C:\Users\Anik\.gradle\caches\t
 MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\842afba67e9a36307c1f08477cfce0d7\AndroidManifest.xml:2:1-17:12
 MERGED from [com.theartofdev.edmodo:android-image-cropper:2.6.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-image-cropper-2.6.0.aar\99ccc64add328549fcbddec98e316e82\AndroidManifest.xml:2:1-12:12
 MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\485eccb5b6e41678a6ae70e18f5f062f\AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\12db13d1f1fbefe8a82e3124fd8c4240\AndroidManifest.xml:2:1-17:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\64e8475bdc5dd804700af9fe6a4c089a\AndroidManifest.xml:17:1-22:12
 MERGED from [com.jaredrummler:material-spinner:1.2.5] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\material-spinner-1.2.5.aar\0b7f4546a10d1a1a76738da17d94a80e\AndroidManifest.xml:2:1-10:12
 MERGED from [com.github.zcweng:switch-button:0.0.3] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\switch-button-0.0.3.aar\0687f40a6481c5b9f400b39e3ac3c02e\AndroidManifest.xml:2:1-11:12
 MERGED from [com.rmtheis:tess-two:8.0.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\tess-two-8.0.0.aar\04380384a3aebcc40bade4776ecaa8bb\AndroidManifest.xml:17:1-26:12
+MERGED from [de.cketti.share:share-intent-builder:0.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\share-intent-builder-0.0.2.aar\cb04e1a9b818ad0427897d6ab928d74d\AndroidManifest.xml:2:1-8:12
 MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\88054e8118580ab1e86be4214a9f4572\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:transition:27.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\5f2ce7b985aa24e13863b5d34c469cd4\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3003ffa066cb3a75013b13247718f72a\AndroidManifest.xml:17:1-22:12
@@ -110,6 +112,8 @@ MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\
 MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\842afba67e9a36307c1f08477cfce0d7\AndroidManifest.xml:11:5-15:19
 MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\485eccb5b6e41678a6ae70e18f5f062f\AndroidManifest.xml:11:5-15:19
 MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\485eccb5b6e41678a6ae70e18f5f062f\AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\12db13d1f1fbefe8a82e3124fd8c4240\AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\12db13d1f1fbefe8a82e3124fd8c4240\AndroidManifest.xml:11:5-15:19
 MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-12.0.1.aar\cad7439afc50c0a94594eebcb69f51e0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-12.0.1.aar\cad7439afc50c0a94594eebcb69f51e0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\faeed3172d76a4f49ad2b60e640c9b29\AndroidManifest.xml:22:5-20
@@ -128,6 +132,7 @@ MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users
 		REJECTED from [me.rishabhkhanna:CustomToggle:1.0.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\CustomToggle-1.0.0.aar\d6878d05b4caa2f4eef9de5dcc119aff\AndroidManifest.xml:13:9-41
 		REJECTED from [com.github.mazouri:android-state-button:1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\842afba67e9a36307c1f08477cfce0d7\AndroidManifest.xml:13:9-41
 		REJECTED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\485eccb5b6e41678a6ae70e18f5f062f\AndroidManifest.xml:13:9-41
+		REJECTED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\12db13d1f1fbefe8a82e3124fd8c4240\AndroidManifest.xml:13:9-41
 	android:hardwareAccelerated
 		ADDED from D:\SE-Project-master\Third Eye\app\src\main\AndroidManifest.xml:17:9-43
 	android:fullBackupContent
@@ -222,6 +227,8 @@ MERGED from [com.theartofdev.edmodo:android-image-cropper:2.6.0] C:\Users\Anik\.
 MERGED from [com.theartofdev.edmodo:android-image-cropper:2.6.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\android-image-cropper-2.6.0.aar\99ccc64add328549fcbddec98e316e82\AndroidManifest.xml:8:5-10:41
 MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\485eccb5b6e41678a6ae70e18f5f062f\AndroidManifest.xml:7:5-9:41
 MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\485eccb5b6e41678a6ae70e18f5f062f\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\12db13d1f1fbefe8a82e3124fd8c4240\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\12db13d1f1fbefe8a82e3124fd8c4240\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\64e8475bdc5dd804700af9fe6a4c089a\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\64e8475bdc5dd804700af9fe6a4c089a\AndroidManifest.xml:20:5-44
 MERGED from [com.jaredrummler:material-spinner:1.2.5] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\material-spinner-1.2.5.aar\0b7f4546a10d1a1a76738da17d94a80e\AndroidManifest.xml:6:5-8:41
@@ -230,6 +237,8 @@ MERGED from [com.github.zcweng:switch-button:0.0.3] C:\Users\Anik\.gradle\caches
 MERGED from [com.github.zcweng:switch-button:0.0.3] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\switch-button-0.0.3.aar\0687f40a6481c5b9f400b39e3ac3c02e\AndroidManifest.xml:7:5-9:41
 MERGED from [com.rmtheis:tess-two:8.0.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\tess-two-8.0.0.aar\04380384a3aebcc40bade4776ecaa8bb\AndroidManifest.xml:22:5-24:41
 MERGED from [com.rmtheis:tess-two:8.0.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\tess-two-8.0.0.aar\04380384a3aebcc40bade4776ecaa8bb\AndroidManifest.xml:22:5-24:41
+MERGED from [de.cketti.share:share-intent-builder:0.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\share-intent-builder-0.0.2.aar\cb04e1a9b818ad0427897d6ab928d74d\AndroidManifest.xml:6:5-44
+MERGED from [de.cketti.share:share-intent-builder:0.0.2] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\share-intent-builder-0.0.2.aar\cb04e1a9b818ad0427897d6ab928d74d\AndroidManifest.xml:6:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\88054e8118580ab1e86be4214a9f4572\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\88054e8118580ab1e86be4214a9f4572\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:27.1.0] C:\Users\Anik\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\5f2ce7b985aa24e13863b5d34c469cd4\AndroidManifest.xml:20:5-44

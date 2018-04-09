@@ -55,10 +55,12 @@ import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Language;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
+import com.robertsimoes.shareable.Shareable;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
 
+import de.cketti.shareintentbuilder.ShareIntentBuilder;
 import mazouri.statebutton.StateButton;
 
 public final class OcrCaptureActivity extends AppCompatActivity {
@@ -97,6 +99,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     FloatingActionButton cutButton;
     FloatingActionButton translateButton;
     FloatingActionButton pdfButton;
+    FloatingActionButton shareButton;
     FloatingActionMenu fab;
     AVLoadingIndicatorView load;
     AVLoadingIndicatorView effect;
@@ -128,6 +131,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         cutButton = findViewById(R.id.cutButton);
         translateButton = findViewById(R.id.translateButton);
         pdfButton = findViewById(R.id.pdf_button);
+        shareButton = findViewById(R.id.share_button);
         mPreview = findViewById(R.id.preview);
         mGraphicOverlay = findViewById(R.id.graphicOverlay);
         bottomView = findViewById(R.id.bottomView);
@@ -267,10 +271,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     }
                 }
                 new FetchTranslatedData().execute(textHolder.getText().toString());
-                //copyToClipboard(textHolder.getText().toString());
-                //textHolder.setText();
-                //if (isExpanded) ExpandCollapseExtention.collapse(bottomView);
-                //isExpanded = false;
+
             }
         });
         pdfButton.setOnClickListener(new View.OnClickListener() {
@@ -284,15 +285,27 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 OcrCaptureActivity.this.startActivity(intent);
             }
         });
-        textHolder.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (!isExpanded)
-                    ExpandCollapseExtention.expand(bottomView);
-                isExpanded = true;
-                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                return false;
+
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shareIntent = ShareIntentBuilder.from(OcrCaptureActivity.this)
+                        .text(textHolder.getText().toString())
+                        .build();
+                OcrCaptureActivity.this.startActivity(shareIntent);
             }
         });
+
+
+//        textHolder.setOnTouchListener(new View.OnTouchListener() {
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                if (!isExpanded)
+//                    ExpandCollapseExtention.expand(bottomView);
+//                isExpanded = true;
+//                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+//                return false;
+//            }
+//        });
         // Check for the camera permission before accessing the camera.  If the
         // permission is not granted yet, request permission.
         int rc = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);

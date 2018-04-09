@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.google.android.gms.samples.vision.ocrreader"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -45,5 +45,6 @@ dependencies {
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.+'
     implementation 'com.rmtheis:tess-two:8.0.0'
     implementation 'com.mapzen.android:speakerbox:1.4.1'
-
+    implementation 'com.github.robertsimoes:Shareable:0.1.0'
+    implementation 'de.cketti.share:share-intent-builder:0.0.2'
 }

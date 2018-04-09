@@ -30,11 +30,12 @@
         <EditText
             android:id="@+id/textHolder"
             android:layout_width="match_parent"
+            android:scrollHorizontally="false"
             android:layout_height="match_parent"
             android:background="#CC000000"
             android:text=""
-            android:inputType="text"
             android:hint="@string/empty"
+            android:inputType="text|textMultiLine|textCapSentences|textAutoCorrect"
             android:visibility="invisible"/>
 
 
@@ -133,7 +134,10 @@
             android:id="@+id/cutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/cut"
+            android:src="@drawable/cut_padded"
+            android:scaleType="fitCenter"
+            android:padding="10dp"
+            android:layout_margin="10dp"
             style="@style/MenuButtonsSmall"
             app:fab_size="mini"
             fab:fab_label="Cut" />
@@ -142,7 +146,7 @@
             android:id="@+id/copyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/copy"
+            android:src="@drawable/copy_padded"
             style="@style/MenuButtonsSmall"
             app:rippleColor="@color/md_teal_600"
             app:fab_size="mini"
@@ -154,7 +158,7 @@
             android:layout_height="wrap_content"
             app:rippleColor="@color/md_teal_700"
             style="@style/MenuButtonsSmall"
-            android:src="@drawable/translate"
+            android:src="@drawable/translate_padded"
             app:fab_size="mini"
             fab:fab_label="Translate" />
 
@@ -164,8 +168,19 @@
             android:layout_height="wrap_content"
             style="@style/MenuButtonsSmall"
             app:rippleColor="@color/md_teal_800"
-            android:src="@drawable/pdf"
+            android:src="@drawable/pdf_padded"
             fab:fab_label="PDF"
+            app:fab_size="mini" />
+
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MenuButtonsSmall"
+            app:rippleColor="@color/md_teal_800"
+            android:src="@drawable/share_padded"
+            fab:fab_label="Share"
             app:fab_size="mini" />
 
     </com.github.clans.fab.FloatingActionMenu>
