@@ -24,7 +24,7 @@
     <RelativeLayout
         android:id="@+id/bottomView"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="match_parent"
         android:layout_gravity="bottom">
 
         <EditText
@@ -182,6 +182,16 @@
             android:src="@drawable/share_padded"
             fab:fab_label="Share"
             app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/pause_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/MenuButtonsSmall"
+        app:rippleColor="@color/md_teal_800"
+        android:src="@drawable/pause_padded"
+        fab:fab_label="Pause"
+        app:fab_size="mini" />
 
     </com.github.clans.fab.FloatingActionMenu>
 

@@ -10,9 +10,7 @@ import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.text.TextBlock;
 
-
 public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
-
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
     View view;
     public boolean translation;
@@ -35,8 +33,8 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
     @Override
     public void receiveDetections(Detector.Detections<TextBlock> detections) {
         mGraphicOverlay.clear();
-
-        if (frameDone) {
+        if (frameDone && !OcrCaptureActivity.isPaused) {
+            OcrCaptureActivity.detections = detections;
             frameDone = false;
             SparseArray<TextBlock> items = detections.getDetectedItems();
             for (int i = 0; i < items.size(); ++i) {

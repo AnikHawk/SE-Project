@@ -24,6 +24,19 @@ public class ExpandCollapseExtention {
     }
 
 
+    public static void Fullexpand(View view) {
+        view.setVisibility(View.VISIBLE);
+
+        final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+        view.measure(widthSpec, heightSpec);
+        int height = 1020;
+        ValueAnimator mAnimator = slideAnimator(view, 0, height);
+        mAnimator.setDuration(500);
+        mAnimator.start();
+    }
+
+
     public static void collapse(final View view) {
         int finalHeight = view.getHeight();
 

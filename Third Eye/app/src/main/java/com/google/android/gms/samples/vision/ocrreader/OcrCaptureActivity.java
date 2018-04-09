@@ -28,6 +28,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.ContextMenu;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -53,6 +54,7 @@ import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Detect;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Language;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
+import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 import com.robertsimoes.shareable.Shareable;
@@ -94,12 +96,13 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private CameraSourcePreview mPreview;
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
     RelativeLayout bottomView;
-    EditText textHolder;
+    public static EditText textHolder;
     FloatingActionButton copyButton;
     FloatingActionButton cutButton;
     FloatingActionButton translateButton;
     FloatingActionButton pdfButton;
     FloatingActionButton shareButton;
+    FloatingActionButton pauseButton;
     FloatingActionMenu fab;
     AVLoadingIndicatorView load;
     AVLoadingIndicatorView effect;
@@ -117,9 +120,9 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
     boolean frontFacing = false;
-
+    public static Detector.Detections<TextBlock> detections;
     int scanModeSelection = 1;
-
+    public static boolean isPaused = false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -132,6 +135,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         translateButton = findViewById(R.id.translateButton);
         pdfButton = findViewById(R.id.pdf_button);
         shareButton = findViewById(R.id.share_button);
+        pauseButton = findViewById(R.id.pause_button);
         mPreview = findViewById(R.id.preview);
         mGraphicOverlay = findViewById(R.id.graphicOverlay);
         bottomView = findViewById(R.id.bottomView);
@@ -152,8 +156,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         blockByBlock = getIntent().getBooleanExtra(BlockByBlock, false);
         translation = getIntent().getBooleanExtra(Translation, false);
         translateTo = getIntent().getStringExtra(SelectedLanguage);
-
-
         flashButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String flashMode = mCameraSource.getFlashMode();
@@ -170,8 +172,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 }
             }
         });
-
-
 //        facingButton.setOnClickListener(new View.OnClickListener() {
 //            public void onClick(View v) {
 //                StateButton.BUTTON_STATES state = facingButton.getState();
@@ -186,7 +186,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 //
 //            }
 //        });
-
         focusButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 StateButton.BUTTON_STATES state = focusButton.getState();
@@ -199,7 +198,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     focusButton.setState(StateButton.BUTTON_STATES.SELECTED);
                     autoFocus[0] = false;
                 }
-
             }
         });
         scanModeButton.setOnClickListener(new View.OnClickListener() {
@@ -210,16 +208,13 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     registerForContextMenu(view);
                     openContextMenu(view);
                     scanModeButton.setState(StateButton.BUTTON_STATES.ENABLED);
-                }
-                else{
+                } else {
                     registerForContextMenu(view);
                     openContextMenu(view);
                     scanModeButton.setState(StateButton.BUTTON_STATES.SELECTED);
                 }
             }
         });
-
-
         cutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 copyToClipboard(textHolder.getText().toString());
@@ -271,7 +266,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     }
                 }
                 new FetchTranslatedData().execute(textHolder.getText().toString());
-
             }
         });
         pdfButton.setOnClickListener(new View.OnClickListener() {
@@ -285,7 +279,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 OcrCaptureActivity.this.startActivity(intent);
             }
         });
-
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -295,8 +288,28 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 OcrCaptureActivity.this.startActivity(shareIntent);
             }
         });
-
-
+        pauseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isPaused) {
+                    isPaused = false;
+                    ExpandCollapseExtention.collapse(bottomView);
+                } else if (!isPaused) {
+                    textHolder.setText("");
+                    SparseArray<TextBlock> items = detections.getDetectedItems();
+                    for (int i = 0; i < items.size(); ++i) {
+                        TextBlock item = items.valueAt(i);
+                        textHolder.append(item.getValue());
+                        textHolder.append(" \n");
+                    }
+                    if (!textHolder.getText().toString().equals("")) {
+                        textHolder.setVisibility(View.VISIBLE);
+                        ExpandCollapseExtention.Fullexpand(bottomView);
+                    }
+                    isPaused = true;
+                }
+            }
+        });
 //        textHolder.setOnTouchListener(new View.OnTouchListener() {
 //            public boolean onTouch(View view, MotionEvent motionEvent) {
 //                if (!isExpanded)
@@ -595,28 +608,26 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo menuInfo){
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(contextMenu, view, menuInfo);
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.options_scan_mode_menu, contextMenu);
         MenuItem word = contextMenu.findItem(R.id.word);
         MenuItem line = contextMenu.findItem(R.id.line);
         MenuItem block = contextMenu.findItem(R.id.block);
-        if(scanModeSelection==1){
+        if (scanModeSelection == 1) {
             word.setChecked(true);
-        }
-        else if(scanModeSelection==2){
+        } else if (scanModeSelection == 2) {
             line.setChecked(true);
-        }
-        else if(scanModeSelection==3){
+        } else if (scanModeSelection == 3) {
             block.setChecked(true);
         }
     }
 
     @Override
-    public boolean onContextItemSelected(MenuItem item){
+    public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.word:
                 Toast.makeText(getApplicationContext(), "Word Scan Selected", Toast.LENGTH_LONG).show();
                 item.setChecked(true);

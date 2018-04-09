@@ -40,6 +40,10 @@
         "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\64e8475bdc5dd804700af9fe6a4c089a\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
     {
+        "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_pause_padded.png.flat",
+        "source": "D:\\SE-Project-master\\Third Eye\\app\\src\\main\\res\\drawable-xhdpi\\pause_padded.png"
+    },
+    {
         "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\64e8475bdc5dd804700af9fe6a4c089a\\res\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -188,12 +192,12 @@
         "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\64e8475bdc5dd804700af9fe6a4c089a\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "D:\\SE-Project-master\\Third Eye\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
-    },
-    {
         "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
         "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\59db4ab131537888341b92c6b997e6c3\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\SE-Project-master\\Third Eye\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
         "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_material.xml.flat",
@@ -342,6 +346,10 @@
     {
         "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\64e8475bdc5dd804700af9fe6a4c089a\\res\\drawable-xxhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_pause_padded.png.flat",
+        "source": "D:\\SE-Project-master\\Third Eye\\app\\src\\main\\res\\drawable-xxhdpi\\pause_padded.png"
     },
     {
         "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -998,6 +1006,10 @@
     {
         "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\64e8475bdc5dd804700af9fe6a4c089a\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_pause_padded.png.flat",
+        "source": "D:\\SE-Project-master\\Third Eye\\app\\src\\main\\res\\drawable-hdpi\\pause_padded.png"
     },
     {
         "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -2302,6 +2314,10 @@
     {
         "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\64e8475bdc5dd804700af9fe6a4c089a\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_pause_padded.png.flat",
+        "source": "D:\\SE-Project-master\\Third Eye\\app\\src\\main\\res\\drawable-mdpi\\pause_padded.png"
     },
     {
         "merged": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",

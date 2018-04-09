@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Apr 09 15:20:53 BDT 2018
+#Mon Apr 09 17:13:17 BDT 2018
 17.baseType=DIRECTORY
 4.path=lib/armeabi/libjpgt.so
 8.set=NATIVE_RESOURCE

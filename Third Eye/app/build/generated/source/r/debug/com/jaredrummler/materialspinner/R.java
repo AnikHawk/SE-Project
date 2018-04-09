@@ -36,8 +36,8 @@ public final class R {
     public static final class id {
         public static final int fill_parent = 0x7f0a008d;
         public static final int match_parent = 0x7f0a00bd;
-        public static final int tv_tinted_spinner = 0x7f0a012c;
-        public static final int wrap_content = 0x7f0a0139;
+        public static final int tv_tinted_spinner = 0x7f0a012d;
+        public static final int wrap_content = 0x7f0a013a;
     }
     public static final class layout {
         public static final int ms__list_item = 0x7f0c0030;
