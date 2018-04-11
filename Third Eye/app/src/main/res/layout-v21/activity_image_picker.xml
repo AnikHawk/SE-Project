@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImagePickerActivity">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <me.rishabhkhanna.customtogglebutton.CustomToggleButton
+            android:id="@+id/get_text_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/get_text"
+            android:textOff="@string/get_text"
+            android:textOn="@string/get_text"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp"
+            android:backgroundTint="@color/md_indigo_600"
+            android:background="@color/md_indigo_600"
+            app:borderWidth="3dp"
+            app:checkedColor="@color/md_indigo_600"
+            app:uncheckedColor="@color/md_indigo_600"
+            app:uncheckedTextColor="#ffffff"
+            app:checkedTextColor="#ffffff"
+            app:radius="7dp"
+            android:layout_margin="10dp">
+        </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
+
+        <me.rishabhkhanna.customtogglebutton.CustomToggleButton
+            android:id="@+id/select_button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/select_image"
+            android:textOff="@string/select_image"
+            android:textOn="@string/select_image"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp"
+            android:backgroundTint="@color/md_light_blue_700"
+            android:background="@color/md_light_blue_700"
+            app:borderWidth="3dp"
+            app:checkedColor="@color/md_light_blue_700"
+            app:uncheckedColor="@color/md_light_blue_700"
+            app:uncheckedTextColor="#ffffff"
+            app:checkedTextColor="#ffffff"
+            app:radius="7dp"
+            android:layout_margin="10dp">
+        </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
+
+        <Spinner
+            android:id="@+id/lang_spinner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/block_by_block"
+            android:layout_centerHorizontal="true"
+            android:entries="@array/lang_arrays"
+            android:padding="5dp"
+            android:layout_gravity="center_horizontal"
+            android:prompt="@string/lang_prompt"
+            android:textAlignment="center"
+            android:dropDownSelector="#ddeeff"
+            android:alwaysDrawnWithCache="true"/>
+
+        <TextView
+            android:hint="retrieved text"
+            android:id="@+id/textView"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

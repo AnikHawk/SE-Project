@@ -106,7 +106,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         selectImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // start picker to get image for cropping and then use the image in cropping activity
+                // generate picker to get image for cropping and then use the image in cropping activity
                 CropImage.activity()
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .start((Activity) context);

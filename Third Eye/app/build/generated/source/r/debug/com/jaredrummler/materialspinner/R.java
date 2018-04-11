@@ -35,12 +35,12 @@ public final class R {
     }
     public static final class id {
         public static final int fill_parent = 0x7f0a008d;
-        public static final int match_parent = 0x7f0a00bd;
-        public static final int tv_tinted_spinner = 0x7f0a012e;
-        public static final int wrap_content = 0x7f0a013b;
+        public static final int match_parent = 0x7f0a00be;
+        public static final int tv_tinted_spinner = 0x7f0a0132;
+        public static final int wrap_content = 0x7f0a013f;
     }
     public static final class layout {
-        public static final int ms__list_item = 0x7f0c0031;
+        public static final int ms__list_item = 0x7f0c0032;
     }
     public static final class styleable {
         public static final int[] MaterialSpinner = { 0x7f040193, 0x7f040194, 0x7f040195, 0x7f040196, 0x7f040197, 0x7f040198, 0x7f040199, 0x7f04019a, 0x7f04019b };

@@ -4,41 +4,65 @@ package com.google.android.gms.samples.vision.ocrreader;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.zxing.Result;
+import com.wang.avi.AVLoadingIndicatorView;
+
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import static android.Manifest.permission.CAMERA;
+import static android.hardware.Camera.CameraInfo.*;
 
 public class QrCodeScannerActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView mScannerView;
-    private static int camId = Camera.CameraInfo.CAMERA_FACING_BACK;
+    FloatingActionButton qrGeneratorButton;
+    FloatingActionMenu fab;
+    AVLoadingIndicatorView effect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mScannerView = new ZXingScannerView(this);
-        setContentView(mScannerView);
-        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-        if (currentapiVersion >= android.os.Build.VERSION_CODES.M) {
+        setContentView(R.layout.activity_qr_code_scanner);
+        mScannerView = findViewById(R.id.qr_scanner_preview);
+        qrGeneratorButton = findViewById(R.id.qr_generator_fab_button);
+        fab = findViewById(R.id.qr_scanner_fab_menu);
+        effect = findViewById(R.id.effect);
+        effect.bringToFront();
+        int currentApiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentApiVersion >= android.os.Build.VERSION_CODES.M) {
             if (checkPermission()) {
                 Toast.makeText(getApplicationContext(), "Permission already granted", Toast.LENGTH_LONG).show();
             } else {
                 requestPermission();
             }
         }
+
+        qrGeneratorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                Intent intent = new Intent(QrCodeScannerActivity.this, QrCodeGeneratorActivity.class);
+                intent.putExtras(bundle);
+                QrCodeScannerActivity.this.startActivity(intent);
+            }
+        });
+
     }
 
     private boolean checkPermission() {
@@ -49,7 +73,7 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
         ActivityCompat.requestPermissions(this, new String[]{CAMERA}, REQUEST_CAMERA);
     }
 
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CAMERA:
                 if (grantResults.length > 0) {
@@ -61,14 +85,13 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
                         Toast.makeText(getApplicationContext(), "Permission Denied, You cannot access and camera", Toast.LENGTH_LONG).show();
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (shouldShowRequestPermissionRationale(CAMERA)) {
-                                showMessageOKCancel("You need to allow access to both the permissions",
+                                showMessageOKCancel(
                                         new DialogInterface.OnClickListener() {
+                                            @RequiresApi(api = Build.VERSION_CODES.M)
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
-                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                                    requestPermissions(new String[]{CAMERA},
-                                                            REQUEST_CAMERA);
-                                                }
+                                                requestPermissions(new String[]{CAMERA},
+                                                        REQUEST_CAMERA);
                                             }
                                         });
                                 return;
@@ -80,9 +103,9 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
         }
     }
 
-    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+    private void showMessageOKCancel(DialogInterface.OnClickListener okListener) {
         new android.support.v7.app.AlertDialog.Builder(QrCodeScannerActivity.this)
-                .setMessage(message)
+                .setMessage("You need to allow access to both the permissions")
                 .setPositiveButton("OK", okListener)
                 .setNegativeButton("Cancel", null)
                 .create()
@@ -93,15 +116,15 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
     public void onResume() {
         super.onResume();
 
-        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
-        if (currentapiVersion >= android.os.Build.VERSION_CODES.M) {
+        int currentApiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentApiVersion >= android.os.Build.VERSION_CODES.M) {
             if (checkPermission()) {
                 if(mScannerView == null) {
                     mScannerView = new ZXingScannerView(this);
                     setContentView(mScannerView);
                 }
                 mScannerView.setResultHandler(this);
-                mScannerView.startCamera(camId);
+                mScannerView.startCamera(CAMERA_FACING_BACK);
             } else {
                 requestPermission();
             }

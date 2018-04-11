@@ -1,10 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:id="@+id/container"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#ffffff"
-              android:orientation="vertical"
-              tools:context=".QrCodeScannerActivity" >
-</LinearLayout>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".QrCodeScannerActivity">
+
+    <me.dm7.barcodescanner.zxing.ZXingScannerView
+        android:id="@+id/qr_scanner_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </me.dm7.barcodescanner.zxing.ZXingScannerView>
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/effect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="21dp"
+        app:indicatorName="BallScaleMultipleIndicator"
+        android:layout_marginRight="19dp" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        app:indicatorName="BallScaleMultipleIndicator" />
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/qr_scanner_fab_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        fab:menu_labels_singleLine="true"
+        fab:menu_animationDelayPerItem="0"
+        app:menu_colorNormal="@color/md_light_blue_A700"
+        app:menu_colorPressed="@color/md_light_blue_500"
+        app:menu_colorRipple="@color/md_light_blue_A100"
+        fab:menu_labels_maxLines="2"
+        fab:menu_labels_ellipsize="end">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/qr_generator_fab_button"
+            style="@style/MenuButtonsSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/qr_padded"
+            app:fab_size="mini"
+            app:rippleColor="@color/md_light_blue_A100"
+            fab:fab_label="qrGenerator" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+</FrameLayout>

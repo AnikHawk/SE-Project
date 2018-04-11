@@ -35,8 +35,6 @@ public class PdfActivity extends AppCompatActivity {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-
-    //private BaseFont bfBold;
     private EditText editName;
     private EditText editText;
     public Button createButton;
@@ -51,8 +49,8 @@ public class PdfActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pdf);
         editName = findViewById(R.id.name_edit);
         editText = findViewById(R.id.text_edit);
-        createButton = findViewById(R.id.create_button);
-        resetButton = findViewById(R.id.reset_button);
+        createButton = findViewById(R.id.save_button);
+        resetButton = findViewById(R.id.generate_button);
         if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
             value = bundle.getString("copied");
@@ -78,10 +76,9 @@ public class PdfActivity extends AppCompatActivity {
     }
 
     public void GeneratePDF(View view, String fName) {
-        // TODO Auto-generated method stub
 
         try {
-            String fPath = Environment.getExternalStorageDirectory() + fName + ".pdf";
+            String fPath = Environment.getExternalStorageDirectory().getPath() + "/ThirdEye/PDF/"+ fName + ".pdf";
             File file = new File(Environment.getExternalStorageDirectory(), fName + ".pdf");
 
             if (!file.exists()) {
@@ -89,12 +86,6 @@ public class PdfActivity extends AppCompatActivity {
                 file.mkdir();
             }
             Log.d(LOG_TAG, "PDF Path: " + fPath);
-            //BaseFont baseFontArial = BaseFont.createFont("res/font/arialuni.TTF", "UTF-8",BaseFont.EMBEDDED);
-            //Font fontArial = new Font(baseFontArial, 12);
-            // baseFontNikosh = BaseFont.createFont("res/font/nikosh.ttf", "UTF-8",BaseFont.EMBEDDED);
-            //Font fontNikosh = new Font(baseFontNikosh, 12);
-            //Font fontCzech = FontFactory.getFont(FONT, "Cp1250", BaseFont.EMBEDDED);
-            //Font fontRussian = FontFactory.getFont(FONT, "Cp1251", BaseFont.EMBEDDED);
             Font font = FontFactory.getFont("res/font/arialunicodems.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
 
             FileOutputStream fOut = new FileOutputStream(file.getAbsoluteFile());

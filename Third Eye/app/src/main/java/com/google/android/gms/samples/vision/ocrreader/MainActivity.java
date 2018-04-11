@@ -210,7 +210,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             try {
                 mPreview.start(mCameraSource, mGraphicOverlay);
             } catch (IOException e) {
-                Log.e(TAG, "Unable to start camera source.", e);
+                Log.e(TAG, "Unable to generate camera source.", e);
                 mCameraSource.release();
                 mCameraSource = null;
             }

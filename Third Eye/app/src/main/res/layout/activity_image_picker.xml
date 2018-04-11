@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             tools:context=".ImagePickerActivity">
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ImagePickerActivity">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,15 +18,34 @@
             android:layout_height="250dp"
             android:src="@mipmap/ic_launcher"
             />
-        <Button
 
+        <me.rishabhkhanna.customtogglebutton.CustomToggleButton
+            android:backgroundTint="@color/md_indigo_600"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/get_text"
+            android:textOff="@string/get_text"
+            android:textOn="@string/get_text"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp"
+            android:id="@+id/get_text_button"
+
+            app:borderWidth="3dp"
+            app:checkedColor="@color/md_light_blue_A700"
+            app:uncheckedColor="@color/md_light_blue_A700"
+            app:uncheckedTextColor="#ffffff"
+            app:checkedTextColor="#ffffff"
+            app:radius="7dp">
+        </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
+
+        <Button
             android:backgroundTint="@color/md_indigo_600"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="GET TEXT"
             android:layout_gravity="center_horizontal"
             android:textSize="25dp"
-            android:id="@+id/get_text_button"/>
+            />
         <Button
             android:layout_width="200dp"
             android:backgroundTint="@color/md_light_blue_700"

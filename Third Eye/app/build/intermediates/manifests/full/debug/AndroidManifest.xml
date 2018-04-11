@@ -58,6 +58,10 @@
             android:label="@string/title_activity_qr_code_scanner" >
         </activity>
         <activity
+            android:name="com.google.android.gms.samples.vision.ocrreader.QrCodeGeneratorActivity"
+            android:label="QR GENERATOR" >
+        </activity>
+        <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
