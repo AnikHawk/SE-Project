@@ -12,21 +12,16 @@
     tools:context="com.google.android.gms.samples.vision.ocrreader.MainActivity">
 
 
-    <com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview
+    <SurfaceView
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/switches"
         android:layout_below="@id/app_name"
         android:layout_centerHorizontal="true"
-        android:paddingHorizontal="20dp">
-
-
-        <com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay
-            android:id="@+id/graphicOverlay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview>
+        android:adjustViewBounds="true"
+        android:paddingHorizontal="20dp"
+        />
 
 
     <TextView
@@ -38,17 +33,17 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="15dp"
         android:text="@string/ocr_header"
-        android:textSize="30sp"
         android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30sp"/>
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_below="@id/app_name"
-        android:src="@drawable/logo"
-        android:contentDescription="@string/back_cam_view" />
+        android:contentDescription="@string/back_cam_view"
+        android:src="@drawable/logo"/>
 
     <me.rishabhkhanna.customtogglebutton.CustomToggleButton
         android:id="@+id/qr_button"
@@ -56,17 +51,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
-        android:layout_marginHorizontal="5dp"
         android:layout_gravity="center"
+        android:layout_marginHorizontal="5dp"
         android:text="QR"
         android:textOff="QR"
         android:textOn="QR"
         app:borderWidth="3dp"
         app:checkedColor="@color/md_light_blue_A700"
-        app:uncheckedColor="@color/md_light_blue_A700"
         app:checkedTextColor="#ffffff"
-        app:uncheckedTextColor="#ffffff"
-        app:radius="20dp">
+        app:radius="20dp"
+        app:uncheckedColor="@color/md_light_blue_A700"
+        app:uncheckedTextColor="#ffffff">
     </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
 
@@ -76,17 +71,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="20dp"
         android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
         android:text="Real-time"
         android:textOff="Real-time"
         android:textOn="Real-time"
         app:borderWidth="3dp"
         app:checkedColor="@color/md_light_blue_A700"
-        app:uncheckedColor="@color/md_light_blue_A700"
         app:checkedTextColor="#ffffff"
-        app:uncheckedTextColor="#ffffff"
-        app:radius="7dp">
+        app:radius="7dp"
+        app:uncheckedColor="@color/md_light_blue_A700"
+        app:uncheckedTextColor="#ffffff">
     </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
     <me.rishabhkhanna.customtogglebutton.CustomToggleButton
@@ -95,17 +90,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
         android:layout_gravity="center"
+        android:layout_marginRight="20dp"
         android:text="Image"
         android:textOff="Image"
         android:textOn="Image"
         app:borderWidth="3dp"
         app:checkedColor="@color/md_light_blue_A700"
-        app:uncheckedColor="@color/md_light_blue_A700"
         app:checkedTextColor="#ffffff"
-        app:uncheckedTextColor="#ffffff"
-        app:radius="7dp">
+        app:radius="7dp"
+        app:uncheckedColor="@color/md_light_blue_A700"
+        app:uncheckedTextColor="#ffffff">
     </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
 
@@ -120,9 +115,9 @@
             android:id="@+id/auto_focus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/use_flash"
             android:layout_alignStart="@+id/use_flash"
             android:layout_alignTop="@+id/word_by_word"
-            android:layout_alignLeft="@+id/use_flash"
             android:checked="true"
             app:jtbDuration="250"
             app:jtbLeftBackgroundColor="@color/md_red_900"/>
@@ -133,11 +128,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
             android:checked="false"
             app:jtbDuration="250"
-            android:layout_alignParentRight="true"
             app:jtbLeftBackgroundColor="@color/md_red_900"/>
 
         <com.nightonke.jellytogglebutton.JellyToggleButton
@@ -146,11 +141,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_below="@+id/use_flash"
             android:layout_margin="10dp"
             android:checked="false"
             app:jtbDuration="250"
-            android:layout_alignParentRight="true"
             app:jtbLeftBackgroundColor="@color/md_red_900"/>
 
 
@@ -160,9 +155,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/line_by_line"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_margin="10dp"
-            android:layout_alignParentLeft="true"
             android:checked="true"
             app:jtbDuration="250"
             app:jtbLeftBackgroundColor="@color/md_red_900"/>
@@ -173,12 +168,12 @@
             android:id="@+id/line_by_line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_margin="10dp"
             android:checked="false"
             app:jtbDuration="250"
-            android:layout_alignParentLeft="true"
             app:jtbLeftBackgroundColor="@color/md_red_900"/>
 
 
@@ -202,9 +197,9 @@
             android:layout_alignLeft="@+id/translation_text"
             android:layout_alignStart="@+id/translation_text"
             android:layout_alignTop="@+id/auto_focus"
+            android:paddingTop="7dp"
             android:text="@string/auto_focus"
-            android:textColor="#ffffff"
-            android:paddingTop="7dp"/>
+            android:textColor="#ffffff"/>
 
 
         <TextView
@@ -212,10 +207,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/auto_focus_text"
+            android:layout_alignRight="@+id/auto_focus_text"
             android:layout_centerVertical="true"
             android:text="@string/use_flash"
-            android:textColor="#ffffff"
-            android:layout_alignRight="@+id/auto_focus_text" />
+            android:textColor="#ffffff"/>
 
 
         <TextView
@@ -225,32 +220,32 @@
             android:layout_alignTop="@+id/translation"
             android:layout_toLeftOf="@+id/translation"
             android:layout_toStartOf="@+id/translation"
+            android:paddingTop="7dp"
             android:text="@string/translation"
-            android:textColor="#ffffff"
-            android:paddingTop="7dp"/>
+            android:textColor="#ffffff"/>
 
 
         <TextView
             android:id="@+id/word_by_word_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/line_by_line_text"
             android:layout_alignStart="@+id/line_by_line_text"
             android:layout_alignTop="@+id/auto_focus"
             android:paddingTop="7dp"
             android:text="@string/word_by_word"
-            android:textColor="#ffffff"
-            android:layout_alignLeft="@+id/line_by_line_text" />
+            android:textColor="#ffffff"/>
 
 
         <TextView
             android:id="@+id/line_by_line_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/block_by_block_text"
             android:layout_alignStart="@+id/block_by_block_text"
             android:layout_centerVertical="true"
             android:text="@string/line_by_line"
-            android:textColor="#ffffff"
-            android:layout_alignLeft="@+id/block_by_block_text" />
+            android:textColor="#ffffff"/>
 
         <TextView
             android:id="@+id/block_by_block_text"
@@ -259,9 +254,9 @@
             android:layout_alignTop="@+id/block_by_block"
             android:layout_toEndOf="@+id/line_by_line"
             android:layout_toRightOf="@+id/line_by_line"
+            android:paddingTop="7dp"
             android:text="@string/block_by_block"
-            android:textColor="#ffffff"
-            android:paddingTop="7dp"/>
+            android:textColor="#ffffff"/>
 
 
         <Spinner
@@ -270,13 +265,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/block_by_block"
             android:layout_centerHorizontal="true"
+            android:alwaysDrawnWithCache="true"
+            android:dropDownSelector="@color/md_light_blue_900"
             android:entries="@array/lang_arrays"
             android:padding="5dp"
             android:prompt="@string/lang_prompt"
             android:textAlignment="center"
-            android:visibility="invisible"
-            android:dropDownSelector="@color/md_light_blue_900"
-            android:alwaysDrawnWithCache="true"/>
+            android:visibility="invisible"/>
 
     </RelativeLayout>
 

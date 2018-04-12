@@ -10,7 +10,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,8 +26,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class PdfActivity extends AppCompatActivity {
+import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 
+public class PdfActivity extends AppCompatActivity {
     private static final String LOG_TAG = "GeneratePDF";
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
@@ -37,8 +37,8 @@ public class PdfActivity extends AppCompatActivity {
     };
     private EditText editName;
     private EditText editText;
-    public Button createButton;
-    public Button resetButton;
+    public CustomToggleButton createButton;
+    public CustomToggleButton resetButton;
     private String fileName;
     public String fileContent;
     public String value;
@@ -51,14 +51,10 @@ public class PdfActivity extends AppCompatActivity {
         editText = findViewById(R.id.text_edit);
         createButton = findViewById(R.id.save_button);
         resetButton = findViewById(R.id.generate_button);
-        if (getIntent().getExtras() != null) {
-            Bundle bundle = getIntent().getExtras();
-            value = bundle.getString("copied");
-            editText.setText(value);
-        }
-
+        editText.setText(OcrCaptureActivity.pdfString);
         verifyStoragePermissions(this);
-
+        createButton.setChecked(false);
+        resetButton.setChecked(false);
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,34 +67,29 @@ public class PdfActivity extends AppCompatActivity {
             public void onClick(View view) {
                 editName.setText("");
                 editText.setText("");
+                OcrCaptureActivity.pdfString = "";
             }
         });
     }
 
     public void GeneratePDF(View view, String fName) {
-
         try {
-            String fPath = Environment.getExternalStorageDirectory().getPath() + "/ThirdEye/PDF/"+ fName + ".pdf";
+            String fPath = Environment.getExternalStorageDirectory().getPath() + "/ThirdEye/PDF/" + fName + ".pdf";
             File file = new File(Environment.getExternalStorageDirectory(), fName + ".pdf");
-
             if (!file.exists()) {
                 file.createNewFile();
                 file.mkdir();
             }
             Log.d(LOG_TAG, "PDF Path: " + fPath);
             Font font = FontFactory.getFont("res/font/arialunicodems.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-
             FileOutputStream fOut = new FileOutputStream(file.getAbsoluteFile());
             Document document = new Document();
             fileContent = editText.getText().toString();
             Paragraph paragraph = new Paragraph(fileContent, font);
-
             PdfWriter.getInstance(document, fOut);
-
             document.open();
             document.add(paragraph);
             document.close();
-
             Toast.makeText(getApplicationContext(), fName + ".pdf created", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -110,13 +101,11 @@ public class PdfActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(getApplicationContext(), "Document Exception", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     public static void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
         if (permission != PackageManager.PERMISSION_GRANTED) {
             // We don't have permission so prompt the user
             ActivityCompat.requestPermissions(
@@ -128,6 +117,6 @@ public class PdfActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        startActivity(new Intent(this, MainActivity.class));
+        super.onBackPressed();
     }
 }

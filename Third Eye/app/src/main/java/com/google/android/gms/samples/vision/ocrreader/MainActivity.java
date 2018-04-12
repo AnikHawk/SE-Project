@@ -1,21 +1,29 @@
 package com.google.android.gms.samples.vision.ocrreader;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSource;
-import com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview;
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.text.TextRecognizer;
 //com.suke.widget.JellyToggleButton;
@@ -29,7 +37,7 @@ import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 
 import static com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity.AutoFocus;
 import static com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity.UseFlash;
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener, SurfaceHolder.Callback {
 
     // Use a compound createButton so either checkbox or switch widgets work.
     private JellyToggleButton autoFocus;
@@ -39,17 +47,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private JellyToggleButton blockByBlock;
     private JellyToggleButton translation;
     private CameraSource mCameraSource;
-    private CameraSourcePreview mPreview;
+    private SurfaceView mSurfaceView;
+    private SurfaceHolder mSurfaceHolder;
     private Spinner langSpinner;
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
-
+    private static final int RC_HANDLE_CAMERA_PERM = 212;
     private CustomToggleButton detectText;
     private CustomToggleButton imagePickerButton;
     private CustomToggleButton qrButton;
-
+    Camera camera;
+    SurfaceView surfaceView;
+    SurfaceHolder surfaceHolder;
+    boolean previewing = false;
+    LayoutInflater controlInflater = null;
     public TextView statusMessage;
     //private TextView textValue;
-
     private static final int RC_OCR_CAPTURE = 9003;
     private static final int RC_IMAGE_PICKER = 9004;
 
@@ -59,8 +71,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[] {Manifest.permission.CAMERA}, 1);
+            }
+        }
 
-        mPreview = findViewById(R.id.preview);
+        surfaceView = (SurfaceView)findViewById(R.id.preview);
+        surfaceHolder = surfaceView.getHolder();
+        surfaceHolder.addCallback(this);
+        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+
         statusMessage = findViewById(R.id.app_name);
         autoFocus = findViewById(R.id.auto_focus);
         useFlash = findViewById(R.id.use_flash);
@@ -72,6 +93,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         imagePickerButton = findViewById(R.id.picker_button);
         qrButton = findViewById(R.id.qr_button);
 
+        detectText.setChecked(false);
+        imagePickerButton.setChecked(false);
+        qrButton.setChecked(false);
 
         imagePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,8 +140,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         langSpinner = findViewById(R.id.lang_spinner);
         translation.setOnCheckedChangeListener(langChoice);
 
+
         findViewById(R.id.read_text).setOnClickListener(this);
-        createCameraSource(true, false);
     }
 
     JellyToggleButton.OnCheckedChangeListener langChoice = new JellyToggleButton.OnCheckedChangeListener() {
@@ -150,47 +174,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
-    @SuppressLint("InlinedApi")
-    private void createCameraSource(boolean autoFocus, boolean useFlash) {
-        Context context = getApplicationContext();
-        View view = getWindow().getDecorView().getRootView();
-        TextRecognizer textRecognizer = new TextRecognizer.Builder(context).build();
-
-        mCameraSource =
-                new CameraSource.Builder(getApplicationContext(), textRecognizer)
-                        .setFacing(CameraSource.CAMERA_FACING_BACK)
-                        .setRequestedPreviewSize(1280, 1024)
-                        .setRequestedFps(2.0f)
-                        .setFlashMode(null)
-                        .setFocusMode(null)
-                        .build();
-    }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        startCameraSource();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[] {Manifest.permission.CAMERA}, 1);
+            }
+        }
+
     }
 
-    /**
-     * Stops the camera.
-     */
+
     @Override
     protected void onPause() {
         super.onPause();
-        if (mPreview != null) {
-            mPreview.stop();
-        }
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mPreview != null) {
-            mPreview.release();
-        }
     }
 
 
@@ -199,22 +205,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
 
-    }
-
-    private void startCameraSource() throws SecurityException {
-        // Check that the device has play services available.
-        int code = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(
-                getApplicationContext());
-
-        if (mCameraSource != null) {
-            try {
-                mPreview.start(mCameraSource, mGraphicOverlay);
-            } catch (IOException e) {
-                Log.e(TAG, "Unable to generate camera source.", e);
-                mCameraSource.release();
-                mCameraSource = null;
-            }
-        }
     }
 
 
@@ -226,4 +216,46 @@ public class MainActivity extends Activity implements View.OnClickListener {
         this.finish();
     }
 
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+        if(previewing){
+            camera.stopPreview();
+            previewing = false;
+        }
+
+        if (camera != null){
+            try {
+                camera.setPreviewDisplay(surfaceHolder);
+                camera.startPreview();
+                previewing = true;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+        while (!isCameraPermissionGranted()){}
+        camera = Camera.open();
+        camera.setDisplayOrientation(90);
+    }
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+        camera.stopPreview();
+        camera.release();
+        camera = null;
+        previewing = false;
+    }
+
+    boolean isCameraPermissionGranted(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[] {Manifest.permission.CAMERA}, 1);
+                return false;
+            }
+            else return true;
+        }
+        return false;
+    }
 }

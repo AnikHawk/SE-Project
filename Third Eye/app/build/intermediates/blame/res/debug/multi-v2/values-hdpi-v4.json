@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "/home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/core-1.9.aar/e707ca8c4950c885883634631dedb542/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.9.aar\\40af182951601dd99731e7e67da1846e\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/2d72de286db8875c16d92d667f507a5c/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\b96594cbc74e1d904258b521448cd123\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

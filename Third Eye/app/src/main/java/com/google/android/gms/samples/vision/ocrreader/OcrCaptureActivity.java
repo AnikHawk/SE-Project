@@ -80,6 +80,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     public static final String BlockByBlock = "BlockByBlock";
     public static final String Translation = "Translation";
     public static final String SelectedLanguage = "SelectedLanguage";
+    public  static String pdfString = "";
     //public static final String TextBlockObject = "String";
     StateButton flashButton;
     StateButton focusButton;
@@ -271,11 +272,10 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         pdfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString("copied", textHolder.getText().toString());
+                pdfString +=("\n" + textHolder.getText().toString());
+
                 Intent intent = new Intent(OcrCaptureActivity.this, PdfActivity.class);
-                intent.putExtras(bundle);
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
                 OcrCaptureActivity.this.startActivity(intent);
             }
         });
@@ -418,6 +418,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         startCameraSource();
     }
 
+
     /**
      * Stops the camera.
      */
@@ -487,6 +488,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
     private boolean onTap(float rawX, float rawY) {
         if (fab.isOpened()) {

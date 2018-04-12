@@ -35,12 +35,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
+
 public class ImagePickerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     HashMap<String,String> mp = new HashMap<>();
     String language = "eng";
     Bitmap image;
-    Button getTextButton, selectImageButton;
+    CustomToggleButton getTextButton, selectImageButton;
     Spinner selectLang;
     private TessBaseAPI mTess;
     String datapath = "";
@@ -53,6 +55,9 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
         getTextButton = findViewById(R.id.get_text_button);
         selectImageButton = findViewById(R.id.select_button);
+
+        getTextButton.setChecked(false);
+        selectImageButton.setChecked(false);
         image = null;
         selectLang = findViewById(R.id.lang_spinner);
         final Context context = this;
