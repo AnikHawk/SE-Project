@@ -7,8 +7,10 @@ import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -31,6 +33,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class ImagePickerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -42,20 +45,33 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
     private TessBaseAPI mTess;
     String datapath = "";
     ImageView imv;
+    TextToSpeech textToSpeech;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_picker);
+
         getTextButton = findViewById(R.id.get_text_button);
         selectImageButton = findViewById(R.id.select_button);
         image = null;
         selectLang = findViewById(R.id.lang_spinner);
         final Context context = this;
 
+        textToSpeech=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    textToSpeech.setLanguage(Locale.US);
+                }
+            }
+        });
 
 
         mp.put("English", "eng");
         mp.put("Bangla", "ben");
+
+        final HashMap<String ,String> map = new HashMap<>();
+        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "speak");
 
         selectLang.setOnItemSelectedListener(this);
 
@@ -91,8 +107,11 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
                 try {
                     processImage();
                     TextView OCRTextView = findViewById(R.id.textView);
-                    Speakerbox speakerBox = new Speakerbox(getApplication());
-                    speakerBox.play(OCRTextView.getText().toString());
+                    String toSpeak = OCRTextView.getText().toString();
+                    Log.d("crap", toSpeak);
+
+                    textToSpeech.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, map);
+
                 }
                 catch (Exception e)
                 {
@@ -149,6 +168,8 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         OCRTextView.setText(OCRresult);
     }
 
+
+
     private void checkFile(File dir) {
         if (!dir.exists()&& dir.mkdirs()){
             copyFiles();
@@ -198,6 +219,14 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         language = mp.get(item);
         checkFile(new File(datapath + "tessdata/"));
         mTess.init(datapath, language);
+        if(language.equals("eng"))
+        {
+            textToSpeech.setLanguage(Locale.US);
+        }
+        else if(language.equals("ben"))
+        {
+            textToSpeech.setLanguage(new Locale("bn_BD"));
+        }
     }
 
     @Override

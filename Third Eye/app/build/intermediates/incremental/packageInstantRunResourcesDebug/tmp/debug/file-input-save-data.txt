@@ -1,11 +1,11 @@
 #Internal package file, do not edit.
-#Thu Apr 12 03:46:45 BDT 2018
-1.base=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\Third Eye\\app\\build\\intermediates\\assets\\debug
+#Thu Apr 12 13:24:41 BDT 2018
+1.base=/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/assets/debug
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
 count=2
 1.set=ASSET
-0.path=tessdata/eng.traineddata
+0.path=tessdata/ben.traineddata
 0.set=ASSET
-0.base=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\Third Eye\\app\\build\\intermediates\\assets\\debug
-1.path=tessdata/ben.traineddata
+0.base=/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/assets/debug
+1.path=tessdata/eng.traineddata

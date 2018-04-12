@@ -1,7 +1,7 @@
-#Thu Apr 12 03:46:50 BDT 2018
-base.0=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\Third Eye\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\45
+#Thu Apr 12 13:25:09 BDT 2018
+base.0=/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/transforms/dexMerger/debug/13
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\Third Eye\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\46
+base.1=/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/transforms/dexMerger/debug/12
