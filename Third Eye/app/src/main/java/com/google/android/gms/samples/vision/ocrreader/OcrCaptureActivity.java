@@ -230,6 +230,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 //ExpandCollapseExtention.collapse(bottomView);
             }
         });
+
         translateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 load.show();

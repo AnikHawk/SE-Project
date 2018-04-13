@@ -90,9 +90,9 @@ public final class R {
         public static final int save_image_matrix = 0x7f0a00e9;
         public static final int save_non_transition_alpha = 0x7f0a00ea;
         public static final int save_scale_type = 0x7f0a00eb;
-        public static final int tag_transition_group = 0x7f0a0117;
-        public static final int text = 0x7f0a0118;
-        public static final int text2 = 0x7f0a0119;
+        public static final int tag_transition_group = 0x7f0a0118;
+        public static final int text = 0x7f0a0119;
+        public static final int text2 = 0x7f0a011a;
         public static final int time = 0x7f0a0122;
         public static final int title = 0x7f0a0123;
         public static final int transition_current_scene = 0x7f0a012a;

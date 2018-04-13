@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.wang.avi:library-2.1.3">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-2.1.3.aar/0a55bbbd154a8a8e18102b8dd054d323/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-2.1.3.aar/0a55bbbd154a8a8e18102b8dd054d323/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-2.1.3.aar/832a6c356f16c6a319a17e9561db2b03/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-2.1.3.aar/832a6c356f16c6a319a17e9561db2b03/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

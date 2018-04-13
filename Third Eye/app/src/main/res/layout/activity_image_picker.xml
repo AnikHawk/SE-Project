@@ -69,7 +69,7 @@
             android:alwaysDrawnWithCache="true"/>
         <TextView
             android:hint="retrieved text"
-            android:id="@+id/textView"
+            android:id="@+id/textHolder"
             android:layout_margin="10dp"
             android:layout_gravity="center_horizontal"
             android:textSize="20dp"

@@ -5363,11 +5363,12 @@ public final class R {
     public static final int pdf_padded=0x7f0800a1;
     public static final int qr_padded=0x7f0800a2;
     public static final int share_padded=0x7f0800a3;
-    public static final int toggle_background=0x7f0800a4;
-    public static final int tooltip_frame_dark=0x7f0800a5;
-    public static final int tooltip_frame_light=0x7f0800a6;
-    public static final int translate=0x7f0800a7;
-    public static final int translate_padded=0x7f0800a8;
+    public static final int speak=0x7f0800a4;
+    public static final int toggle_background=0x7f0800a5;
+    public static final int tooltip_frame_dark=0x7f0800a6;
+    public static final int tooltip_frame_light=0x7f0800a7;
+    public static final int translate=0x7f0800a8;
+    public static final int translate_padded=0x7f0800a9;
   }
   public static final class font {
     public static final int arialuni=0x7f090000;
@@ -5643,26 +5644,26 @@ public final class R {
     public static final int snackbar_text=0x7f0a0107;
     public static final int snap=0x7f0a0108;
     public static final int spacer=0x7f0a0109;
-    public static final int split_action_bar=0x7f0a010a;
-    public static final int spread=0x7f0a010b;
-    public static final int spread_inside=0x7f0a010c;
-    public static final int src_atop=0x7f0a010d;
-    public static final int src_in=0x7f0a010e;
-    public static final int src_over=0x7f0a010f;
-    public static final int standard=0x7f0a0110;
-    public static final int start=0x7f0a0111;
-    public static final int status_bar_latest_event_content=0x7f0a0112;
-    public static final int submenuarrow=0x7f0a0113;
-    public static final int submit_area=0x7f0a0114;
-    public static final int switches=0x7f0a0115;
-    public static final int tabMode=0x7f0a0116;
-    public static final int tag_transition_group=0x7f0a0117;
-    public static final int text=0x7f0a0118;
-    public static final int text2=0x7f0a0119;
-    public static final int textHolder=0x7f0a011a;
-    public static final int textSpacerNoButtons=0x7f0a011b;
-    public static final int textSpacerNoTitle=0x7f0a011c;
-    public static final int textView=0x7f0a011d;
+    public static final int speakButton=0x7f0a010a;
+    public static final int split_action_bar=0x7f0a010b;
+    public static final int spread=0x7f0a010c;
+    public static final int spread_inside=0x7f0a010d;
+    public static final int src_atop=0x7f0a010e;
+    public static final int src_in=0x7f0a010f;
+    public static final int src_over=0x7f0a0110;
+    public static final int standard=0x7f0a0111;
+    public static final int start=0x7f0a0112;
+    public static final int status_bar_latest_event_content=0x7f0a0113;
+    public static final int submenuarrow=0x7f0a0114;
+    public static final int submit_area=0x7f0a0115;
+    public static final int switches=0x7f0a0116;
+    public static final int tabMode=0x7f0a0117;
+    public static final int tag_transition_group=0x7f0a0118;
+    public static final int text=0x7f0a0119;
+    public static final int text2=0x7f0a011a;
+    public static final int textHolder=0x7f0a011b;
+    public static final int textSpacerNoButtons=0x7f0a011c;
+    public static final int textSpacerNoTitle=0x7f0a011d;
     public static final int text_edit=0x7f0a011e;
     public static final int text_input_password_toggle=0x7f0a011f;
     public static final int textinput_counter=0x7f0a0120;
@@ -5796,8 +5797,7 @@ public final class R {
     public static final int cut_round=0x7f0e0003;
     public static final int ic_launcher=0x7f0e0004;
     public static final int ic_launcher_foreground=0x7f0e0005;
-    public static final int ic_launcher_round=0x7f0e0006;
-    public static final int translate=0x7f0e0007;
+    public static final int translate=0x7f0e0006;
   }
   public static final class string {
     public static final int abc_action_bar_home_description=0x7f0f0000;

@@ -1,20 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+            "outputFile": "/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.9.aar\\40af182951601dd99731e7e67da1846e\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,113",
-                        "endColumns": "57,55",
-                        "endOffsets": "108,164"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\b96594cbc74e1d904258b521448cd123\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "/home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/71a153adc5b0a9a4488fef605a300566/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "8",
                         "endColumns": "13",
                         "endOffsets": "441"
+                    }
+                },
+                {
+                    "source": "/home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/core-1.9.aar/c8ec1e76e127d41cb9946a21db74b801/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,113",
+                        "endColumns": "57,55",
+                        "endOffsets": "108,164"
                     }
                 }
             ]

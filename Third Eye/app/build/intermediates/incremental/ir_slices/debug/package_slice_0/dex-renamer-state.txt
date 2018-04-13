@@ -1,4 +1,4 @@
-#Fri Apr 13 03:37:07 BDT 2018
-base.0=D\:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
+#Sat Apr 14 00:53:20 BDT 2018
+base.0=/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/transforms/dexMerger/debug/1
 path.0=classes.dex
 renamed.0=classes.dex

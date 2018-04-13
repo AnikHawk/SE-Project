@@ -611,8 +611,8 @@ public final class R {
         public static final int notification_template_icon_low_bg = 0x7f08009c;
         public static final int notification_tile_bg = 0x7f08009d;
         public static final int notify_panel_notification_icon_bg = 0x7f08009e;
-        public static final int tooltip_frame_dark = 0x7f0800a5;
-        public static final int tooltip_frame_light = 0x7f0800a6;
+        public static final int tooltip_frame_dark = 0x7f0800a6;
+        public static final int tooltip_frame_light = 0x7f0800a7;
     }
     public static final class id {
         public static final int CropOverlayView = 0x7f0a0002;
@@ -709,18 +709,18 @@ public final class R {
         public static final int select_dialog_listview = 0x7f0a00fe;
         public static final int shortcut = 0x7f0a0101;
         public static final int spacer = 0x7f0a0109;
-        public static final int split_action_bar = 0x7f0a010a;
-        public static final int src_atop = 0x7f0a010d;
-        public static final int src_in = 0x7f0a010e;
-        public static final int src_over = 0x7f0a010f;
-        public static final int submenuarrow = 0x7f0a0113;
-        public static final int submit_area = 0x7f0a0114;
-        public static final int tabMode = 0x7f0a0116;
-        public static final int tag_transition_group = 0x7f0a0117;
-        public static final int text = 0x7f0a0118;
-        public static final int text2 = 0x7f0a0119;
-        public static final int textSpacerNoButtons = 0x7f0a011b;
-        public static final int textSpacerNoTitle = 0x7f0a011c;
+        public static final int split_action_bar = 0x7f0a010b;
+        public static final int src_atop = 0x7f0a010e;
+        public static final int src_in = 0x7f0a010f;
+        public static final int src_over = 0x7f0a0110;
+        public static final int submenuarrow = 0x7f0a0114;
+        public static final int submit_area = 0x7f0a0115;
+        public static final int tabMode = 0x7f0a0117;
+        public static final int tag_transition_group = 0x7f0a0118;
+        public static final int text = 0x7f0a0119;
+        public static final int text2 = 0x7f0a011a;
+        public static final int textSpacerNoButtons = 0x7f0a011c;
+        public static final int textSpacerNoTitle = 0x7f0a011d;
         public static final int time = 0x7f0a0122;
         public static final int title = 0x7f0a0123;
         public static final int titleDividerNoCustom = 0x7f0a0124;

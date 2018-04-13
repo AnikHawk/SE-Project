@@ -1,26 +1,34 @@
 package com.google.android.gms.samples.vision.ocrreader;
+
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.net.Uri;
+import android.os.Build;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Language;
+import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
 import com.googlecode.tesseract.android.TessBaseAPI;
-import com.mapzen.speakerbox.Speakerbox;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -39,15 +47,21 @@ import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 
 public class ImagePickerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    HashMap<String,String> mp = new HashMap<>();
+    FloatingActionButton copyButton;
+    FloatingActionButton cutButton;
+    FloatingActionButton translateButton;
+    FloatingActionButton speakButton;
+    CustomToggleButton getTextButton, selectImageButton;
+    HashMap<String, String> mp = new HashMap<>();
     String language = "eng";
     Bitmap image;
-    CustomToggleButton getTextButton, selectImageButton;
     Spinner selectLang;
     private TessBaseAPI mTess;
     String datapath = "";
     ImageView imv;
     TextToSpeech textToSpeech;
+    EditText textHolder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +69,12 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
         getTextButton = findViewById(R.id.get_text_button);
         selectImageButton = findViewById(R.id.select_button);
+        copyButton = findViewById(R.id.copyButton);
+        cutButton = findViewById(R.id.cutButton);
+        speakButton = findViewById(R.id.speakButton);
+        translateButton = findViewById(R.id.translateButton);
+        textHolder = findViewById(R.id.textHolder);
+
 
         getTextButton.setChecked(false);
         selectImageButton.setChecked(false);
@@ -62,10 +82,11 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         selectLang = findViewById(R.id.lang_spinner);
         final Context context = this;
 
-        textToSpeech=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
-                if(status != TextToSpeech.ERROR) {
+                if (status != TextToSpeech.ERROR) {
                     textToSpeech.setLanguage(Locale.US);
                 }
             }
@@ -75,11 +96,10 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         mp.put("English", "eng");
         mp.put("Bangla", "ben");
 
-        final HashMap<String ,String> map = new HashMap<>();
+        final HashMap<String, String> map = new HashMap<>();
         map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "speak");
 
         selectLang.setOnItemSelectedListener(this);
-
 
 
         List<String> languageList = new ArrayList<String>();
@@ -93,17 +113,56 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
         //initialize Tesseract API
 
-        datapath = getFilesDir()+ "/tesseract/";
+        datapath = getFilesDir() + "/tesseract/";
         mTess = new TessBaseAPI();
-
-
-
         checkFile(new File(datapath + "tessdata/"));
-
         mTess.init(datapath, language);
-
-
         imv = findViewById(R.id.imageView);
+
+        cutButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                copyToClipboard(textHolder.getText().toString());
+                textHolder.setText("");
+            }
+        });
+        speakButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                String toSpeak = textHolder.getText().toString();
+                textToSpeech.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, map);
+
+            }
+        });
+        copyButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                copyToClipboard(textHolder.getText().toString());
+            }
+        });
+
+        translateButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                if (language.equals("ben")) {
+                    return;
+                }
+
+                String textToBeTranslated = textHolder.getText().toString();
+                String translatedText = "";
+
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
+                Translate.setKey("trnsl.1.1.20180412T163251Z.ead1113e422fc75c.2aea1968e61b5c8585b850b8a8b056c9eb77b74c");
+
+                try {
+                    translatedText = Translate.execute(textToBeTranslated, Language.ENGLISH, Language.BANGLA);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                textHolder.setText(translatedText);
+
+            }
+        });
 
         getTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,15 +170,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
                 try {
                     processImage();
-                    TextView OCRTextView = findViewById(R.id.textView);
-                    String toSpeak = OCRTextView.getText().toString();
-                    Log.d("crap", toSpeak);
-
-                    textToSpeech.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, map);
-
-                }
-                catch (Exception e)
-                {
+                } catch (Exception e) {
 
                 }
             }
@@ -152,7 +203,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
                 Uri uri = result.getUri();
                 imv.setImageURI(uri);
                 try {
-                    image = MediaStore.Images.Media.getBitmap(this.getContentResolver() , uri);
+                    image = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -165,22 +216,20 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         }
     }
 
-    public void processImage(){
+    public void processImage() {
         String OCRresult;
         mTess.setImage(image);
         OCRresult = mTess.getUTF8Text();
-        TextView OCRTextView = findViewById(R.id.textView);
-        OCRTextView.setText(OCRresult);
+        textHolder.setText(OCRresult);
     }
 
 
-
     private void checkFile(File dir) {
-        if (!dir.exists()&& dir.mkdirs()){
+        if (!dir.exists() && dir.mkdirs()) {
             copyFiles();
         }
-        if(dir.exists()) {
-            String datafilepath = datapath+ "/tessdata/"+language+".traineddata";
+        if (dir.exists()) {
+            String datafilepath = datapath + "/tessdata/" + language + ".traineddata";
             File datafile = new File(datafilepath);
 
             if (!datafile.exists()) {
@@ -191,10 +240,10 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
     private void copyFiles() {
         try {
-            String filepath = datapath + "/tessdata/"+language+".traineddata";
+            String filepath = datapath + "/tessdata/" + language + ".traineddata";
             AssetManager assetManager = getAssets();
 
-            InputStream instream = assetManager.open("tessdata/"+language+".traineddata");
+            InputStream instream = assetManager.open("tessdata/" + language + ".traineddata");
             OutputStream outstream = new FileOutputStream(filepath);
 
             byte[] buffer = new byte[1024];
@@ -224,12 +273,9 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         language = mp.get(item);
         checkFile(new File(datapath + "tessdata/"));
         mTess.init(datapath, language);
-        if(language.equals("eng"))
-        {
+        if (language.equals("eng")) {
             textToSpeech.setLanguage(Locale.US);
-        }
-        else if(language.equals("ben"))
-        {
+        } else if (language.equals("ben")) {
             textToSpeech.setLanguage(new Locale("bn_BD"));
         }
     }
@@ -237,5 +283,28 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    public void copyToClipboard(String copyText) {
+        int sdk = Build.VERSION.SDK_INT;
+        if (sdk < Build.VERSION_CODES.HONEYCOMB) {
+            android.text.ClipboardManager clipboard = (android.text.ClipboardManager)
+                    getSystemService(Context.CLIPBOARD_SERVICE);
+            if (clipboard != null) {
+                clipboard.setText(copyText);
+            }
+        } else {
+            ClipboardManager clipboard = (ClipboardManager)
+                    getSystemService(Context.CLIPBOARD_SERVICE);
+            ClipData clip = ClipData
+                    .newPlainText("Your OTP", copyText);
+            if (clipboard != null) {
+                clipboard.setPrimaryClip(clip);
+            }
+        }
+        Toast toast = Toast.makeText(getApplicationContext(),
+                "Text copied to clipboard", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM | Gravity.START, 50, 50);
+        toast.show();
     }
 }

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\SE-Project-master\\Third Eye\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh/values-zh.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Anik\\.gradle\\caches\\transforms-1\\files-1.1\\android-image-cropper-2.6.0.aar\\a4e9a74c7bd524ba9c6615d8b6d07c9e\\res\\values-zh\\values-zh.xml",
+                    "source": "/home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-image-cropper-2.6.0.aar/cecaaad640e9cc8c6287d9ad2645f097/res/values-zh/values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

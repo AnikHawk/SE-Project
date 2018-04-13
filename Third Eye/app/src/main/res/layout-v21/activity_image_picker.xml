@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,10 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="200dp"
             android:src="@mipmap/ic_launcher"
             />
 
@@ -36,7 +38,7 @@
             app:uncheckedTextColor="#ffffff"
             app:checkedTextColor="#ffffff"
             app:radius="7dp"
-            android:layout_margin="10dp">
+            android:layout_margin="8dp">
         </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
         <me.rishabhkhanna.customtogglebutton.CustomToggleButton
@@ -56,7 +58,7 @@
             app:uncheckedTextColor="#ffffff"
             app:checkedTextColor="#ffffff"
             app:radius="7dp"
-            android:layout_margin="10dp">
+            android:layout_margin="8dp">
         </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
         <Spinner
@@ -73,14 +75,81 @@
             android:dropDownSelector="#ddeeff"
             android:alwaysDrawnWithCache="true"/>
 
-        <TextView
+        <EditText
             android:hint="retrieved text"
-            android:id="@+id/textView"
+            android:id="@+id/textHolder"
             android:layout_margin="10dp"
             android:layout_gravity="center_horizontal"
             android:textSize="20dp"
+            android:minLines="4"
+            android:maxLines="4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+
+
     </LinearLayout>
+
+
+
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        fab:menu_labels_singleLine="true"
+        fab:menu_animationDelayPerItem="0"
+        app:menu_colorNormal="@color/md_light_blue_A700"
+        app:menu_colorPressed="@color/md_light_blue_500"
+        app:menu_colorRipple="@color/md_light_blue_A100"
+        fab:menu_labels_maxLines="2"
+        fab:menu_labels_ellipsize="end">
+
+
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/cutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cut_padded"
+            android:scaleType="fitCenter"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            style="@style/MenuButtonsSmall"
+            app:fab_size="mini"
+            fab:fab_label="Cut" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/copyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/copy_padded"
+            style="@style/MenuButtonsSmall"
+            app:rippleColor="@color/md_teal_600"
+            app:fab_size="mini"
+            fab:fab_label="Copy" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/translateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:rippleColor="@color/md_teal_700"
+            style="@style/MenuButtonsSmall"
+            android:src="@drawable/translate_padded"
+            app:fab_size="mini"
+            fab:fab_label="Translate" />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/speakButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:rippleColor="@color/md_teal_700"
+            style="@style/MenuButtonsSmall"
+            android:src="@drawable/speak"
+            app:fab_size="mini"
+            fab:fab_label="Speak" />
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 </android.support.constraint.ConstraintLayout>
