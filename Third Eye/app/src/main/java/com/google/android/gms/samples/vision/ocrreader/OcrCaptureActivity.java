@@ -23,9 +23,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseArray;
@@ -38,7 +35,6 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -57,7 +53,6 @@ import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
-import com.robertsimoes.shareable.Shareable;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
@@ -67,96 +62,87 @@ import mazouri.statebutton.StateButton;
 
 public final class OcrCaptureActivity extends AppCompatActivity {
     private static final String TAG = "OcrCaptureActivity";
-    //public static boolean resetFlag = false;
     // Intent request code to handle updating play services if needed.
     private static final int RC_HANDLE_GMS = 9001;
     // Permission request codes need to be < 256
     private static final int RC_HANDLE_CAMERA_PERM = 2;
-    // Constants used to pass extra data in the intent
-    public static final String AutoFocus = "AutoFocus";
-    public static final String UseFlash = "UseFlash";
-    public static final String WordByWord = "WordByWord";
-    public static final String LineByLine = "LineByLine";
-    public static final String BlockByBlock = "BlockByBlock";
-    public static final String Translation = "Translation";
-    public static final String SelectedLanguage = "SelectedLanguage";
+
     public  static String pdfString = "";
+    public  static String qrString = "";
     //public static final String TextBlockObject = "String";
     StateButton flashButton;
     StateButton focusButton;
     StateButton scanModeButton;
-    public boolean wordByWord;
-    public boolean lineByLine;
-    public boolean blockByBlock;
+    public boolean wordByWord = true;
+    public boolean lineByLine = false;
+    public boolean blockByBlock = false;
     public boolean translation;
     public String translateTo = "";
-    //private ClipboardManager myClipboard;
-    //private ClipData myClip;
-    //boolean isUp;
+
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
     RelativeLayout bottomView;
-    public static EditText textHolder;
+    public EditText textHolder;
+    boolean isExpanded;
+
     FloatingActionButton copyButton;
     FloatingActionButton cutButton;
     FloatingActionButton translateButton;
     FloatingActionButton pdfButton;
+    FloatingActionButton qrGenButton;
     FloatingActionButton shareButton;
     FloatingActionButton pauseButton;
     FloatingActionMenu fab;
     AVLoadingIndicatorView load;
     AVLoadingIndicatorView effect;
-    boolean isExpanded;
+
     // Helper objects for detecting taps and pinches.
     private ScaleGestureDetector scaleGestureDetector;
     private GestureDetector gestureDetector;
     ExpandCollapseExtention animator = new ExpandCollapseExtention();
+
     private Language fromLang;
     private Language toLang;
-    //The number of pages (wizard steps) to show in this demo.
-    public static final int NUM_PAGES = 2;
-    //The pager widget, which handles animation and allows swiping horizontally to access
-    // previous and next wizard steps.
-    private ViewPager mPager;
-    private PagerAdapter mPagerAdapter;
     boolean frontFacing = false;
     public static Detector.Detections<TextBlock> detections;
-    int scanModeSelection = 1;
     public static boolean isPaused = false;
+
+    boolean autoFocus = true;
+    boolean useFlash = false;
+    int scanModeSelection = 1;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_ocr_capture);
+        flashButton = findViewById(R.id.flashButton);
+        focusButton = findViewById(R.id.focusButton);
+        scanModeButton = findViewById(R.id.scanModeButton);
+
         textHolder = findViewById(R.id.textHolder);
+        mPreview = findViewById(R.id.preview);
+        mGraphicOverlay = findViewById(R.id.graphicOverlay);
+        bottomView = findViewById(R.id.bottomView);
+        ExpandCollapseExtention.collapse(bottomView);
+        isExpanded = false;
+
         copyButton = findViewById(R.id.copyButton);
         cutButton = findViewById(R.id.cutButton);
         translateButton = findViewById(R.id.translateButton);
         pdfButton = findViewById(R.id.pdf_button);
+        qrGenButton = findViewById(R.id.qr_generator_fab_button);
         shareButton = findViewById(R.id.share_button);
         pauseButton = findViewById(R.id.pause_button);
-        mPreview = findViewById(R.id.preview);
-        mGraphicOverlay = findViewById(R.id.graphicOverlay);
-        bottomView = findViewById(R.id.bottomView);
         load = findViewById(R.id.loading);
         fab = findViewById(R.id.fab);
         effect = findViewById(R.id.effect);
-        ExpandCollapseExtention.collapse(bottomView);
-        isExpanded = false;
-        flashButton = findViewById(R.id.flashButton);
-        focusButton = findViewById(R.id.focusButton);
-        scanModeButton = findViewById(R.id.scanModeButton);
         effect.bringToFront();
+
         // read parameters from the intent used to launch the activity.
-        final boolean[] autoFocus = {getIntent().getBooleanExtra(AutoFocus, false)};
-        final boolean[] useFlash = {getIntent().getBooleanExtra(UseFlash, false)};
-        wordByWord = getIntent().getBooleanExtra(WordByWord, false);
-        lineByLine = getIntent().getBooleanExtra(LineByLine, false);
-        blockByBlock = getIntent().getBooleanExtra(BlockByBlock, false);
-        translation = getIntent().getBooleanExtra(Translation, false);
-        translateTo = getIntent().getStringExtra(SelectedLanguage);
+        translation = getIntent().getBooleanExtra("Translation", false);
+        translateTo = getIntent().getStringExtra("SelectedLanguage");
         flashButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String flashMode = mCameraSource.getFlashMode();
@@ -164,40 +150,30 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     if (flashMode.equals(Camera.Parameters.FLASH_MODE_OFF)) {
                         mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                         flashButton.setState(StateButton.BUTTON_STATES.ENABLED);
-                        useFlash[0] = true;
+                        useFlash = true;
+                        Toast.makeText(getApplicationContext(), "Flash On", Toast.LENGTH_SHORT).show();
                     } else {
                         mCameraSource.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
                         flashButton.setState(StateButton.BUTTON_STATES.SELECTED);
-                        useFlash[0] = false;
+                        useFlash = false;
+                        Toast.makeText(getApplicationContext(), "Flash Off", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
-//        facingButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                StateButton.BUTTON_STATES state = facingButton.getState();
-//                if (state == StateButton.BUTTON_STATES.SELECTED) {
-//                    frontFacing = true;
-//                    facingButton.setState(StateButton.BUTTON_STATES.ENABLED);
-//                } else {
-//                    frontFacing = false;
-//                    facingButton.setState(StateButton.BUTTON_STATES.SELECTED);
-//                }
-//                //createCameraSource(autoFocus[0],useFlash[0]);
-//
-//            }
-//        });
         focusButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 StateButton.BUTTON_STATES state = focusButton.getState();
                 if (state == StateButton.BUTTON_STATES.SELECTED) {
                     mCameraSource.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
                     focusButton.setState(StateButton.BUTTON_STATES.ENABLED);
-                    autoFocus[0] = true;
+                    autoFocus = true;
+                    Toast.makeText(getApplicationContext(), "Auto Focus On", Toast.LENGTH_SHORT).show();
                 } else {
                     mCameraSource.cancelAutoFocus();
                     focusButton.setState(StateButton.BUTTON_STATES.SELECTED);
-                    autoFocus[0] = false;
+                    autoFocus = false;
+                    Toast.makeText(getApplicationContext(), "Auto Focus Off", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -216,6 +192,20 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 }
             }
         });
+//        facingButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                StateButton.BUTTON_STATES state = facingButton.getState();
+//                if (state == StateButton.BUTTON_STATES.SELECTED) {
+//                    frontFacing = true;
+//                    facingButton.setState(StateButton.BUTTON_STATES.ENABLED);
+//                } else {
+//                    frontFacing = false;
+//                    facingButton.setState(StateButton.BUTTON_STATES.SELECTED);
+//                }
+//                //createCameraSource(autoFocus[0],useFlash[0]);
+//
+//            }
+//        });
         cutButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 copyToClipboard(textHolder.getText().toString());
@@ -230,7 +220,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 //ExpandCollapseExtention.collapse(bottomView);
             }
         });
-
         translateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 load.show();
@@ -274,9 +263,18 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pdfString +=("\n" + textHolder.getText().toString());
-
                 Intent intent = new Intent(OcrCaptureActivity.this, PdfActivity.class);
-
+                OcrCaptureActivity.this.startActivity(intent);
+            }
+        });
+        qrGenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                qrString +=("\n" + textHolder.getText().toString());
+                Intent intent = new Intent(OcrCaptureActivity.this, QrCodeGeneratorActivity.class);
+                intent.putExtras(bundle);
+                intent.putExtra("QR STRING", qrString);
                 OcrCaptureActivity.this.startActivity(intent);
             }
         });
@@ -295,7 +293,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 if (isPaused) {
                     isPaused = false;
                     ExpandCollapseExtention.collapse(bottomView);
-                } else if (!isPaused) {
+                }
+                else {
                     textHolder.setText("");
                     SparseArray<TextBlock> items = detections.getDetectedItems();
                     for (int i = 0; i < items.size(); ++i) {
@@ -324,7 +323,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         // permission is not granted yet, request permission.
         int rc = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
         if (rc == PackageManager.PERMISSION_GRANTED) {
-            createCameraSource(autoFocus[0], useFlash[0]);
+            createCameraSource(autoFocus, useFlash);
         } else {
             requestCameraPermission();
         }
@@ -393,8 +392,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         textRecognizer.setProcessor(ocrDetectorProcessor);
         if (!textRecognizer.isOperational()) {
             Log.w(TAG, "Detector dependencies are not yet available.");
-            IntentFilter lowstorageFilter = new IntentFilter(Intent.ACTION_DEVICE_STORAGE_LOW);
-            boolean hasLowStorage = registerReceiver(null, lowstorageFilter) != null;
+            IntentFilter lowStorageFilter = new IntentFilter(Intent.ACTION_DEVICE_STORAGE_LOW);
+            boolean hasLowStorage = registerReceiver(null, lowStorageFilter) != null;
             if (hasLowStorage) {
                 Toast.makeText(this, R.string.low_storage_error, Toast.LENGTH_LONG).show();
                 Log.w(TAG, getString(R.string.low_storage_error));
@@ -451,8 +450,8 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "Camera permission granted - initialize the camera source");
             // We have permission, so create the camerasource
-            boolean autoFocus = getIntent().getBooleanExtra(AutoFocus, false);
-            boolean useFlash = getIntent().getBooleanExtra(UseFlash, false);
+            boolean autoFocus = getIntent().getBooleanExtra("AutoFocus", false);
+            boolean useFlash = getIntent().getBooleanExtra("UseFlash", false);
             createCameraSource(autoFocus, useFlash);
             return;
         }
@@ -489,8 +488,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
     private boolean onTap(float rawX, float rawY) {
         if (fab.isOpened()) {

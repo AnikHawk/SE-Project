@@ -37,6 +37,7 @@ public class QrCodeGeneratorActivity extends AppCompatActivity {
     ImageView qrImage;
     Button generate, save;
     String inputValue;
+    String qrString = "";
     String savePath = Environment.getExternalStorageDirectory().getPath() + "/QRCode/";
     Bitmap bitmap;
     QRGEncoder qrgEncoder;
@@ -50,6 +51,8 @@ public class QrCodeGeneratorActivity extends AppCompatActivity {
         editText = findViewById(R.id.text_edit);
         generate = findViewById(R.id.generate_button);
         save = findViewById(R.id.save_button);
+        qrString = getIntent().getStringExtra("QR STRING");
+        editText.setText(qrString);
         verifyStoragePermissions(this);
 
         generate.setOnClickListener(new View.OnClickListener() {

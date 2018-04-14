@@ -50,5 +50,8 @@
     <string name="qr_preview">QR Preview</string>
     <string name="get_text">GET TEXT</string>
     <string name="select_image">Select Image</string>
+    <string name="real_time">Real-time</string>
+    <string name="image">IMAGE</string>
+    <string name="qr">QR</string>
 
 </resources>

@@ -173,6 +173,15 @@
             fab:fab_label="PDF"
             app:fab_size="mini" />
 
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/qr_generator_fab_button"
+            style="@style/MenuButtonsSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/qr_padded"
+            app:fab_size="mini"
+            app:rippleColor="@color/md_teal_800"
+            fab:fab_label="qrGenerator" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/share_button"

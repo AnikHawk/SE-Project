@@ -1,19 +1,14 @@
 package com.google.android.gms.samples.vision.ocrreader;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -21,11 +16,8 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSource;
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
-import com.google.android.gms.vision.text.TextRecognizer;
 //com.suke.widget.JellyToggleButton;
 //import com.suke.widget.JellyToggleButton;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
@@ -35,37 +27,27 @@ import java.io.IOException;
 
 import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 
-import static com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity.AutoFocus;
-import static com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity.UseFlash;
-public class MainActivity extends Activity implements View.OnClickListener, SurfaceHolder.Callback {
+public class MainActivity extends AppCompatActivity implements SurfaceHolder.Callback, View.OnClickListener {
+    private static final String TAG = "MainActivity";
 
-    // Use a compound createButton so either checkbox or switch widgets work.
-    private JellyToggleButton autoFocus;
-    private JellyToggleButton useFlash;
-    private JellyToggleButton wordByWord;
-    private JellyToggleButton lineByline;
-    private JellyToggleButton blockByBlock;
-    private JellyToggleButton translation;
-    private CameraSource mCameraSource;
-    private SurfaceView mSurfaceView;
-    private SurfaceHolder mSurfaceHolder;
-    private Spinner langSpinner;
     private GraphicOverlay<OcrGraphic> mGraphicOverlay;
     private static final int RC_HANDLE_CAMERA_PERM = 212;
-    private CustomToggleButton detectText;
+
+    private CustomToggleButton realTimeButton;
     private CustomToggleButton imagePickerButton;
     private CustomToggleButton qrButton;
+    private JellyToggleButton translation;
+    private Spinner langSpinner;
+
     Camera camera;
     SurfaceView surfaceView;
     SurfaceHolder surfaceHolder;
     boolean previewing = false;
     LayoutInflater controlInflater = null;
     public TextView statusMessage;
-    //private TextView textValue;
+
     private static final int RC_OCR_CAPTURE = 9003;
     private static final int RC_IMAGE_PICKER = 9004;
-
-    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,32 +59,20 @@ public class MainActivity extends Activity implements View.OnClickListener, Surf
             }
         }
 
-        surfaceView = (SurfaceView)findViewById(R.id.preview);
+        surfaceView = findViewById(R.id.preview);
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.addCallback(this);
         surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         statusMessage = findViewById(R.id.app_name);
-        autoFocus = findViewById(R.id.auto_focus);
-        useFlash = findViewById(R.id.use_flash);
-        wordByWord = findViewById(R.id.word_by_word);
-        lineByline = findViewById(R.id.line_by_line);
-        blockByBlock = findViewById(R.id.block_by_block);
         translation = findViewById(R.id.translation);
-        detectText = findViewById(R.id.read_text);
-        imagePickerButton = findViewById(R.id.picker_button);
+        realTimeButton = findViewById(R.id.real_time);
+        imagePickerButton = findViewById(R.id.image_picker_button);
         qrButton = findViewById(R.id.qr_button);
 
-        detectText.setChecked(false);
+        realTimeButton.setChecked(false);
         imagePickerButton.setChecked(false);
         qrButton.setChecked(false);
-
-        imagePickerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ImagePickerActivity.class));
-            }
-        });
 
         qrButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,38 +80,17 @@ public class MainActivity extends Activity implements View.OnClickListener, Surf
                 startActivity(new Intent(MainActivity.this, QrCodeScannerActivity.class));
             }
         });
-
-        wordByWord.setOnClickListener(new JellyToggleButton.OnClickListener() {
+        imagePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                    wordByWord.setChecked(true);
-                    lineByline.setChecked(false);
-                    blockByBlock.setChecked(false);
-            }
-        });
-
-        lineByline.setOnClickListener(new JellyToggleButton.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    wordByWord.setChecked(false);
-                    lineByline.setChecked(true);
-                    blockByBlock.setChecked(false);
-            }
-        });
-        blockByBlock.setOnClickListener(new JellyToggleButton.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    wordByWord.setChecked(false);
-                    lineByline.setChecked(false);
-                    blockByBlock.setChecked(true);
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ImagePickerActivity.class));
             }
         });
 
         langSpinner = findViewById(R.id.lang_spinner);
         translation.setOnCheckedChangeListener(langChoice);
 
-
-        findViewById(R.id.read_text).setOnClickListener(this);
+        findViewById(R.id.real_time).setOnClickListener(this);
     }
 
     JellyToggleButton.OnCheckedChangeListener langChoice = new JellyToggleButton.OnCheckedChangeListener() {
@@ -155,25 +104,16 @@ public class MainActivity extends Activity implements View.OnClickListener, Surf
         }
     };
 
+
     @Override
     public void onClick(View v) {
-        if (v.getId() == detectText.getId()) {
-            // launch Ocr capture activity.
+        if (v.getId() == realTimeButton.getId()) {
             Intent intent = new Intent(this, OcrCaptureActivity.class);
-            intent.putExtra(AutoFocus, autoFocus.isChecked());
-            intent.putExtra(UseFlash, useFlash.isChecked());
-            intent.putExtra(OcrCaptureActivity.WordByWord, wordByWord.isChecked());
-            intent.putExtra(OcrCaptureActivity.LineByLine, lineByline.isChecked());
-            intent.putExtra(OcrCaptureActivity.BlockByBlock, blockByBlock.isChecked());
-            intent.putExtra(OcrCaptureActivity.Translation, translation.isChecked());
-
-            intent.putExtra(OcrCaptureActivity.SelectedLanguage, String.valueOf(langSpinner.getSelectedItem()));
-
+            intent.putExtra("Translation", translation.isChecked());
+            intent.putExtra("SelectedLanguage", String.valueOf(langSpinner.getSelectedItem()));
             startActivityForResult(intent, RC_OCR_CAPTURE);
         }
-
     }
-
 
 
     @Override
@@ -204,7 +144,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Surf
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-
     }
 
 
@@ -257,5 +196,10 @@ public class MainActivity extends Activity implements View.OnClickListener, Surf
             else return true;
         }
         return false;
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }

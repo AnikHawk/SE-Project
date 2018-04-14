@@ -18,7 +18,7 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
     private boolean lineByLine;
     private boolean blockByBlock;
     private String translateTo;
-    public static boolean frameDone = true;
+    private static boolean frameDone = true;
 
     OcrDetectorProcessor(GraphicOverlay<OcrGraphic> ocrGraphicOverlay, View view, boolean translation, boolean wordByWord, boolean lineByLine, boolean blockByBlock, String translateTo) {
         mGraphicOverlay = ocrGraphicOverlay;

@@ -22,7 +22,6 @@ import java.util.List;
 public class OcrGraphic extends GraphicOverlay.Graphic{
 
     private int mId;
-    private View view;
     private static final int TEXT_COLOR = Color.WHITE;
 
     private static Paint sRectPaint;
@@ -39,7 +38,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
 
     OcrGraphic(GraphicOverlay overlay, TextBlock text, View view, Boolean translation, Boolean wordByWord, Boolean lineByLine, Boolean blockByBlock, String translateTo) {
         super(overlay);
-        this.view = view;
+        View view1 = view;
         transitionOverlay = overlay;
         mText = text;
         this.translation = translation;
@@ -125,7 +124,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
         }
 
 //  Word by Word
-        else if (wordByWord && !lineByLine && !blockByBlock) {
+        else if (wordByWord) {
             if(translation) try {
                 fromLang = Detect.execute(text.getValue());
             } catch (Exception e) {
@@ -183,7 +182,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
 
 
 //        Line by Line
-        else if (!wordByWord && lineByLine && !blockByBlock) {
+        else if (lineByLine) {
             if(translation) try {
                 fromLang = Detect.execute(text.getValue());
             } catch (Exception e) {
@@ -234,7 +233,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
 
 
 //       //Block by Block
-        else if(!wordByWord && !lineByLine && blockByBlock){
+        else if(blockByBlock){
             float left = translateX(text.getBoundingBox().left);
             float bottom = translateY(text.getBoundingBox().top);
             // Draws the bounding box around the TextBlock.

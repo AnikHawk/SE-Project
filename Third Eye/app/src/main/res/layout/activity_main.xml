@@ -11,25 +11,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.google.android.gms.samples.vision.ocrreader.MainActivity">
 
-
-    <SurfaceView
-        android:id="@+id/preview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/switches"
-        android:layout_below="@id/app_name"
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:paddingHorizontal="20dp"
-        />
-
-
     <TextView
         android:id="@+id/app_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="15dp"
         android:text="@string/ocr_header"
@@ -37,233 +22,114 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="30sp"/>
 
+    <SurfaceView
+        android:id="@+id/preview"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/app_name"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:paddingHorizontal="30dp" />
+
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="150dp"
         android:layout_below="@id/app_name"
         android:contentDescription="@string/back_cam_view"
         android:src="@drawable/logo"/>
 
-    <me.rishabhkhanna.customtogglebutton.CustomToggleButton
-        android:id="@+id/qr_button"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="5dp"
-        android:text="QR"
-        android:textOff="QR"
-        android:textOn="QR"
-        app:borderWidth="3dp"
-        app:checkedColor="@color/md_light_blue_A700"
-        app:checkedTextColor="#ffffff"
-        app:radius="20dp"
-        app:uncheckedColor="@color/md_light_blue_A700"
-        app:uncheckedTextColor="#ffffff">
-    </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
-
-
-    <me.rishabhkhanna.customtogglebutton.CustomToggleButton
-        android:id="@+id/read_text"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:text="Real-time"
-        android:textOff="Real-time"
-        android:textOn="Real-time"
-        app:borderWidth="3dp"
-        app:checkedColor="@color/md_light_blue_A700"
-        app:checkedTextColor="#ffffff"
-        app:radius="7dp"
-        app:uncheckedColor="@color/md_light_blue_A700"
-        app:uncheckedTextColor="#ffffff">
-    </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
-
-    <me.rishabhkhanna.customtogglebutton.CustomToggleButton
-        android:id="@+id/picker_button"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_gravity="center"
-        android:layout_marginRight="20dp"
-        android:text="Image"
-        android:textOff="Image"
-        android:textOn="Image"
-        app:borderWidth="3dp"
-        app:checkedColor="@color/md_light_blue_A700"
-        app:checkedTextColor="#ffffff"
-        app:radius="7dp"
-        app:uncheckedColor="@color/md_light_blue_A700"
-        app:uncheckedTextColor="#ffffff">
-    </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
-
-
     <RelativeLayout
-        android:id="@+id/switches"
+        android:id="@+id/modes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/read_text"
-        android:layout_below="@id/logo">
+        android:layout_below="@id/logo"
+        android:layout_marginTop="10dp">
 
-        <com.nightonke.jellytogglebutton.JellyToggleButton
-            android:id="@+id/auto_focus"
-            android:layout_width="wrap_content"
+        <me.rishabhkhanna.customtogglebutton.CustomToggleButton
+            android:id="@+id/real_time"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/use_flash"
-            android:layout_alignStart="@+id/use_flash"
-            android:layout_alignTop="@+id/word_by_word"
-            android:checked="true"
-            app:jtbDuration="250"
-            app:jtbLeftBackgroundColor="@color/md_red_900"/>
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="@string/real_time"
+            android:textOff="@string/real_time"
+            android:textOn="@string/real_time"
+            app:borderWidth="3dp"
+            app:checkedColor="@color/md_light_blue_A700"
+            app:checkedTextColor="#ffffff"
+            app:radius="7dp"
+            app:uncheckedColor="@color/md_light_blue_A700"
+            app:uncheckedTextColor="#ffffff"
+            android:layout_marginTop="10dp">
+        </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
-
-        <com.nightonke.jellytogglebutton.JellyToggleButton
-            android:id="@+id/use_flash"
-            android:layout_width="wrap_content"
+        <me.rishabhkhanna.customtogglebutton.CustomToggleButton
+            android:id="@+id/qr_button"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="10dp"
-            android:checked="false"
-            app:jtbDuration="250"
-            app:jtbLeftBackgroundColor="@color/md_red_900"/>
+            android:layout_below="@+id/real_time"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="@string/qr"
+            android:textOff="@string/qr"
+            android:textOn="@string/qr"
+            app:borderWidth="3dp"
+            app:checkedColor="@color/md_light_blue_A700"
+            app:checkedTextColor="#ffffff"
+            app:radius="20dp"
+            app:uncheckedColor="@color/md_light_blue_A700"
+            app:uncheckedTextColor="#ffffff"
+            android:layout_marginTop="10dp">
+        </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
+
+        <me.rishabhkhanna.customtogglebutton.CustomToggleButton
+            android:id="@+id/image_picker_button"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/qr_button"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:text="@string/image"
+            android:textOff="@string/image"
+            android:textOn="@string/image"
+            app:borderWidth="3dp"
+            app:checkedColor="@color/md_light_blue_A700"
+            app:checkedTextColor="#ffffff"
+            app:radius="7dp"
+            app:uncheckedColor="@color/md_light_blue_A700"
+            app:uncheckedTextColor="#ffffff"
+            android:layout_marginTop="10dp">
+        </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
         <com.nightonke.jellytogglebutton.JellyToggleButton
-
             android:id="@+id/translation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/use_flash"
-            android:layout_margin="10dp"
+            android:layout_below="@+id/image_picker_button"
+            android:layout_alignEnd="@+id/image_picker_button"
+            android:layout_gravity="center"
             android:checked="false"
             app:jtbDuration="250"
-            app:jtbLeftBackgroundColor="@color/md_red_900"/>
-
-
-        <com.nightonke.jellytogglebutton.JellyToggleButton
-
-            android:id="@+id/word_by_word"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/line_by_line"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_margin="10dp"
-            android:checked="true"
-            app:jtbDuration="250"
-            app:jtbLeftBackgroundColor="@color/md_red_900"/>
-
-
-        <com.nightonke.jellytogglebutton.JellyToggleButton
-
-            android:id="@+id/line_by_line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="10dp"
-            android:checked="false"
-            app:jtbDuration="250"
-            app:jtbLeftBackgroundColor="@color/md_red_900"/>
-
-
-        <com.nightonke.jellytogglebutton.JellyToggleButton
-
-            android:id="@+id/block_by_block"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/translation"
-            android:layout_alignLeft="@+id/line_by_line"
-            android:layout_alignStart="@+id/line_by_line"
-            android:checked="false"
-            app:jtbDuration="250"
-            app:jtbLeftBackgroundColor="@color/md_red_900"/>
-
-
-        <TextView
-            android:id="@+id/auto_focus_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/translation_text"
-            android:layout_alignStart="@+id/translation_text"
-            android:layout_alignTop="@+id/auto_focus"
-            android:paddingTop="7dp"
-            android:text="@string/auto_focus"
-            android:textColor="#ffffff"/>
-
-
-        <TextView
-            android:id="@+id/flash_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/auto_focus_text"
-            android:layout_alignRight="@+id/auto_focus_text"
-            android:layout_centerVertical="true"
-            android:text="@string/use_flash"
-            android:textColor="#ffffff"/>
-
+            app:jtbLeftBackgroundColor="@color/md_red_900"
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/translation_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/translation"
-            android:layout_toLeftOf="@+id/translation"
-            android:layout_toStartOf="@+id/translation"
+            android:layout_below="@+id/image_picker_button"
+            android:layout_alignStart="@+id/image_picker_button"
             android:paddingTop="7dp"
             android:text="@string/translation"
-            android:textColor="#ffffff"/>
-
-
-        <TextView
-            android:id="@+id/word_by_word_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/line_by_line_text"
-            android:layout_alignStart="@+id/line_by_line_text"
-            android:layout_alignTop="@+id/auto_focus"
-            android:paddingTop="7dp"
-            android:text="@string/word_by_word"
-            android:textColor="#ffffff"/>
-
-
-        <TextView
-            android:id="@+id/line_by_line_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/block_by_block_text"
-            android:layout_alignStart="@+id/block_by_block_text"
-            android:layout_centerVertical="true"
-            android:text="@string/line_by_line"
-            android:textColor="#ffffff"/>
-
-        <TextView
-            android:id="@+id/block_by_block_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/block_by_block"
-            android:layout_toEndOf="@+id/line_by_line"
-            android:layout_toRightOf="@+id/line_by_line"
-            android:paddingTop="7dp"
-            android:text="@string/block_by_block"
-            android:textColor="#ffffff"/>
-
+            android:textColor="#ffffff"
+            android:layout_marginTop="10dp"/>
 
         <Spinner
             android:id="@+id/lang_spinner"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/block_by_block"
+            android:layout_below="@+id/translation"
             android:layout_centerHorizontal="true"
             android:alwaysDrawnWithCache="true"
             android:dropDownSelector="@color/md_light_blue_900"
@@ -271,8 +137,8 @@
             android:padding="5dp"
             android:prompt="@string/lang_prompt"
             android:textAlignment="center"
-            android:visibility="invisible"/>
-
+            android:visibility="invisible"
+            android:layout_marginTop="10dp"/>
     </RelativeLayout>
 
 </RelativeLayout>

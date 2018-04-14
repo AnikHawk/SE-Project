@@ -49,8 +49,8 @@ public class PdfActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pdf);
         editName = findViewById(R.id.name_edit);
         editText = findViewById(R.id.text_edit);
-        createButton = findViewById(R.id.save_button);
-        resetButton = findViewById(R.id.generate_button);
+        createButton = findViewById(R.id.create_button);
+        resetButton = findViewById(R.id.reset_button);
         editText.setText(OcrCaptureActivity.pdfString);
         verifyStoragePermissions(this);
         createButton.setChecked(false);
