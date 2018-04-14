@@ -4,12 +4,15 @@
     <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="low_storage_error">Ocr dependencies cannot be downloaded due to low device storage</string>
+
     <string name="title_activity_main">THIRD EYE</string>
     <string name="title_activity_pdf">PDF GENERATOR</string>
     <string name="title_activity_ocr_capture">REAL TIME</string>
     <string name="title_activity_image_picker">IMAGE PICKER</string>
     <string name="title_activity_pager">PAGER</string>
     <string name="title_activity_qr_code_scanner">QR SCANNER</string>
+    <string name="title_activity_qr_code_generator">QR GENERATOR</string>
+
     <string name="ocr_header">Third Eye</string>
     <string name="read_text">Detect Text</string>
     <string name="auto_focus">Auto Focus</string>
@@ -43,7 +46,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="lorem_ipsum">New Fragment</string>
 
     <string name="generate">GENERATE</string>
     <string name="save">SAVE</string>
@@ -53,5 +55,14 @@
     <string name="real_time">Real-time</string>
     <string name="image">IMAGE</string>
     <string name="qr">QR</string>
+    <string name="retrieved_text">Retrieved Text</string>
+    <string name="none">None</string>
+    <string name="bangla">Bangla</string>
+    <string name="french">French</string>
+    <string name="german">German</string>
+    <string name="italian">Italian</string>
+    <string name="spanish">Spanish</string>
+    <string name="russian">Russian</string>
+    <string name="selectedimage">SelectedImage</string>
 
 </resources>

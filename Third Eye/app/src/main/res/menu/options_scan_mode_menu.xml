@@ -10,14 +10,14 @@
             <item
                 android:id="@+id/word"
                 android:title="@string/word_by_word"
-                android:checked="true"></item>
+                android:checked="true"/>
             <item
                 android:id="@+id/line"
                 android:title="@string/line_by_line"
-                android:checked="false"></item>
+                android:checked="false"/>
             <item
                 android:id="@+id/block"
                 android:title="@string/block_by_block"
-                android:checked="false"></item>
+                android:checked="false"/>
         </group>
 </menu>

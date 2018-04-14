@@ -26,7 +26,7 @@ public final class Detect extends YandexTranslatorAPI {
     private static final String DETECTION_LABEL = "lang";
     
     // prevent instantiation
-    private Detect(){};
+    private Detect(){}
 
     /**
 	  * Detects the language of a supplied String.

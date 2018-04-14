@@ -59,7 +59,7 @@
         </activity>
         <activity
             android:name="com.google.android.gms.samples.vision.ocrreader.QrCodeGeneratorActivity"
-            android:label="QR GENERATOR" >
+            android:label="@string/title_activity_qr_code_generator" >
         </activity>
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"

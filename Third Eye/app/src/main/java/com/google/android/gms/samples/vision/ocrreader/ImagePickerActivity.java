@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
-import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.StrictMode;
@@ -15,7 +14,6 @@ import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,6 +24,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Language;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
 import com.googlecode.tesseract.android.TessBaseAPI;
@@ -43,24 +42,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import de.cketti.shareintentbuilder.ShareIntentBuilder;
 import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 
 public class ImagePickerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     FloatingActionButton copyButton;
     FloatingActionButton cutButton;
+    FloatingActionButton pdfButton;
+    FloatingActionButton qrGenButton;
     FloatingActionButton translateButton;
+    FloatingActionButton shareButton;
     FloatingActionButton speakButton;
+    FloatingActionMenu fab;
     CustomToggleButton getTextButton, selectImageButton;
     HashMap<String, String> mp = new HashMap<>();
     String language = "eng";
+    public static String pdfString = "";
+    public static String qrString = "";
     Bitmap image;
     Spinner selectLang;
     private TessBaseAPI mTess;
-    String datapath = "";
+    String dataPath = "";
     ImageView imv;
     TextToSpeech textToSpeech;
     EditText textHolder;
+    boolean isSpeaking = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,17 +78,18 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         selectImageButton = findViewById(R.id.select_button);
         copyButton = findViewById(R.id.copyButton);
         cutButton = findViewById(R.id.cutButton);
-        speakButton = findViewById(R.id.speakButton);
+        pdfButton = findViewById(R.id.pdf_button);
+        qrGenButton = findViewById(R.id.qr_generator_fab_button);
         translateButton = findViewById(R.id.translateButton);
+        shareButton = findViewById(R.id.share_button);
+        speakButton = findViewById(R.id.speakButton);
         textHolder = findViewById(R.id.textHolder);
-
 
         getTextButton.setChecked(false);
         selectImageButton.setChecked(false);
         image = null;
         selectLang = findViewById(R.id.lang_spinner);
         final Context context = this;
-
 
         textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
@@ -92,7 +100,6 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
             }
         });
 
-
         mp.put("English", "eng");
         mp.put("Bangla", "ben");
 
@@ -101,11 +108,10 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
         selectLang.setOnItemSelectedListener(this);
 
-
-        List<String> languageList = new ArrayList<String>();
+        List<String> languageList = new ArrayList<>();
         languageList.add("English");
         languageList.add("Bangla");
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, languageList);
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, languageList);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // attaching data adapter to spinner
@@ -113,10 +119,10 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
         //initialize Tesseract API
 
-        datapath = getFilesDir() + "/tesseract/";
+        dataPath = getFilesDir() + "/tesseract/";
         mTess = new TessBaseAPI();
-        checkFile(new File(datapath + "tessdata/"));
-        mTess.init(datapath, language);
+        checkFile(new File(dataPath + "tessdata/"));
+        mTess.init(dataPath, language);
         imv = findViewById(R.id.imageView);
 
         cutButton.setOnClickListener(new View.OnClickListener() {
@@ -127,10 +133,15 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         });
         speakButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                String toSpeak = textHolder.getText().toString();
-                textToSpeech.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, map);
-
+                if (isSpeaking) {
+                    textToSpeech.stop();
+                    isSpeaking = false;
+                }
+                else {
+                    isSpeaking = true;
+                    String toSpeak = textHolder.getText().toString();
+                    textToSpeech.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, map);
+                }
             }
         });
         copyButton.setOnClickListener(new View.OnClickListener() {
@@ -138,40 +149,61 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
                 copyToClipboard(textHolder.getText().toString());
             }
         });
-
+        pdfButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pdfString +=("\n" + textHolder.getText().toString());
+                Intent intent = new Intent(ImagePickerActivity.this, PdfActivity.class);
+                ImagePickerActivity.this.startActivity(intent);
+            }
+        });
+        qrGenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                qrString +=("\n" + textHolder.getText().toString());
+                Intent intent = new Intent(ImagePickerActivity.this, QrCodeGeneratorActivity.class);
+                intent.putExtras(bundle);
+                intent.putExtra("QR STRING", qrString);
+                ImagePickerActivity.this.startActivity(intent);
+            }
+        });
         translateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 if (language.equals("ben")) {
                     return;
                 }
-
                 String textToBeTranslated = textHolder.getText().toString();
                 String translatedText = "";
 
                 StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
                 StrictMode.setThreadPolicy(policy);
                 Translate.setKey("trnsl.1.1.20180412T163251Z.ead1113e422fc75c.2aea1968e61b5c8585b850b8a8b056c9eb77b74c");
-
                 try {
                     translatedText = Translate.execute(textToBeTranslated, Language.ENGLISH, Language.BANGLA);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
                 textHolder.setText(translatedText);
-
+            }
+        });
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shareIntent = ShareIntentBuilder.from(ImagePickerActivity.this)
+                        .text(textHolder.getText().toString())
+                        .build();
+                ImagePickerActivity.this.startActivity(shareIntent);
             }
         });
 
         getTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 try {
                     processImage();
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
             }
 
@@ -197,7 +229,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
                 // Get cropped Image's coordinates
-                Rect rect = result.getCropRect();
+                //Rect rect = result.getCropRect();
                 // Get cropped Image's BITMAP
 
                 Uri uri = result.getUri();
@@ -211,16 +243,18 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 //                processImage();
 
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                Exception error = result.getError();
+                Exception error;
+                error = result.getError();
+                error.printStackTrace();
             }
         }
     }
 
     public void processImage() {
-        String OCRresult;
+        String ocrResult;
         mTess.setImage(image);
-        OCRresult = mTess.getUTF8Text();
-        textHolder.setText(OCRresult);
+        ocrResult = mTess.getUTF8Text();
+        textHolder.setText(ocrResult);
     }
 
 
@@ -229,8 +263,8 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
             copyFiles();
         }
         if (dir.exists()) {
-            String datafilepath = datapath + "/tessdata/" + language + ".traineddata";
-            File datafile = new File(datafilepath);
+            String dataFilePath = dataPath + "/tessdata/" + language + ".traineddata";
+            File datafile = new File(dataFilePath);
 
             if (!datafile.exists()) {
                 copyFiles();
@@ -240,22 +274,22 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
     private void copyFiles() {
         try {
-            String filepath = datapath + "/tessdata/" + language + ".traineddata";
+            String filepath = dataPath + "/tessdata/" + language + ".traineddata";
             AssetManager assetManager = getAssets();
 
-            InputStream instream = assetManager.open("tessdata/" + language + ".traineddata");
-            OutputStream outstream = new FileOutputStream(filepath);
+            InputStream inStream = assetManager.open("tessdata/" + language + ".traineddata");
+            OutputStream outStream = new FileOutputStream(filepath);
 
             byte[] buffer = new byte[1024];
             int read;
-            while ((read = instream.read(buffer)) != -1) {
-                outstream.write(buffer, 0, read);
+            while ((read = inStream.read(buffer)) != -1) {
+                outStream.write(buffer, 0, read);
             }
 
 
-            outstream.flush();
-            outstream.close();
-            instream.close();
+            outStream.flush();
+            outStream.close();
+            inStream.close();
 
             File file = new File(filepath);
             if (!file.exists()) {
@@ -271,8 +305,8 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
         String item = parent.getItemAtPosition(position).toString();
         language = mp.get(item);
-        checkFile(new File(datapath + "tessdata/"));
-        mTess.init(datapath, language);
+        checkFile(new File(dataPath + "tessdata/"));
+        mTess.init(dataPath, language);
         if (language.equals("eng")) {
             textToSpeech.setLanguage(Locale.US);
         } else if (language.equals("ben")) {
@@ -306,5 +340,11 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
                 "Text copied to clipboard", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM | Gravity.START, 50, 50);
         toast.show();
+    }
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        textToSpeech.stop();
+        this.finish();
     }
 }

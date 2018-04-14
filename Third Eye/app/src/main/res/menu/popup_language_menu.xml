@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <item
+            android:id="@+id/none"
+            android:title="@string/none"
+            android:checked="true"/>
+        <item
+            android:id="@+id/bn"
+            android:title="@string/bangla"
+            android:checked="false"/>
+        <item
+            android:id="@+id/fr"
+            android:title="@string/french"
+            android:checked="false"/>
+        <item
+            android:id="@+id/de"
+            android:title="@string/german"
+            android:checked="false"/>
+        <item
+            android:id="@+id/it"
+            android:title="@string/italian"
+            android:checked="false"/>
+        <item
+            android:id="@+id/es"
+            android:title="@string/spanish"
+            android:checked="false"/>
+        <item
+            android:id="@+id/ru"
+            android:title="@string/russian"
+            android:checked="false"/>
+    </group>
+</menu>

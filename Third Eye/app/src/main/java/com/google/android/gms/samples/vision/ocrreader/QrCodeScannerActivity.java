@@ -22,6 +22,7 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.google.zxing.Result;
 import com.wang.avi.AVLoadingIndicatorView;
 
+import de.cketti.shareintentbuilder.ShareIntentBuilder;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import static android.Manifest.permission.CAMERA;
 import static android.hardware.Camera.CameraInfo.*;
@@ -31,8 +32,10 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView mScannerView;
     FloatingActionButton qrGeneratorButton;
+    FloatingActionButton shareButton;
     FloatingActionMenu fab;
     AVLoadingIndicatorView effect;
+    String textHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,9 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
         mScannerView = new ZXingScannerView(this);
         setContentView(R.layout.activity_qr_code_scanner);
         mScannerView = findViewById(R.id.qr_scanner_preview);
+        textHolder = " ";
         qrGeneratorButton = findViewById(R.id.qr_generator_fab_button);
+        shareButton = findViewById(R.id.share_button);
         fab = findViewById(R.id.qr_scanner_fab_menu);
         effect = findViewById(R.id.effect);
         effect.bringToFront();
@@ -60,6 +65,15 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
                 Intent intent = new Intent(QrCodeScannerActivity.this, QrCodeGeneratorActivity.class);
                 intent.putExtras(bundle);
                 QrCodeScannerActivity.this.startActivity(intent);
+            }
+        });
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shareIntent = ShareIntentBuilder.from(QrCodeScannerActivity.this)
+                        .text(textHolder)
+                        .build();
+                QrCodeScannerActivity.this.startActivity(shareIntent);
             }
         });
 
@@ -151,6 +165,7 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 mScannerView.resumeCameraPreview(QrCodeScannerActivity.this);
+                textHolder = result;
             }
         });
         builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {

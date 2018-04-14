@@ -27,7 +27,7 @@ public final class Translate extends YandexTranslatorAPI {
   private static final String TRANSLATION_LABEL = "text";
 
   //prevent instantiation
-  private Translate(){};
+  private Translate(){}
 
   /**
    * Translates text from a given Language to another given Language using Yandex.

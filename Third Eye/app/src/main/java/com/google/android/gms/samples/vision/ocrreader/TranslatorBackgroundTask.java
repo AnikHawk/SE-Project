@@ -1,5 +1,6 @@
 package com.google.android.gms.samples.vision.ocrreader;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -15,7 +16,8 @@ import java.net.URL;
 
 public class TranslatorBackgroundTask extends AsyncTask<String, Void, String> {
     //Declare Context
-    Context ctx;
+    @SuppressLint("StaticFieldLeak")
+    Context context;
     //Set Context
     TranslatorBackgroundTask(){
     }
@@ -43,7 +45,7 @@ public class TranslatorBackgroundTask extends AsyncTask<String, Void, String> {
             //Set string builder and insert retrieved JSON result into it
             StringBuilder jsonStringBuilder = new StringBuilder();
             while ((jsonString = bufferedReader.readLine()) != null) {
-                jsonStringBuilder.append(jsonString + "\n");
+                jsonStringBuilder.append(jsonString).append("\n");
             }
 
             //Close and disconnect

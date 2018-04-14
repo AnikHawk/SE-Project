@@ -1,7 +1,6 @@
 package com.google.android.gms.samples.vision.ocrreader;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
@@ -9,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -18,14 +16,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
-//com.suke.widget.JellyToggleButton;
-//import com.suke.widget.JellyToggleButton;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
-//import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
-
-import java.io.IOException;
-
 import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements SurfaceHolder.Callback, View.OnClickListener {
     private static final String TAG = "MainActivity";
@@ -43,11 +36,11 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     SurfaceView surfaceView;
     SurfaceHolder surfaceHolder;
     boolean previewing = false;
-    LayoutInflater controlInflater = null;
+    //LayoutInflater controlInflater = null;
     public TextView statusMessage;
 
     private static final int RC_OCR_CAPTURE = 9003;
-    private static final int RC_IMAGE_PICKER = 9004;
+    //private static final int RC_IMAGE_PICKER = 9004;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,10 +101,12 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
     @Override
     public void onClick(View v) {
         if (v.getId() == realTimeButton.getId()) {
+            realTimeButton.setChecked(true);
             Intent intent = new Intent(this, OcrCaptureActivity.class);
             intent.putExtra("Translation", translation.isChecked());
             intent.putExtra("SelectedLanguage", String.valueOf(langSpinner.getSelectedItem()));
             startActivityForResult(intent, RC_OCR_CAPTURE);
+            realTimeButton.setChecked(false);
         }
     }
 

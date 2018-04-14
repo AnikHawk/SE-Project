@@ -53,7 +53,7 @@
         </activity>
         <activity
             android:name=".QrCodeGeneratorActivity"
-            android:label="QR GENERATOR">
+            android:label="@string/title_activity_qr_code_generator">
         </activity>
     </application>
 

@@ -1,12 +1,13 @@
 package com.google.android.gms.samples.vision.ocrreader;
-import android.app.ProgressDialog;
+
+//import android.app.ProgressDialog;
 import android.os.AsyncTask;
-import android.widget.EditText;
+//import android.widget.EditText;
 
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Language;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
 
-import java.net.URL;
+//import java.net.URL;
 
 /**
  * Created by root on 3/31/18.

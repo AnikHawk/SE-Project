@@ -7,7 +7,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.StrictMode;
-import android.view.View;
 
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Detect;
@@ -36,9 +35,8 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
     private Language toLang;
     private String translateTo;
 
-    OcrGraphic(GraphicOverlay overlay, TextBlock text, View view, Boolean translation, Boolean wordByWord, Boolean lineByLine, Boolean blockByBlock, String translateTo) {
+    OcrGraphic(GraphicOverlay overlay, TextBlock text, Boolean translation, Boolean wordByWord, Boolean lineByLine, Boolean blockByBlock, String translateTo) {
         super(overlay);
-        View view1 = view;
         transitionOverlay = overlay;
         mText = text;
         this.translation = translation;

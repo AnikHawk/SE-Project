@@ -26,8 +26,7 @@
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="19dp"
         android:layout_marginBottom="21dp"
-        app:indicatorName="BallScaleMultipleIndicator"
-        android:layout_marginRight="19dp" />
+        app:indicatorName="BallScaleMultipleIndicator" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:layout_width="wrap_content"
@@ -61,6 +60,16 @@
             app:fab_size="mini"
             app:rippleColor="@color/md_light_blue_A100"
             fab:fab_label="qrGenerator" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MenuButtonsSmall"
+            app:rippleColor="@color/md_teal_800"
+            android:src="@drawable/share_padded"
+            fab:fab_label="Share"
+            app:fab_size="mini" />
 
     </com.github.clans.fab.FloatingActionMenu>
 </FrameLayout>

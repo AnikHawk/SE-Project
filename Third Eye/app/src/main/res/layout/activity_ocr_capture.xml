@@ -62,7 +62,7 @@
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="50dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             app:enabledBackground="@drawable/flashon"
             app:selectedBackground="@drawable/flashoff"
             app:state="selected"/>
@@ -75,7 +75,7 @@
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="50dp"
             app:enabledBackground="@drawable/more"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             app:selectedBackground="@drawable/more"
             app:state="enabled"/>
 
@@ -85,7 +85,6 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
-            android:layout_marginHorizontal="50dp"
             app:enabledBackground="@drawable/focuson"
             android:layout_centerInParent="true"
             app:selectedBackground="@drawable/focusoff"
@@ -102,8 +101,7 @@
         android:layout_gravity="end|bottom"
         android:layout_marginEnd="19dp"
         android:layout_marginBottom="21dp"
-        app:indicatorName="BallScaleMultipleIndicator"
-        android:layout_marginRight="19dp" />
+        app:indicatorName="BallScaleMultipleIndicator" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:layout_width="wrap_content"

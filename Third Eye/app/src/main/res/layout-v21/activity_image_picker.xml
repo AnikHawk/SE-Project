@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:src="@mipmap/ic_launcher"
-            />
+            android:contentDescription="@string/selectedimage" />
 
         <me.rishabhkhanna.customtogglebutton.CustomToggleButton
             android:id="@+id/get_text_button"
@@ -29,7 +29,7 @@
             android:textOff="@string/get_text"
             android:textOn="@string/get_text"
             android:layout_gravity="center_horizontal"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:backgroundTint="@color/md_indigo_600"
             android:background="@color/md_indigo_600"
             app:borderWidth="3dp"
@@ -49,7 +49,7 @@
             android:textOff="@string/select_image"
             android:textOn="@string/select_image"
             android:layout_gravity="center_horizontal"
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:backgroundTint="@color/md_light_blue_700"
             android:background="@color/md_light_blue_700"
             app:borderWidth="3dp"
@@ -63,10 +63,8 @@
 
         <Spinner
             android:id="@+id/lang_spinner"
-            android:layout_width="150dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/block_by_block"
-            android:layout_centerHorizontal="true"
             android:entries="@array/lang_arrays"
             android:padding="5dp"
             android:layout_gravity="center_horizontal"
@@ -76,17 +74,16 @@
             android:alwaysDrawnWithCache="true"/>
 
         <EditText
-            android:hint="retrieved text"
+            android:hint="@string/retrieved_text"
             android:id="@+id/textHolder"
             android:layout_margin="10dp"
             android:layout_gravity="center_horizontal"
-            android:textSize="20dp"
+            android:textSize="20sp"
+            android:inputType="textAutoCorrect|textMultiLine|text"
             android:minLines="4"
             android:maxLines="4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-
 
     </LinearLayout>
 
@@ -106,8 +103,6 @@
         app:menu_colorRipple="@color/md_light_blue_A100"
         fab:menu_labels_maxLines="2"
         fab:menu_labels_ellipsize="end">
-
-
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/cutButton"
@@ -132,6 +127,26 @@
             fab:fab_label="Copy" />
 
         <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/pdf_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MenuButtonsSmall"
+            app:rippleColor="@color/md_teal_800"
+            android:src="@drawable/pdf_padded"
+            fab:fab_label="PDF"
+            app:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/qr_generator_fab_button"
+            style="@style/MenuButtonsSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/qr_padded"
+            app:fab_size="mini"
+            app:rippleColor="@color/md_teal_800"
+            fab:fab_label="qrGenerator" />
+
+        <com.github.clans.fab.FloatingActionButton
             android:id="@+id/translateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,6 +155,17 @@
             android:src="@drawable/translate_padded"
             app:fab_size="mini"
             fab:fab_label="Translate" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/share_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MenuButtonsSmall"
+            app:rippleColor="@color/md_teal_800"
+            android:src="@drawable/share_padded"
+            fab:fab_label="Share"
+            app:fab_size="mini" />
+
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/speakButton"
             android:layout_width="wrap_content"

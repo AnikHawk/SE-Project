@@ -211,7 +211,7 @@ ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app
 activity#com.google.android.gms.samples.vision.ocrreader.QrCodeGeneratorActivity
 ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:54:9-57:20
 	android:label
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:56:13-41
+		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:56:13-69
 	android:name
 		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:55:13-52
 uses-sdk

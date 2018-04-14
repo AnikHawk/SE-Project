@@ -29,6 +29,7 @@ import android.util.SparseArray;
 import android.view.ContextMenu;
 import android.view.GestureDetector;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -67,9 +68,9 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     // Permission request codes need to be < 256
     private static final int RC_HANDLE_CAMERA_PERM = 2;
 
-    public  static String pdfString = "";
-    public  static String qrString = "";
-    //public static final String TextBlockObject = "String";
+    public static String pdfString = "";
+    public static String qrString = "";
+
     StateButton flashButton;
     StateButton focusButton;
     StateButton scanModeButton;
@@ -627,7 +628,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        //AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
             case R.id.word:
                 Toast.makeText(getApplicationContext(), "Word Scan Selected", Toast.LENGTH_LONG).show();
@@ -652,6 +653,64 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 wordByWord = false;
                 lineByLine = false;
                 blockByBlock = true;
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    // create an action bar button
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.popup_language_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.none:
+                Toast.makeText(getApplicationContext(), "Translation Off", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                translateTo = "";
+                translation = false;
+                return true;
+            case R.id.bn:
+                Toast.makeText(getApplicationContext(), "Translate to Bangla", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                translateTo = "Bangla";
+                translation = true;
+                return true;
+            case R.id.fr:
+                Toast.makeText(getApplicationContext(), "Translate to French", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                translateTo = "French";
+                translation = true;
+                return true;
+            case R.id.de:
+                Toast.makeText(getApplicationContext(), "Translate to German", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                translateTo = "German";
+                translation = true;
+                return true;
+            case R.id.it:
+                Toast.makeText(getApplicationContext(), "Translate to Italian", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                translateTo = "Italian";
+                translation = true;
+                return true;
+            case R.id.es:
+                Toast.makeText(getApplicationContext(), "Translate to Spanish", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                translateTo = "Spanish";
+                translation = true;
+                return true;
+            case R.id.ru:
+                Toast.makeText(getApplicationContext(), "Translate to Russian", Toast.LENGTH_LONG).show();
+                item.setChecked(true);
+                translateTo = "Russian";
+                translation = true;
                 return true;
             default:
                 return super.onContextItemSelected(item);
