@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Sun Apr 22 23:06:46 BDT 2018
+1.base=/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/assets/debug
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=ASSET
+0.path=tessdata/ben.traineddata
+0.set=ASSET
+0.base=/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/assets/debug
+1.path=tessdata/eng.traineddata

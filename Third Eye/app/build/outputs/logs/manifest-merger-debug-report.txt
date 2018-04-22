@@ -1,332 +1,332 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:1-60:12
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\80409f582d61f9ea74f253f5d2aaabff\AndroidManifest.xml:2:1-11:12
-MERGED from [com.android.support:design:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\3482b677da683d60fe6dce6bfbd713ce\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\86b21f9e116a1b8a80e2684086a8c6b7\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-12.0.1.aar\13be29cf4246b16acca3ff4abb4646af\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\ab91155da3a697d67743ec1f164ce93f\AndroidManifest.xml:17:1-29:12
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.1.aar\d8eeb7bcf4fc287f01216a1967f3c754\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.1.aar\b17a5822eb2a238495aa6ece4ddc83d3\AndroidManifest.xml:17:1-28:12
-MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\8453f354ace189603719591c09f2435b\AndroidManifest.xml:2:1-13:12
-MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\5c8e0676fdac5b4d7b0a1899a77388a3\AndroidManifest.xml:2:1-13:12
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\bcf121777d2ccc750a60d59f30b941f0\AndroidManifest.xml:17:1-22:12
-MERGED from [at.blogc:expandabletextview:1.0.5] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\expandabletextview-1.0.5.aar\144ce3f1d1601c457f9dccc7d8ba580c\AndroidManifest.xml:17:1-28:12
-MERGED from [com.wang.avi:library:2.1.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\library-2.1.3.aar\e416838bea343b400fb769dde18591b8\AndroidManifest.xml:2:1-11:12
-MERGED from [com.github.clans:fab:1.6.4] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\fab-1.6.4.aar\0a859ee925af79119639cac64ac76a40\AndroidManifest.xml:2:1-14:12
-MERGED from [com.nightonke:jellytogglebutton:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\jellytogglebutton-1.0.2.aar\fb287643cbef78d36e638c0df8b6638e\AndroidManifest.xml:2:1-17:12
-MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\CustomToggle-1.0.0.aar\e514fb64ecd12424faf6a4d382e8454f\AndroidManifest.xml:2:1-17:12
-MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\8894a6a992ab96c933c6a92d41a89a99\AndroidManifest.xml:2:1-17:12
-MERGED from [com.theartofdev.edmodo:android-image-cropper:2.6.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\android-image-cropper-2.6.0.aar\fb4897d7dae0755054d829155d1c773c\AndroidManifest.xml:2:1-12:12
-MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\03a5e648670572847ed030c740298434\AndroidManifest.xml:2:1-17:12
-MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\54d11224ecfa899e7dba226671e01c1e\AndroidManifest.xml:2:1-17:12
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\66f3f7e604a58c489f8db91d3b75a950\AndroidManifest.xml:17:1-22:12
-MERGED from [com.jaredrummler:material-spinner:1.2.5] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\material-spinner-1.2.5.aar\4063a0d660be0bc01c56924a8e802629\AndroidManifest.xml:2:1-10:12
-MERGED from [com.github.zcweng:switch-button:0.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\switch-button-0.0.3.aar\8e68338a420d200ff3e6662ab965c44b\AndroidManifest.xml:2:1-11:12
-MERGED from [com.rmtheis:tess-two:8.0.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\tess-two-8.0.0.aar\1f3c9dbc98197616a5902ee0dfa236cd\AndroidManifest.xml:17:1-26:12
-MERGED from [de.cketti.share:share-intent-builder:0.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\share-intent-builder-0.0.2.aar\5515ecbefb342a023ee5f41d656df660\AndroidManifest.xml:2:1-8:12
-MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\QRGenearator-1.0.3.aar\636ff415448e9140c6927e4e91fbbba3\AndroidManifest.xml:2:1-16:12
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\cf4a6d27bcd7ba040e08514227ffae80\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\683255cbf4980a430663e3b38323f7e7\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\12e82d3a5df9b40032c2152caab980f9\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\dbff3dd76c5d7b9d0d1dcb7dbc93751c\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\7f37d15c2dc356d7cc53566c367d2864\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\6791f449ae96fa1f068058b10e7c1c13\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\d268097a2ec1304cbead81f0bb7ef1a7\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\c4493757aa6e8a044ba52909af9d5f1b\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\c6cbba7330af73fec34fa9435c5084da\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-12.0.1.aar\18a9c7b77a12dc6155f193b9f918ab14\AndroidManifest.xml:17:1-24:12
-MERGED from [com.android.support:exifinterface:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.1.aar\0caefc8516479546cecdedeb33c412fa\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a936fb4e11449b944cc2b2c71357045c\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\7ef6028995ec8c2de2cad71fb6af0f31\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\db5ab03fa33c8e69855ed2aca7372c50\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\3431e859fcdb28f1865faa6b265e3371\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\7327aad9e460776e6bae3fb2d3248998\AndroidManifest.xml:17:1-24:12
-MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-12.0.1.aar\6112c534506b38c05df95ab1de949e93\AndroidManifest.xml:17:1-24:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\8934769e670f764c5b6e4488a45aa743\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\23ccc9a74b1facdd7301f3bfd1674228\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:1-60:12
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:1-60:12
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:1-60:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/59b859e72b785d0e4b2f56afe439eb8e/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:design:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/66bb1d07f2f6986e733082aaac5687d1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/5110141be2be0d110a87c559e3d2c178/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/e0ea536abb78bd80976de2564faf1d8e/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/07244fd2a8f32f4a19f5ccdb08574725/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/be5d4b190c645163ef0c80da0c17f428/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/c49753bd704b0611f2e36bbe5ae8cd95/AndroidManifest.xml:17:1-28:12
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/zxing-1.9.aar/fe1e4b04ed92aaf90743453ef9691c29/AndroidManifest.xml:2:1-13:12
+MERGED from [me.dm7.barcodescanner:core:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/core-1.9.aar/c8ec1e76e127d41cb9946a21db74b801/AndroidManifest.xml:2:1-13:12
+MERGED from [com.android.support:support-v4:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/76de20fb5bb5af473b7de88ebe9eb64e/AndroidManifest.xml:17:1-22:12
+MERGED from [at.blogc:expandabletextview:1.0.5] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/1d6e8c1806024cc7671ede243a181718/AndroidManifest.xml:17:1-28:12
+MERGED from [com.wang.avi:library:2.1.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/library-2.1.3.aar/832a6c356f16c6a319a17e9561db2b03/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.clans:fab:1.6.4] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/fab-1.6.4.aar/b4e238a3dbb6e6bf0f2cf370631ceca2/AndroidManifest.xml:2:1-14:12
+MERGED from [com.nightonke:jellytogglebutton:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/ef9553bd49b3c4136222f872bd848f1e/AndroidManifest.xml:2:1-17:12
+MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/CustomToggle-1.0.0.aar/c9117ae0c11c2c59096653cc61bae419/AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.mazouri:android-state-button:1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-state-button-1.0.aar/859bfe8063f8f4c8ee8807359f90789a/AndroidManifest.xml:2:1-17:12
+MERGED from [com.theartofdev.edmodo:android-image-cropper:2.6.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-image-cropper-2.6.0.aar/cecaaad640e9cc8c6287d9ad2645f097/AndroidManifest.xml:2:1-12:12
+MERGED from [com.mapzen.android:speakerbox:1.4.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/speakerbox-1.4.1.aar/481903dac1d9538d2cb73c5cef3f24d2/AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/Shareable-0.1.0.aar/31da6060adf09a50782df93b56cbec60/AndroidManifest.xml:2:1-17:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/71a153adc5b0a9a4488fef605a300566/AndroidManifest.xml:17:1-22:12
+MERGED from [com.jaredrummler:material-spinner:1.2.5] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/material-spinner-1.2.5.aar/a8ae4f1dbc9a87448be25f218011fd46/AndroidManifest.xml:2:1-10:12
+MERGED from [com.github.zcweng:switch-button:0.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/switch-button-0.0.3.aar/62a6eb2a204f47086dab8a129c9d18db/AndroidManifest.xml:2:1-11:12
+MERGED from [com.rmtheis:tess-two:8.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/tess-two-8.0.0.aar/74a7be9ccf9ca920a769b59d540e450d/AndroidManifest.xml:17:1-26:12
+MERGED from [de.cketti.share:share-intent-builder:0.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/share-intent-builder-0.0.2.aar/857d76741cc225f21187f889054ddad7/AndroidManifest.xml:2:1-8:12
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/QRGenearator-1.0.3.aar/4288f83e475841ef25a2ae1238398a20/AndroidManifest.xml:2:1-16:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/6a25d97b8055deba21161c46d04da043/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/131e7d44c126a62883d0f840d5d1584a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/c98cc4b890badb727d371321a3ad8d55/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/c6824ccc3ee7b4cbbbc489959e0de8fb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/06abfb8514f7dcadd0d3ba1f0cf21607/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/ee22b1c0d92038e8b136449f6cccf468/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/cb26b01d71fd39a56a5809bf918bc8e7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/22361ad4ef234273f9780fba430fa7f5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/1eebd50b034ead626d1eeca6808e1cf7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/26e9ec5c1bab513bd142a43a43678cff/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:exifinterface:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.1.aar/122b41c4eefee07a0f45c9e17b23b916/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/8cb973e63aacbb5728efa8b12b666294/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/cecabd2f6373ba4d83c4ef6fa08cc32d/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/10c9c5ce57918f83d6d858a4c46b411a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/3400ed8541ea3afd38e15bf06395ff7a/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/e49419a850a19038ecdb70b59dfbbb36/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/c9b9962a6afbcd1e2e905433912cb2fc/AndroidManifest.xml:17:1-24:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/b2a3de1b7ccd7c670fe84ea921c7c39a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/4d781d095ec268e85f16c3c975c37884/AndroidManifest.xml:17:1-24:12
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:1-60:12
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:1-60:12
 	package
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:4:5-62
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:4:5-62
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:1-60:12
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:1-60:12
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
 	xmlns:tools
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:1-60:12
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:1-60:12
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:2:11-69
 	android:installLocation
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:5:5-35
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:5:5-35
 uses-feature#android.hardware.camera
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:7:5-60
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:7:5-60
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:7:19-57
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:7:19-57
 uses-permission#android.permission.INTERNET
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:9:5-67
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:9:5-67
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:9:22-64
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:9:22-64
 uses-permission#android.permission.CAMERA
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:10:5-65
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:10:5-65
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:10:22-62
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:10:22-62
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:11:5-81
-MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\QRGenearator-1.0.3.aar\636ff415448e9140c6927e4e91fbbba3\AndroidManifest.xml:11:5-81
-MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\QRGenearator-1.0.3.aar\636ff415448e9140c6927e4e91fbbba3\AndroidManifest.xml:11:5-81
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:11:5-81
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/QRGenearator-1.0.3.aar/4288f83e475841ef25a2ae1238398a20/AndroidManifest.xml:11:5-81
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/QRGenearator-1.0.3.aar/4288f83e475841ef25a2ae1238398a20/AndroidManifest.xml:11:5-81
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:11:22-78
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:11:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:12:5-80
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:12:5-80
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:12:22-77
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:12:22-77
 application
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:14:5-58:19
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\80409f582d61f9ea74f253f5d2aaabff\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\80409f582d61f9ea74f253f5d2aaabff\AndroidManifest.xml:9:5-20
-MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\86b21f9e116a1b8a80e2684086a8c6b7\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\86b21f9e116a1b8a80e2684086a8c6b7\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-12.0.1.aar\13be29cf4246b16acca3ff4abb4646af\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-12.0.1.aar\13be29cf4246b16acca3ff4abb4646af\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\ab91155da3a697d67743ec1f164ce93f\AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\ab91155da3a697d67743ec1f164ce93f\AndroidManifest.xml:22:5-27:19
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.1.aar\d8eeb7bcf4fc287f01216a1967f3c754\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.1.aar\d8eeb7bcf4fc287f01216a1967f3c754\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.1.aar\b17a5822eb2a238495aa6ece4ddc83d3\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.1.aar\b17a5822eb2a238495aa6ece4ddc83d3\AndroidManifest.xml:22:5-26:19
-MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\8453f354ace189603719591c09f2435b\AndroidManifest.xml:11:5-20
-MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\8453f354ace189603719591c09f2435b\AndroidManifest.xml:11:5-20
-MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\5c8e0676fdac5b4d7b0a1899a77388a3\AndroidManifest.xml:11:5-20
-MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\5c8e0676fdac5b4d7b0a1899a77388a3\AndroidManifest.xml:11:5-20
-MERGED from [at.blogc:expandabletextview:1.0.5] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\expandabletextview-1.0.5.aar\144ce3f1d1601c457f9dccc7d8ba580c\AndroidManifest.xml:26:5-20
-MERGED from [at.blogc:expandabletextview:1.0.5] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\expandabletextview-1.0.5.aar\144ce3f1d1601c457f9dccc7d8ba580c\AndroidManifest.xml:26:5-20
-MERGED from [com.github.clans:fab:1.6.4] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\fab-1.6.4.aar\0a859ee925af79119639cac64ac76a40\AndroidManifest.xml:12:5-20
-MERGED from [com.github.clans:fab:1.6.4] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\fab-1.6.4.aar\0a859ee925af79119639cac64ac76a40\AndroidManifest.xml:12:5-20
-MERGED from [com.nightonke:jellytogglebutton:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\jellytogglebutton-1.0.2.aar\fb287643cbef78d36e638c0df8b6638e\AndroidManifest.xml:11:5-15:19
-MERGED from [com.nightonke:jellytogglebutton:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\jellytogglebutton-1.0.2.aar\fb287643cbef78d36e638c0df8b6638e\AndroidManifest.xml:11:5-15:19
-MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\CustomToggle-1.0.0.aar\e514fb64ecd12424faf6a4d382e8454f\AndroidManifest.xml:11:5-15:19
-MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\CustomToggle-1.0.0.aar\e514fb64ecd12424faf6a4d382e8454f\AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\8894a6a992ab96c933c6a92d41a89a99\AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\8894a6a992ab96c933c6a92d41a89a99\AndroidManifest.xml:11:5-15:19
-MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\03a5e648670572847ed030c740298434\AndroidManifest.xml:11:5-15:19
-MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\03a5e648670572847ed030c740298434\AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\54d11224ecfa899e7dba226671e01c1e\AndroidManifest.xml:11:5-15:19
-MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\54d11224ecfa899e7dba226671e01c1e\AndroidManifest.xml:11:5-15:19
-MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\QRGenearator-1.0.3.aar\636ff415448e9140c6927e4e91fbbba3\AndroidManifest.xml:13:5-14:19
-MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\QRGenearator-1.0.3.aar\636ff415448e9140c6927e4e91fbbba3\AndroidManifest.xml:13:5-14:19
-MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-12.0.1.aar\18a9c7b77a12dc6155f193b9f918ab14\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-12.0.1.aar\18a9c7b77a12dc6155f193b9f918ab14\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\3431e859fcdb28f1865faa6b265e3371\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\3431e859fcdb28f1865faa6b265e3371\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\7327aad9e460776e6bae3fb2d3248998\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\7327aad9e460776e6bae3fb2d3248998\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-12.0.1.aar\6112c534506b38c05df95ab1de949e93\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-12.0.1.aar\6112c534506b38c05df95ab1de949e93\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\23ccc9a74b1facdd7301f3bfd1674228\AndroidManifest.xml:22:5-20
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\23ccc9a74b1facdd7301f3bfd1674228\AndroidManifest.xml:22:5-20
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:14:5-58:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/59b859e72b785d0e4b2f56afe439eb8e/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/59b859e72b785d0e4b2f56afe439eb8e/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/5110141be2be0d110a87c559e3d2c178/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/5110141be2be0d110a87c559e3d2c178/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/e0ea536abb78bd80976de2564faf1d8e/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/e0ea536abb78bd80976de2564faf1d8e/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/07244fd2a8f32f4a19f5ccdb08574725/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/07244fd2a8f32f4a19f5ccdb08574725/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/be5d4b190c645163ef0c80da0c17f428/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/be5d4b190c645163ef0c80da0c17f428/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/c49753bd704b0611f2e36bbe5ae8cd95/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/c49753bd704b0611f2e36bbe5ae8cd95/AndroidManifest.xml:22:5-26:19
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/zxing-1.9.aar/fe1e4b04ed92aaf90743453ef9691c29/AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/zxing-1.9.aar/fe1e4b04ed92aaf90743453ef9691c29/AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/core-1.9.aar/c8ec1e76e127d41cb9946a21db74b801/AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/core-1.9.aar/c8ec1e76e127d41cb9946a21db74b801/AndroidManifest.xml:11:5-20
+MERGED from [at.blogc:expandabletextview:1.0.5] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/1d6e8c1806024cc7671ede243a181718/AndroidManifest.xml:26:5-20
+MERGED from [at.blogc:expandabletextview:1.0.5] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/1d6e8c1806024cc7671ede243a181718/AndroidManifest.xml:26:5-20
+MERGED from [com.github.clans:fab:1.6.4] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/fab-1.6.4.aar/b4e238a3dbb6e6bf0f2cf370631ceca2/AndroidManifest.xml:12:5-20
+MERGED from [com.github.clans:fab:1.6.4] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/fab-1.6.4.aar/b4e238a3dbb6e6bf0f2cf370631ceca2/AndroidManifest.xml:12:5-20
+MERGED from [com.nightonke:jellytogglebutton:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/ef9553bd49b3c4136222f872bd848f1e/AndroidManifest.xml:11:5-15:19
+MERGED from [com.nightonke:jellytogglebutton:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/ef9553bd49b3c4136222f872bd848f1e/AndroidManifest.xml:11:5-15:19
+MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/CustomToggle-1.0.0.aar/c9117ae0c11c2c59096653cc61bae419/AndroidManifest.xml:11:5-15:19
+MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/CustomToggle-1.0.0.aar/c9117ae0c11c2c59096653cc61bae419/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.mazouri:android-state-button:1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-state-button-1.0.aar/859bfe8063f8f4c8ee8807359f90789a/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.mazouri:android-state-button:1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-state-button-1.0.aar/859bfe8063f8f4c8ee8807359f90789a/AndroidManifest.xml:11:5-15:19
+MERGED from [com.mapzen.android:speakerbox:1.4.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/speakerbox-1.4.1.aar/481903dac1d9538d2cb73c5cef3f24d2/AndroidManifest.xml:11:5-15:19
+MERGED from [com.mapzen.android:speakerbox:1.4.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/speakerbox-1.4.1.aar/481903dac1d9538d2cb73c5cef3f24d2/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/Shareable-0.1.0.aar/31da6060adf09a50782df93b56cbec60/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/Shareable-0.1.0.aar/31da6060adf09a50782df93b56cbec60/AndroidManifest.xml:11:5-15:19
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/QRGenearator-1.0.3.aar/4288f83e475841ef25a2ae1238398a20/AndroidManifest.xml:13:5-14:19
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/QRGenearator-1.0.3.aar/4288f83e475841ef25a2ae1238398a20/AndroidManifest.xml:13:5-14:19
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/26e9ec5c1bab513bd142a43a43678cff/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/26e9ec5c1bab513bd142a43a43678cff/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/3400ed8541ea3afd38e15bf06395ff7a/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/3400ed8541ea3afd38e15bf06395ff7a/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/e49419a850a19038ecdb70b59dfbbb36/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/e49419a850a19038ecdb70b59dfbbb36/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/c9b9962a6afbcd1e2e905433912cb2fc/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/c9b9962a6afbcd1e2e905433912cb2fc/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/4d781d095ec268e85f16c3c975c37884/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/4d781d095ec268e85f16c3c975c37884/AndroidManifest.xml:22:5-20
 	android:supportsRtl
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:20:9-35
 	android:label
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:19:9-28
-		REJECTED from [com.nightonke:jellytogglebutton:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\jellytogglebutton-1.0.2.aar\fb287643cbef78d36e638c0df8b6638e\AndroidManifest.xml:13:9-41
-		REJECTED from [me.rishabhkhanna:CustomToggle:1.0.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\CustomToggle-1.0.0.aar\e514fb64ecd12424faf6a4d382e8454f\AndroidManifest.xml:13:9-41
-		REJECTED from [com.github.mazouri:android-state-button:1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\8894a6a992ab96c933c6a92d41a89a99\AndroidManifest.xml:13:9-41
-		REJECTED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\03a5e648670572847ed030c740298434\AndroidManifest.xml:13:9-41
-		REJECTED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\54d11224ecfa899e7dba226671e01c1e\AndroidManifest.xml:13:9-41
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:19:9-28
+		REJECTED from [com.nightonke:jellytogglebutton:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/ef9553bd49b3c4136222f872bd848f1e/AndroidManifest.xml:13:9-41
+		REJECTED from [me.rishabhkhanna:CustomToggle:1.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/CustomToggle-1.0.0.aar/c9117ae0c11c2c59096653cc61bae419/AndroidManifest.xml:13:9-41
+		REJECTED from [com.github.mazouri:android-state-button:1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-state-button-1.0.aar/859bfe8063f8f4c8ee8807359f90789a/AndroidManifest.xml:13:9-41
+		REJECTED from [com.mapzen.android:speakerbox:1.4.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/speakerbox-1.4.1.aar/481903dac1d9538d2cb73c5cef3f24d2/AndroidManifest.xml:13:9-41
+		REJECTED from [com.github.robertsimoes:Shareable:0.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/Shareable-0.1.0.aar/31da6060adf09a50782df93b56cbec60/AndroidManifest.xml:13:9-41
 	android:hardwareAccelerated
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:17:9-43
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:17:9-43
 	android:fullBackupContent
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:16:9-42
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:16:9-42
 	android:icon
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:18:9-37
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:18:9-37
 	android:allowBackup
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:15:9-35
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:15:9-35
 	android:theme
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:21:9-47
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:21:9-47
 	tools:replace
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:22:9-38
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:22:9-38
 meta-data#com.google.android.gms.vision.DEPENDENCIES
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:23:9-25:35
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:23:9-25:35
 	android:value
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:25:13-32
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:25:13-32
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:24:13-70
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:24:13-70
 activity#com.google.android.gms.samples.vision.ocrreader.MainActivity
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:27:9-35:20
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:27:9-35:20
 	android:label
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:29:13-56
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:29:13-56
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:28:13-41
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:28:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:30:13-34:29
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:30:13-34:29
 action#android.intent.action.MAIN
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:31:17-69
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:31:17-69
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:31:25-66
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:31:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:33:17-77
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:33:17-77
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:33:27-74
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:33:27-74
 activity#com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:36:9-38:66
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:36:9-38:66
 	android:label
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:38:13-63
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:38:13-63
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:37:13-47
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:37:13-47
 activity#com.google.android.gms.samples.vision.ocrreader.PdfActivity
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:39:9-42:20
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:39:9-42:20
 	android:label
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:41:13-55
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:41:13-55
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:40:13-40
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:40:13-40
 activity#com.google.android.gms.samples.vision.ocrreader.ImagePickerActivity
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:43:9-46:20
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:43:9-46:20
 	android:label
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:45:13-64
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:45:13-64
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:44:13-48
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:44:13-48
 activity#com.theartofdev.edmodo.cropper.CropImageActivity
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:47:9-49:59
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:47:9-49:59
 	android:theme
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:49:13-56
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:49:13-56
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:48:13-76
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:48:13-76
 activity#com.google.android.gms.samples.vision.ocrreader.QrCodeScannerActivity
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:50:9-53:20
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:50:9-53:20
 	android:label
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:52:13-67
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:52:13-67
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:51:13-50
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:51:13-50
 activity#com.google.android.gms.samples.vision.ocrreader.QrCodeGeneratorActivity
-ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:54:9-57:20
+ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:54:9-57:20
 	android:label
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:56:13-69
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:56:13-69
 	android:name
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml:55:13-52
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:55:13-52
 uses-sdk
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\80409f582d61f9ea74f253f5d2aaabff\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\80409f582d61f9ea74f253f5d2aaabff\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support:design:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\3482b677da683d60fe6dce6bfbd713ce\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\3482b677da683d60fe6dce6bfbd713ce\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\86b21f9e116a1b8a80e2684086a8c6b7\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-vision:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-12.0.1.aar\86b21f9e116a1b8a80e2684086a8c6b7\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-12.0.1.aar\13be29cf4246b16acca3ff4abb4646af\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-12.0.1.aar\13be29cf4246b16acca3ff4abb4646af\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\ab91155da3a697d67743ec1f164ce93f\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\ab91155da3a697d67743ec1f164ce93f\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.1.aar\d8eeb7bcf4fc287f01216a1967f3c754\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-tasks:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-12.0.1.aar\d8eeb7bcf4fc287f01216a1967f3c754\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.1.aar\b17a5822eb2a238495aa6ece4ddc83d3\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.1.aar\b17a5822eb2a238495aa6ece4ddc83d3\AndroidManifest.xml:20:5-44
-MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\8453f354ace189603719591c09f2435b\AndroidManifest.xml:7:5-9:41
-MERGED from [me.dm7.barcodescanner:zxing:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\zxing-1.9.aar\8453f354ace189603719591c09f2435b\AndroidManifest.xml:7:5-9:41
-MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\5c8e0676fdac5b4d7b0a1899a77388a3\AndroidManifest.xml:7:5-9:41
-MERGED from [me.dm7.barcodescanner:core:1.9] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\core-1.9.aar\5c8e0676fdac5b4d7b0a1899a77388a3\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\bcf121777d2ccc750a60d59f30b941f0\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\bcf121777d2ccc750a60d59f30b941f0\AndroidManifest.xml:20:5-44
-MERGED from [at.blogc:expandabletextview:1.0.5] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\expandabletextview-1.0.5.aar\144ce3f1d1601c457f9dccc7d8ba580c\AndroidManifest.xml:22:5-24:41
-MERGED from [at.blogc:expandabletextview:1.0.5] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\expandabletextview-1.0.5.aar\144ce3f1d1601c457f9dccc7d8ba580c\AndroidManifest.xml:22:5-24:41
-MERGED from [com.wang.avi:library:2.1.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\library-2.1.3.aar\e416838bea343b400fb769dde18591b8\AndroidManifest.xml:7:5-9:41
-MERGED from [com.wang.avi:library:2.1.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\library-2.1.3.aar\e416838bea343b400fb769dde18591b8\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.clans:fab:1.6.4] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\fab-1.6.4.aar\0a859ee925af79119639cac64ac76a40\AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.clans:fab:1.6.4] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\fab-1.6.4.aar\0a859ee925af79119639cac64ac76a40\AndroidManifest.xml:8:5-10:41
-MERGED from [com.nightonke:jellytogglebutton:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\jellytogglebutton-1.0.2.aar\fb287643cbef78d36e638c0df8b6638e\AndroidManifest.xml:7:5-9:41
-MERGED from [com.nightonke:jellytogglebutton:1.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\jellytogglebutton-1.0.2.aar\fb287643cbef78d36e638c0df8b6638e\AndroidManifest.xml:7:5-9:41
-MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\CustomToggle-1.0.0.aar\e514fb64ecd12424faf6a4d382e8454f\AndroidManifest.xml:7:5-9:41
-MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\CustomToggle-1.0.0.aar\e514fb64ecd12424faf6a4d382e8454f\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\8894a6a992ab96c933c6a92d41a89a99\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.mazouri:android-state-button:1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\android-state-button-1.0.aar\8894a6a992ab96c933c6a92d41a89a99\AndroidManifest.xml:7:5-9:41
-MERGED from [com.theartofdev.edmodo:android-image-cropper:2.6.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\android-image-cropper-2.6.0.aar\fb4897d7dae0755054d829155d1c773c\AndroidManifest.xml:8:5-10:41
-MERGED from [com.theartofdev.edmodo:android-image-cropper:2.6.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\android-image-cropper-2.6.0.aar\fb4897d7dae0755054d829155d1c773c\AndroidManifest.xml:8:5-10:41
-MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\03a5e648670572847ed030c740298434\AndroidManifest.xml:7:5-9:41
-MERGED from [com.mapzen.android:speakerbox:1.4.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\speakerbox-1.4.1.aar\03a5e648670572847ed030c740298434\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\54d11224ecfa899e7dba226671e01c1e\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.robertsimoes:Shareable:0.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\Shareable-0.1.0.aar\54d11224ecfa899e7dba226671e01c1e\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\66f3f7e604a58c489f8db91d3b75a950\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\66f3f7e604a58c489f8db91d3b75a950\AndroidManifest.xml:20:5-44
-MERGED from [com.jaredrummler:material-spinner:1.2.5] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\material-spinner-1.2.5.aar\4063a0d660be0bc01c56924a8e802629\AndroidManifest.xml:6:5-8:41
-MERGED from [com.jaredrummler:material-spinner:1.2.5] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\material-spinner-1.2.5.aar\4063a0d660be0bc01c56924a8e802629\AndroidManifest.xml:6:5-8:41
-MERGED from [com.github.zcweng:switch-button:0.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\switch-button-0.0.3.aar\8e68338a420d200ff3e6662ab965c44b\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.zcweng:switch-button:0.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\switch-button-0.0.3.aar\8e68338a420d200ff3e6662ab965c44b\AndroidManifest.xml:7:5-9:41
-MERGED from [com.rmtheis:tess-two:8.0.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\tess-two-8.0.0.aar\1f3c9dbc98197616a5902ee0dfa236cd\AndroidManifest.xml:22:5-24:41
-MERGED from [com.rmtheis:tess-two:8.0.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\tess-two-8.0.0.aar\1f3c9dbc98197616a5902ee0dfa236cd\AndroidManifest.xml:22:5-24:41
-MERGED from [de.cketti.share:share-intent-builder:0.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\share-intent-builder-0.0.2.aar\5515ecbefb342a023ee5f41d656df660\AndroidManifest.xml:6:5-44
-MERGED from [de.cketti.share:share-intent-builder:0.0.2] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\share-intent-builder-0.0.2.aar\5515ecbefb342a023ee5f41d656df660\AndroidManifest.xml:6:5-44
-MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\QRGenearator-1.0.3.aar\636ff415448e9140c6927e4e91fbbba3\AndroidManifest.xml:7:5-9:41
-MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\QRGenearator-1.0.3.aar\636ff415448e9140c6927e4e91fbbba3\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\cf4a6d27bcd7ba040e08514227ffae80\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\cf4a6d27bcd7ba040e08514227ffae80\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\683255cbf4980a430663e3b38323f7e7\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\683255cbf4980a430663e3b38323f7e7\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\12e82d3a5df9b40032c2152caab980f9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\12e82d3a5df9b40032c2152caab980f9\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\dbff3dd76c5d7b9d0d1dcb7dbc93751c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\dbff3dd76c5d7b9d0d1dcb7dbc93751c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\7f37d15c2dc356d7cc53566c367d2864\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\7f37d15c2dc356d7cc53566c367d2864\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\6791f449ae96fa1f068058b10e7c1c13\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\6791f449ae96fa1f068058b10e7c1c13\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\d268097a2ec1304cbead81f0bb7ef1a7\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\d268097a2ec1304cbead81f0bb7ef1a7\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\c4493757aa6e8a044ba52909af9d5f1b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\c4493757aa6e8a044ba52909af9d5f1b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\c6cbba7330af73fec34fa9435c5084da\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\c6cbba7330af73fec34fa9435c5084da\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-12.0.1.aar\18a9c7b77a12dc6155f193b9f918ab14\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-license-12.0.1.aar\18a9c7b77a12dc6155f193b9f918ab14\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:exifinterface:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.1.aar\0caefc8516479546cecdedeb33c412fa\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:exifinterface:27.1.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\exifinterface-27.1.1.aar\0caefc8516479546cecdedeb33c412fa\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a936fb4e11449b944cc2b2c71357045c\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\a936fb4e11449b944cc2b2c71357045c\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\7ef6028995ec8c2de2cad71fb6af0f31\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\7ef6028995ec8c2de2cad71fb6af0f31\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\db5ab03fa33c8e69855ed2aca7372c50\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\db5ab03fa33c8e69855ed2aca7372c50\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\3431e859fcdb28f1865faa6b265e3371\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-base-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-license-12.0.1.aar\3431e859fcdb28f1865faa6b265e3371\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\7327aad9e460776e6bae3fb2d3248998\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-12.0.1.aar\7327aad9e460776e6bae3fb2d3248998\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-12.0.1.aar\6112c534506b38c05df95ab1de949e93\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-vision-common-license-12.0.1.aar\6112c534506b38c05df95ab1de949e93\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\8934769e670f764c5b6e4488a45aa743\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\8934769e670f764c5b6e4488a45aa743\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\23ccc9a74b1facdd7301f3bfd1674228\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-12.0.1.aar\23ccc9a74b1facdd7301f3bfd1674228\AndroidManifest.xml:20:5-44
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/59b859e72b785d0e4b2f56afe439eb8e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/59b859e72b785d0e4b2f56afe439eb8e/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:design:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/66bb1d07f2f6986e733082aaac5687d1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/design-27.1.1.aar/66bb1d07f2f6986e733082aaac5687d1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/5110141be2be0d110a87c559e3d2c178/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-12.0.1.aar/5110141be2be0d110a87c559e3d2c178/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/e0ea536abb78bd80976de2564faf1d8e/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-12.0.1.aar/e0ea536abb78bd80976de2564faf1d8e/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/07244fd2a8f32f4a19f5ccdb08574725/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/07244fd2a8f32f4a19f5ccdb08574725/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/be5d4b190c645163ef0c80da0c17f428/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-12.0.1.aar/be5d4b190c645163ef0c80da0c17f428/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/c49753bd704b0611f2e36bbe5ae8cd95/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/c49753bd704b0611f2e36bbe5ae8cd95/AndroidManifest.xml:20:5-44
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/zxing-1.9.aar/fe1e4b04ed92aaf90743453ef9691c29/AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:zxing:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/zxing-1.9.aar/fe1e4b04ed92aaf90743453ef9691c29/AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/core-1.9.aar/c8ec1e76e127d41cb9946a21db74b801/AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.9] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/core-1.9.aar/c8ec1e76e127d41cb9946a21db74b801/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/76de20fb5bb5af473b7de88ebe9eb64e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.1.aar/76de20fb5bb5af473b7de88ebe9eb64e/AndroidManifest.xml:20:5-44
+MERGED from [at.blogc:expandabletextview:1.0.5] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/1d6e8c1806024cc7671ede243a181718/AndroidManifest.xml:22:5-24:41
+MERGED from [at.blogc:expandabletextview:1.0.5] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/expandabletextview-1.0.5.aar/1d6e8c1806024cc7671ede243a181718/AndroidManifest.xml:22:5-24:41
+MERGED from [com.wang.avi:library:2.1.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/library-2.1.3.aar/832a6c356f16c6a319a17e9561db2b03/AndroidManifest.xml:7:5-9:41
+MERGED from [com.wang.avi:library:2.1.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/library-2.1.3.aar/832a6c356f16c6a319a17e9561db2b03/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.clans:fab:1.6.4] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/fab-1.6.4.aar/b4e238a3dbb6e6bf0f2cf370631ceca2/AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.clans:fab:1.6.4] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/fab-1.6.4.aar/b4e238a3dbb6e6bf0f2cf370631ceca2/AndroidManifest.xml:8:5-10:41
+MERGED from [com.nightonke:jellytogglebutton:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/ef9553bd49b3c4136222f872bd848f1e/AndroidManifest.xml:7:5-9:41
+MERGED from [com.nightonke:jellytogglebutton:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/ef9553bd49b3c4136222f872bd848f1e/AndroidManifest.xml:7:5-9:41
+MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/CustomToggle-1.0.0.aar/c9117ae0c11c2c59096653cc61bae419/AndroidManifest.xml:7:5-9:41
+MERGED from [me.rishabhkhanna:CustomToggle:1.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/CustomToggle-1.0.0.aar/c9117ae0c11c2c59096653cc61bae419/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.mazouri:android-state-button:1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-state-button-1.0.aar/859bfe8063f8f4c8ee8807359f90789a/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.mazouri:android-state-button:1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-state-button-1.0.aar/859bfe8063f8f4c8ee8807359f90789a/AndroidManifest.xml:7:5-9:41
+MERGED from [com.theartofdev.edmodo:android-image-cropper:2.6.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-image-cropper-2.6.0.aar/cecaaad640e9cc8c6287d9ad2645f097/AndroidManifest.xml:8:5-10:41
+MERGED from [com.theartofdev.edmodo:android-image-cropper:2.6.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-image-cropper-2.6.0.aar/cecaaad640e9cc8c6287d9ad2645f097/AndroidManifest.xml:8:5-10:41
+MERGED from [com.mapzen.android:speakerbox:1.4.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/speakerbox-1.4.1.aar/481903dac1d9538d2cb73c5cef3f24d2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.mapzen.android:speakerbox:1.4.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/speakerbox-1.4.1.aar/481903dac1d9538d2cb73c5cef3f24d2/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/Shareable-0.1.0.aar/31da6060adf09a50782df93b56cbec60/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.robertsimoes:Shareable:0.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/Shareable-0.1.0.aar/31da6060adf09a50782df93b56cbec60/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/71a153adc5b0a9a4488fef605a300566/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/71a153adc5b0a9a4488fef605a300566/AndroidManifest.xml:20:5-44
+MERGED from [com.jaredrummler:material-spinner:1.2.5] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/material-spinner-1.2.5.aar/a8ae4f1dbc9a87448be25f218011fd46/AndroidManifest.xml:6:5-8:41
+MERGED from [com.jaredrummler:material-spinner:1.2.5] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/material-spinner-1.2.5.aar/a8ae4f1dbc9a87448be25f218011fd46/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.zcweng:switch-button:0.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/switch-button-0.0.3.aar/62a6eb2a204f47086dab8a129c9d18db/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.zcweng:switch-button:0.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/switch-button-0.0.3.aar/62a6eb2a204f47086dab8a129c9d18db/AndroidManifest.xml:7:5-9:41
+MERGED from [com.rmtheis:tess-two:8.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/tess-two-8.0.0.aar/74a7be9ccf9ca920a769b59d540e450d/AndroidManifest.xml:22:5-24:41
+MERGED from [com.rmtheis:tess-two:8.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/tess-two-8.0.0.aar/74a7be9ccf9ca920a769b59d540e450d/AndroidManifest.xml:22:5-24:41
+MERGED from [de.cketti.share:share-intent-builder:0.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/share-intent-builder-0.0.2.aar/857d76741cc225f21187f889054ddad7/AndroidManifest.xml:6:5-44
+MERGED from [de.cketti.share:share-intent-builder:0.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/share-intent-builder-0.0.2.aar/857d76741cc225f21187f889054ddad7/AndroidManifest.xml:6:5-44
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/QRGenearator-1.0.3.aar/4288f83e475841ef25a2ae1238398a20/AndroidManifest.xml:7:5-9:41
+MERGED from [androidmads.library.qrgenearator:QRGenearator:1.0.3] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/QRGenearator-1.0.3.aar/4288f83e475841ef25a2ae1238398a20/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/6a25d97b8055deba21161c46d04da043/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.1.aar/6a25d97b8055deba21161c46d04da043/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/131e7d44c126a62883d0f840d5d1584a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/131e7d44c126a62883d0f840d5d1584a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/c98cc4b890badb727d371321a3ad8d55/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/c98cc4b890badb727d371321a3ad8d55/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/c6824ccc3ee7b4cbbbc489959e0de8fb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/c6824ccc3ee7b4cbbbc489959e0de8fb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/06abfb8514f7dcadd0d3ba1f0cf21607/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/06abfb8514f7dcadd0d3ba1f0cf21607/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/ee22b1c0d92038e8b136449f6cccf468/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/transition-27.1.1.aar/ee22b1c0d92038e8b136449f6cccf468/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/cb26b01d71fd39a56a5809bf918bc8e7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/cb26b01d71fd39a56a5809bf918bc8e7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/22361ad4ef234273f9780fba430fa7f5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.1.aar/22361ad4ef234273f9780fba430fa7f5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/1eebd50b034ead626d1eeca6808e1cf7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/1eebd50b034ead626d1eeca6808e1cf7/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/26e9ec5c1bab513bd142a43a43678cff/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-license-12.0.1.aar/26e9ec5c1bab513bd142a43a43678cff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.1.aar/122b41c4eefee07a0f45c9e17b23b916/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.1.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/exifinterface-27.1.1.aar/122b41c4eefee07a0f45c9e17b23b916/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/8cb973e63aacbb5728efa8b12b666294/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/8cb973e63aacbb5728efa8b12b666294/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/cecabd2f6373ba4d83c4ef6fa08cc32d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/cecabd2f6373ba4d83c4ef6fa08cc32d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/10c9c5ce57918f83d6d858a4c46b411a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/10c9c5ce57918f83d6d858a4c46b411a/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/3400ed8541ea3afd38e15bf06395ff7a/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-license-12.0.1.aar/3400ed8541ea3afd38e15bf06395ff7a/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/e49419a850a19038ecdb70b59dfbbb36/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-license-12.0.1.aar/e49419a850a19038ecdb70b59dfbbb36/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/c9b9962a6afbcd1e2e905433912cb2fc/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-vision-common-license-12.0.1.aar/c9b9962a6afbcd1e2e905433912cb2fc/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/b2a3de1b7ccd7c670fe84ea921c7c39a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/b2a3de1b7ccd7c670fe84ea921c7c39a/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/4d781d095ec268e85f16c3c975c37884/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-tasks-license-12.0.1.aar/4d781d095ec268e85f16c3c975c37884/AndroidManifest.xml:20:5-44
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-		ADDED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
-		INJECTED from D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\src\main\AndroidManifest.xml
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
+		INJECTED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\ab91155da3a697d67743ec1f164ce93f\AndroidManifest.xml:23:9-26:75
+ADDED from [com.google.android.gms:play-services-base:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/07244fd2a8f32f4a19f5ccdb08574725/AndroidManifest.xml:23:9-26:75
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\ab91155da3a697d67743ec1f164ce93f\AndroidManifest.xml:25:13-37
+		ADDED from [com.google.android.gms:play-services-base:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/07244fd2a8f32f4a19f5ccdb08574725/AndroidManifest.xml:25:13-37
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\ab91155da3a697d67743ec1f164ce93f\AndroidManifest.xml:26:13-72
+		ADDED from [com.google.android.gms:play-services-base:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/07244fd2a8f32f4a19f5ccdb08574725/AndroidManifest.xml:26:13-72
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-base-12.0.1.aar\ab91155da3a697d67743ec1f164ce93f\AndroidManifest.xml:24:13-79
+		ADDED from [com.google.android.gms:play-services-base:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-base-12.0.1.aar/07244fd2a8f32f4a19f5ccdb08574725/AndroidManifest.xml:24:13-79
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.1.aar\b17a5822eb2a238495aa6ece4ddc83d3\AndroidManifest.xml:23:9-25:69
+ADDED from [com.google.android.gms:play-services-basement:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/c49753bd704b0611f2e36bbe5ae8cd95/AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.1.aar\b17a5822eb2a238495aa6ece4ddc83d3\AndroidManifest.xml:25:13-66
+		ADDED from [com.google.android.gms:play-services-basement:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/c49753bd704b0611f2e36bbe5ae8cd95/AndroidManifest.xml:25:13-66
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:12.0.1] C:\Users\Asus\.gradle\caches\transforms-1\files-1.1\play-services-basement-12.0.1.aar\b17a5822eb2a238495aa6ece4ddc83d3\AndroidManifest.xml:24:13-58
+		ADDED from [com.google.android.gms:play-services-basement:12.0.1] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/play-services-basement-12.0.1.aar/c49753bd704b0611f2e36bbe5ae8cd95/AndroidManifest.xml:24:13-58

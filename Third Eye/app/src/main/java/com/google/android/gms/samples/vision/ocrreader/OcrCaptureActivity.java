@@ -15,6 +15,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -57,9 +58,25 @@ import com.google.android.gms.vision.text.TextRecognizer;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 import de.cketti.shareintentbuilder.ShareIntentBuilder;
 import mazouri.statebutton.StateButton;
+
+class StrInt{
+
+    int top;
+    String string;
+
+    StrInt(int t, String s)
+    {
+        top = t;
+        string = s;
+    }
+}
 
 public final class OcrCaptureActivity extends AppCompatActivity {
     private static final String TAG = "OcrCaptureActivity";
@@ -296,13 +313,37 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     ExpandCollapseExtention.collapse(bottomView);
                 }
                 else {
+                    List textList = new ArrayList<StrInt>();
+
                     textHolder.setText("");
                     SparseArray<TextBlock> items = detections.getDetectedItems();
                     for (int i = 0; i < items.size(); ++i) {
                         TextBlock item = items.valueAt(i);
-                        textHolder.append(item.getValue());
+                        int itemTop = item.getBoundingBox().top;
+
+                        textList.add(new StrInt(itemTop, item.getValue()));
+//
+                    }
+                    Collections.sort(textList, new Comparator<StrInt>() {
+                        @Override
+                        public int compare(StrInt o1, StrInt o2) {
+                            if(o1.top > o2.top)
+                                return 1;
+                           else if(o1.top < o2.top)
+                                return -1;
+                            else return 0;
+
+                        }
+
+                    });
+
+                    for (int i = 0; i < textList.size(); ++i) {
+                        StrInt item = (StrInt) textList.get(i);
+                        textHolder.append(item.string);
                         textHolder.append(" \n");
                     }
+
+
                     if (!textHolder.getText().toString().equals("")) {
                         textHolder.setVisibility(View.VISIBLE);
                         ExpandCollapseExtention.Fullexpand(bottomView);

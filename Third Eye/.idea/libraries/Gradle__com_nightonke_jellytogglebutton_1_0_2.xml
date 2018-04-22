@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.nightonke:jellytogglebutton-1.0.2">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/fb287643cbef78d36e638c0df8b6638e/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/fb287643cbef78d36e638c0df8b6638e/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/ef9553bd49b3c4136222f872bd848f1e/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/ef9553bd49b3c4136222f872bd848f1e/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
