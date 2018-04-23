@@ -1736,7 +1736,9 @@ int mipmap cut 0x7f0e0002
 int mipmap cut_round 0x7f0e0003
 int mipmap ic_launcher 0x7f0e0004
 int mipmap ic_launcher_foreground 0x7f0e0005
-int mipmap translate 0x7f0e0006
+int mipmap ic_textimage 0x7f0e0006
+int mipmap ic_textimage_round 0x7f0e0007
+int mipmap translate 0x7f0e0008
 int string abc_action_bar_home_description 0x7f0f0000
 int string abc_action_bar_up_description 0x7f0f0001
 int string abc_action_menu_overflow_description 0x7f0f0002

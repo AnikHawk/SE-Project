@@ -16,7 +16,7 @@
         android:fullBackupContent="false"
         android:hardwareAccelerated="true"
         android:icon="@drawable/eye"
-        android:label="OCR"
+        android:label="THIRD EYE"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat"
         tools:replace="android:label">

@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Random;
 
 import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 
@@ -57,7 +58,12 @@ public class PdfActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fileName = editName.getText().toString();
+                fileName = editName.getText().toString().trim();
+                if(fileName.length() == 0)
+                {
+                    Random r = new java.util.Random ();
+                    fileName = Long.toString (r.nextLong () & Long.MAX_VALUE, 36);
+                }
                 GeneratePDF(view, fileName);
             }
         });

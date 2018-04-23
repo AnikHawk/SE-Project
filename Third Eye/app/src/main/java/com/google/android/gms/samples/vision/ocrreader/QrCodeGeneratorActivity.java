@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.google.zxing.WriterException;
 
+import java.util.Random;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import androidmads.library.qrgenearator.QRGSaver;
@@ -121,7 +123,15 @@ public class QrCodeGeneratorActivity extends AppCompatActivity {
         boolean save;
         String result;
         try {
-            save = QRGSaver.save(savePath, editText.getText().toString().trim(), bitmap, QRGContents.ImageType.IMAGE_JPEG);
+
+            String fileName = editName.getText().toString().trim();
+            if(fileName.length() == 0)
+            {
+                Random r = new java.util.Random ();
+                fileName = Long.toString (r.nextLong () & Long.MAX_VALUE, 36);
+            }
+
+            save = QRGSaver.save(savePath, fileName, bitmap, QRGContents.ImageType.IMAGE_JPEG);
             result = save ? "Image Saved" : "Image Not Saved";
             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
         } catch (Exception e) {

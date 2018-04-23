@@ -15,7 +15,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -37,7 +36,6 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -66,14 +64,16 @@ import java.util.List;
 import de.cketti.shareintentbuilder.ShareIntentBuilder;
 import mazouri.statebutton.StateButton;
 
-class StrInt{
+class BoxedText {
 
     int top;
+    int left;
     String string;
 
-    StrInt(int t, String s)
+    BoxedText(int t, int l, String s)
     {
         top = t;
+        left = l;
         string = s;
     }
 }
@@ -289,7 +289,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                qrString +=("\n" + textHolder.getText().toString());
+                qrString = textHolder.getText().toString();
                 Intent intent = new Intent(OcrCaptureActivity.this, QrCodeGeneratorActivity.class);
                 intent.putExtras(bundle);
                 intent.putExtra("QR STRING", qrString);
@@ -313,32 +313,39 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                     ExpandCollapseExtention.collapse(bottomView);
                 }
                 else {
-                    List textList = new ArrayList<StrInt>();
 
+                    List textList = new ArrayList<BoxedText>();
                     textHolder.setText("");
                     SparseArray<TextBlock> items = detections.getDetectedItems();
                     for (int i = 0; i < items.size(); ++i) {
                         TextBlock item = items.valueAt(i);
                         int itemTop = item.getBoundingBox().top;
+                        int itemLeft = item.getBoundingBox().left;
 
-                        textList.add(new StrInt(itemTop, item.getValue()));
+                        textList.add(new BoxedText(itemTop,itemLeft, item.getValue()));
 //
                     }
-                    Collections.sort(textList, new Comparator<StrInt>() {
+                    Collections.sort(textList, new Comparator<BoxedText>() {
                         @Override
-                        public int compare(StrInt o1, StrInt o2) {
-                            if(o1.top > o2.top)
+                        public int compare(BoxedText textOne, BoxedText textTwo) {
+                            if(textOne.top > textTwo.top)
                                 return 1;
-                           else if(o1.top < o2.top)
+                           else if(textOne.top < textTwo.top)
                                 return -1;
-                            else return 0;
+                            else {
+                                if(textOne.left > textTwo.left)
+                                    return 1;
+                                else if(textOne.left < textTwo.left)
+                                    return -1;
+                                return 0;
+                            }
 
                         }
 
                     });
 
                     for (int i = 0; i < textList.size(); ++i) {
-                        StrInt item = (StrInt) textList.get(i);
+                        BoxedText item = (BoxedText) textList.get(i);
                         textHolder.append(item.string);
                         textHolder.append(" \n");
                     }
@@ -758,8 +765,11 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         }
     }
 
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
+        OcrCaptureActivity.pdfString = "";
+        this.finish();
     }
 }
 

@@ -138,7 +138,7 @@ MERGED from [com.google.android.gms:play-services-tasks-license:12.0.1] /home/sa
 	android:supportsRtl
 		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:20:9-35
 	android:label
-		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:19:9-28
+		ADDED from /home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/src/main/AndroidManifest.xml:19:9-34
 		REJECTED from [com.nightonke:jellytogglebutton:1.0.2] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/jellytogglebutton-1.0.2.aar/ef9553bd49b3c4136222f872bd848f1e/AndroidManifest.xml:13:9-41
 		REJECTED from [me.rishabhkhanna:CustomToggle:1.0.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/CustomToggle-1.0.0.aar/c9117ae0c11c2c59096653cc61bae419/AndroidManifest.xml:13:9-41
 		REJECTED from [com.github.mazouri:android-state-button:1.0] /home/samiul_siddiqui/.gradle/caches/transforms-1/files-1.1/android-state-button-1.0.aar/859bfe8063f8f4c8ee8807359f90789a/AndroidManifest.xml:13:9-41

@@ -32,8 +32,8 @@
         android:fontFamily="@font/roboto"
         android:hint="@string/enter_text"
         android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
-        android:minLines="5"
-        android:maxLines="16"
+        android:minLines="3"
+        android:maxLines="3"
         android:gravity="top|start"
         android:padding="20dp" />
 

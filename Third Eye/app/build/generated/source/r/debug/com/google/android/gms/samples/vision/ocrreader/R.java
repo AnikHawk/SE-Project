@@ -5796,7 +5796,9 @@ public final class R {
     public static final int cut_round=0x7f0e0003;
     public static final int ic_launcher=0x7f0e0004;
     public static final int ic_launcher_foreground=0x7f0e0005;
-    public static final int translate=0x7f0e0006;
+    public static final int ic_textimage=0x7f0e0006;
+    public static final int ic_textimage_round=0x7f0e0007;
+    public static final int translate=0x7f0e0008;
   }
   public static final class string {
     public static final int abc_action_bar_home_description=0x7f0f0000;

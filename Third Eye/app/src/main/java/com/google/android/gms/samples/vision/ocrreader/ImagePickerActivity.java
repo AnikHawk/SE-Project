@@ -62,7 +62,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
     public static String qrString = "";
     Bitmap image;
     Spinner selectLang;
-    private TessBaseAPI mTess;
+    private TessBaseAPI tesseractBase;
     String dataPath = "";
     ImageView imv;
     TextToSpeech textToSpeech;
@@ -120,9 +120,9 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         //initialize Tesseract API
 
         dataPath = getFilesDir() + "/tesseract/";
-        mTess = new TessBaseAPI();
+        tesseractBase = new TessBaseAPI();
         checkFile(new File(dataPath + "tessdata/"));
-        mTess.init(dataPath, language);
+        tesseractBase.init(dataPath, language);
         imv = findViewById(R.id.imageView);
 
         cutButton.setOnClickListener(new View.OnClickListener() {
@@ -152,7 +152,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         pdfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pdfString +=("\n" + textHolder.getText().toString());
+                OcrCaptureActivity.pdfString +=("\n" + textHolder.getText().toString());
                 Intent intent = new Intent(ImagePickerActivity.this, PdfActivity.class);
                 ImagePickerActivity.this.startActivity(intent);
             }
@@ -161,7 +161,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                qrString +=("\n" + textHolder.getText().toString());
+                qrString = textHolder.getText().toString();
                 Intent intent = new Intent(ImagePickerActivity.this, QrCodeGeneratorActivity.class);
                 intent.putExtras(bundle);
                 intent.putExtra("QR STRING", qrString);
@@ -252,8 +252,8 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
 
     public void processImage() {
         String ocrResult;
-        mTess.setImage(image);
-        ocrResult = mTess.getUTF8Text();
+        tesseractBase.setImage(image);
+        ocrResult = tesseractBase.getUTF8Text();
         textHolder.setText(ocrResult);
     }
 
@@ -306,7 +306,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         String item = parent.getItemAtPosition(position).toString();
         language = mp.get(item);
         checkFile(new File(dataPath + "tessdata/"));
-        mTess.init(dataPath, language);
+        tesseractBase.init(dataPath, language);
         if (language.equals("eng")) {
             textToSpeech.setLanguage(Locale.US);
         } else if (language.equals("ben")) {
@@ -342,9 +342,15 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         toast.show();
     }
 
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
         textToSpeech.stop();
+        OcrCaptureActivity.pdfString = "";
         this.finish();
     }
+
+
+
+
 }
