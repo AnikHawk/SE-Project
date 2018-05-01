@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PdfActivity">
 
     <EditText
@@ -13,20 +12,20 @@
         android:layout_height="70dp"
         android:fontFamily="@font/roboto"
         android:hint="@string/enter_name"
-        android:padding="20dp"
-        android:inputType="text" />
+        android:inputType="text"
+        android:padding="20dp" />
 
     <EditText
         android:id="@+id/text_edit"
         android:layout_width="match_parent"
-        android:layout_height ="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/name_edit"
         android:fontFamily="@font/roboto"
+        android:gravity="top|start"
         android:hint="@string/enter_text"
         android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
-        android:minLines="6"
         android:maxLines="16"
-        android:gravity="top|start"
+        android:minLines="6"
         android:padding="20dp" />
 
     <me.rishabhkhanna.customtogglebutton.CustomToggleButton
@@ -41,11 +40,11 @@
         android:textOn="@string/create_pdf"
         android:textStyle="bold"
         app:borderWidth="3dp"
-        app:checkedColor="@color/md_light_blue_A700"
-        app:uncheckedColor="@color/md_light_blue_A700"
-        app:uncheckedTextColor="#ffffff"
+        app:checkedColor="@color/md_indigo_500"
         app:checkedTextColor="#ffffff"
-        app:radius="7dp">
+        app:radius="7dp"
+        app:uncheckedColor="@color/md_indigo_500"
+        app:uncheckedTextColor="#ffffff">
     </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
     <me.rishabhkhanna.customtogglebutton.CustomToggleButton
@@ -60,11 +59,11 @@
         android:textOn="@string/reset"
         android:textStyle="bold"
         app:borderWidth="3dp"
-        app:checkedColor="@color/md_light_blue_A700"
-        app:uncheckedColor="@color/md_light_blue_A700"
+        app:checkedColor="@color/md_indigo_500"
         app:checkedTextColor="#ffffff"
-        app:uncheckedTextColor="#ffffff"
-        app:radius="7dp">
+        app:radius="7dp"
+        app:uncheckedColor="@color/md_indigo_500"
+        app:uncheckedTextColor="#ffffff">
     </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
 </RelativeLayout>

@@ -24,18 +24,19 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import de.cketti.shareintentbuilder.ShareIntentBuilder;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
+
 import static android.Manifest.permission.CAMERA;
-import static android.hardware.Camera.CameraInfo.*;
+import static android.hardware.Camera.CameraInfo.CAMERA_FACING_BACK;
 
 public class QrCodeScannerActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
     private static final int REQUEST_CAMERA = 1;
-    private ZXingScannerView mScannerView;
     FloatingActionButton qrGeneratorButton;
     FloatingActionButton shareButton;
     FloatingActionMenu fab;
     AVLoadingIndicatorView effect;
     String textHolder;
+    private ZXingScannerView mScannerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
         int currentApiVersion = android.os.Build.VERSION.SDK_INT;
         if (currentApiVersion >= android.os.Build.VERSION_CODES.M) {
             if (checkPermission()) {
-          //      Toast.makeText(getApplicationContext(), "Permission already granted", Toast.LENGTH_LONG).show();
+                //      Toast.makeText(getApplicationContext(), "Permission already granted", Toast.LENGTH_LONG).show();
             } else {
                 requestPermission();
             }
@@ -80,7 +81,7 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
     }
 
     private boolean checkPermission() {
-        return ( ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA ) == PackageManager.PERMISSION_GRANTED);
+        return (ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA) == PackageManager.PERMISSION_GRANTED);
     }
 
     private void requestPermission() {
@@ -93,9 +94,9 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
                 if (grantResults.length > 0) {
 
                     boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    if (cameraAccepted){
+                    if (cameraAccepted) {
                         Toast.makeText(getApplicationContext(), "Permission Granted, Now you can access camera", Toast.LENGTH_LONG).show();
-                    }else {
+                    } else {
                         Toast.makeText(getApplicationContext(), "Permission Denied, You cannot access and camera", Toast.LENGTH_LONG).show();
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (shouldShowRequestPermissionRationale(CAMERA)) {
@@ -133,7 +134,7 @@ public class QrCodeScannerActivity extends AppCompatActivity implements ZXingSca
         int currentApiVersion = android.os.Build.VERSION.SDK_INT;
         if (currentApiVersion >= android.os.Build.VERSION_CODES.M) {
             if (checkPermission()) {
-                if(mScannerView == null) {
+                if (mScannerView == null) {
                     mScannerView = new ZXingScannerView(this);
                     setContentView(mScannerView);
                 }

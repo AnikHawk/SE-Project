@@ -31,139 +31,139 @@ import javax.net.ssl.HttpsURLConnection;
  * extend this to make the specific service calls.
  */
 public abstract class YandexTranslatorAPI {
-  //Encoding type
-  static final String ENCODING = "UTF-8";
+    //Encoding type
+    static final String ENCODING = "UTF-8";
+    static final String PARAM_API_KEY = "key=",
+            PARAM_LANG_PAIR = "&lang=",
+            PARAM_TEXT = "&text=";
+    static String apiKey;
+    private static String referrer;
 
-  static String apiKey;
-  private static String referrer;
-
-  static final String PARAM_API_KEY = "key=",
-      PARAM_LANG_PAIR = "&lang=",
-      PARAM_TEXT = "&text=";
-
-  /**
-   * Sets the API key.
-   * @param pKey The API key.
-   */
-  public static void setKey(final String pKey) {
-    apiKey = pKey;
-  }
-
-  public static void setReferrer(final String pReferrer) {
-    referrer = pReferrer;
-  }
-
-  /**
-   * Forms an HTTPS request, sends it using GET method and returns the result of the request as a String.
-   * 
-   * @param url The URL to query for a String response.
-   * @return The translated String.
-   * @throws Exception on error.
-   */
-  private static String retrieveResponse(final URL url) throws Exception {
-    final HttpsURLConnection uc = (HttpsURLConnection) url.openConnection();
-    if(referrer!=null)
-      uc.setRequestProperty("referer", referrer);
-    uc.setRequestProperty("Content-Type","text/plain; charset=" + ENCODING);
-    uc.setRequestProperty("Accept-Charset",ENCODING);
-    uc.setRequestMethod("GET");
-
-    try {
-      final int responseCode = uc.getResponseCode();
-      final String result = inputStreamToString(uc.getInputStream());
-      if(responseCode!=200) {
-        throw new Exception("Error from Yandex API: " + result);
-      }
-      return result;
-    } finally {
-      uc.disconnect();
+    /**
+     * Sets the API key.
+     *
+     * @param pKey The API key.
+     */
+    public static void setKey(final String pKey) {
+        apiKey = pKey;
     }
-  }
 
-  /**
-   * Forms a request, sends it using the GET method and returns the value with the given label from the
-   * resulting JSON response.
-   */
-  static String retrievePropString(final URL url, final String jsonValProperty) throws Exception {
-    final String response = retrieveResponse(url);
-    JSONObject jsonObj = (JSONObject)JSONValue.parse(response);
-    return jsonObj.get(jsonValProperty).toString();
-  }
-  
-  /**
-   * Forms a request, sends it using the GET method and returns the contents of the array of strings
-   * with the given label, with multiple strings concatenated.
-   */
-  static String retrievePropArrString(final URL url, final String jsonValProperty) throws Exception {
-      final String response = retrieveResponse(url);
-      String[] translationArr = jsonObjValToStringArr(response, jsonValProperty);
-      StringBuilder combinedTranslations = new StringBuilder();
-      for (String s : translationArr) {
-        combinedTranslations.append(s);
-      }
-      return combinedTranslations.toString().trim();
-  }
+    public static void setReferrer(final String pReferrer) {
+        referrer = pReferrer;
+    }
 
-  // Helper method to parse a JSONObject containing an array of Strings with the given label.
-  private static String[] jsonObjValToStringArr(final String inputString, final String subObjPropertyName) throws Exception {
-    JSONObject jsonObj = (JSONObject)JSONValue.parse(inputString);
-    JSONArray jsonArr = (JSONArray) jsonObj.get(subObjPropertyName);
-    return jsonArrToStringArr(jsonArr.toJSONString(), null);
-  }
+    /**
+     * Forms an HTTPS request, sends it using GET method and returns the result of the request as a String.
+     *
+     * @param url The URL to query for a String response.
+     * @return The translated String.
+     * @throws Exception on error.
+     */
+    private static String retrieveResponse(final URL url) throws Exception {
+        final HttpsURLConnection uc = (HttpsURLConnection) url.openConnection();
+        if (referrer != null)
+            uc.setRequestProperty("referer", referrer);
+        uc.setRequestProperty("Content-Type", "text/plain; charset=" + ENCODING);
+        uc.setRequestProperty("Accept-Charset", ENCODING);
+        uc.setRequestMethod("GET");
 
-  // Helper method to parse a JSONArray. Reads an array of JSONObjects and returns a String Array
-  // containing the toString() of the desired property. If propertyName is null, just return the String value.
-  private static String[] jsonArrToStringArr(final String inputString, final String propertyName) throws Exception {
-    final JSONArray jsonArr = (JSONArray)JSONValue.parse(inputString);
-    String[] values = new String[jsonArr.size()];
-
-    int i = 0;
-    for(Object obj : jsonArr) {
-      if(propertyName!=null&&propertyName.length()!=0) {
-        final JSONObject json = (JSONObject)obj;
-        if(json.containsKey(propertyName)) {
-          values[i] = json.get(propertyName).toString();
+        try {
+            final int responseCode = uc.getResponseCode();
+            final String result = inputStreamToString(uc.getInputStream());
+            if (responseCode != 200) {
+                throw new Exception("Error from Yandex API: " + result);
+            }
+            return result;
+        } finally {
+            uc.disconnect();
         }
-      } else {
-        values[i] = obj.toString();
-      }
-      i++;
     }
-    return values;
-  }
 
-  /**
-   * Reads an InputStream and returns its contents as a String.
-   * Also effects rate control.
-   * @param inputStream The InputStream to read from.
-   * @return The contents of the InputStream as a String.
-   * @throws Exception on error.
-   */
-  private static String inputStreamToString(final InputStream inputStream) throws Exception {
-    final StringBuilder outputBuilder = new StringBuilder();
+    /**
+     * Forms a request, sends it using the GET method and returns the value with the given label from the
+     * resulting JSON response.
+     */
+    static String retrievePropString(final URL url, final String jsonValProperty) throws Exception {
+        final String response = retrieveResponse(url);
+        JSONObject jsonObj = (JSONObject) JSONValue.parse(response);
+        return jsonObj.get(jsonValProperty).toString();
+    }
 
-    try {
-      String string;
-      if (inputStream != null) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, ENCODING));
-        while (null != (string = reader.readLine())) {
-          // TODO Can we remove this?
-          // Need to strip the Unicode Zero-width Non-breaking Space. For some reason, the Microsoft AJAX
-          // services prepend this to every response
-          outputBuilder.append(string.replaceAll("\uFEFF", ""));
+    /**
+     * Forms a request, sends it using the GET method and returns the contents of the array of strings
+     * with the given label, with multiple strings concatenated.
+     */
+    static String retrievePropArrString(final URL url, final String jsonValProperty) throws Exception {
+        final String response = retrieveResponse(url);
+        String[] translationArr = jsonObjValToStringArr(response, jsonValProperty);
+        StringBuilder combinedTranslations = new StringBuilder();
+        for (String s : translationArr) {
+            combinedTranslations.append(s);
         }
-      }
-    } catch (Exception ex) {
-      throw new Exception("[yandex-translator-api] Error reading translation stream.", ex);
+        return combinedTranslations.toString().trim();
     }
-    return outputBuilder.toString();
-  }
 
-  //Check if ready to make request, if not, throw a RuntimeException
-  static void validateServiceState() throws Exception {
-    if(apiKey==null||apiKey.length()<27) {
-      throw new RuntimeException("INVALID_API_KEY - Please set the API Key with your Yandex API Key");
+    // Helper method to parse a JSONObject containing an array of Strings with the given label.
+    private static String[] jsonObjValToStringArr(final String inputString, final String subObjPropertyName) throws Exception {
+        JSONObject jsonObj = (JSONObject) JSONValue.parse(inputString);
+        JSONArray jsonArr = (JSONArray) jsonObj.get(subObjPropertyName);
+        return jsonArrToStringArr(jsonArr.toJSONString(), null);
     }
-  }
+
+    // Helper method to parse a JSONArray. Reads an array of JSONObjects and returns a String Array
+    // containing the toString() of the desired property. If propertyName is null, just return the String value.
+    private static String[] jsonArrToStringArr(final String inputString, final String propertyName) throws Exception {
+        final JSONArray jsonArr = (JSONArray) JSONValue.parse(inputString);
+        String[] values = new String[jsonArr.size()];
+
+        int i = 0;
+        for (Object obj : jsonArr) {
+            if (propertyName != null && propertyName.length() != 0) {
+                final JSONObject json = (JSONObject) obj;
+                if (json.containsKey(propertyName)) {
+                    values[i] = json.get(propertyName).toString();
+                }
+            } else {
+                values[i] = obj.toString();
+            }
+            i++;
+        }
+        return values;
+    }
+
+    /**
+     * Reads an InputStream and returns its contents as a String.
+     * Also effects rate control.
+     *
+     * @param inputStream The InputStream to read from.
+     * @return The contents of the InputStream as a String.
+     * @throws Exception on error.
+     */
+    private static String inputStreamToString(final InputStream inputStream) throws Exception {
+        final StringBuilder outputBuilder = new StringBuilder();
+
+        try {
+            String string;
+            if (inputStream != null) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, ENCODING));
+                while (null != (string = reader.readLine())) {
+                    // TODO Can we remove this?
+                    // Need to strip the Unicode Zero-width Non-breaking Space. For some reason, the Microsoft AJAX
+                    // services prepend this to every response
+                    outputBuilder.append(string.replaceAll("\uFEFF", ""));
+                }
+            }
+        } catch (Exception ex) {
+            throw new Exception("[yandex-translator-api] Error reading translation stream.", ex);
+        }
+        return outputBuilder.toString();
+    }
+
+    //Check if ready to make request, if not, throw a RuntimeException
+    static void validateServiceState() throws Exception {
+        if (apiKey == null || apiKey.length() < 27) {
+            throw new RuntimeException("INVALID_API_KEY - Please set the API Key with your Yandex API Key");
+        }
+    }
 
 }

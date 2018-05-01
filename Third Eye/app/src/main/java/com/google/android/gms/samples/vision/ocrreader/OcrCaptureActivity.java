@@ -1,4 +1,3 @@
-
 package com.google.android.gms.samples.vision.ocrreader;
 
 import android.Manifest;
@@ -70,8 +69,7 @@ class BoxedText {
     int left;
     String string;
 
-    BoxedText(int t, int l, String s)
-    {
+    BoxedText(int t, int l, String s) {
         top = t;
         left = l;
         string = s;
@@ -87,23 +85,19 @@ public final class OcrCaptureActivity extends AppCompatActivity {
 
     public static String pdfString = "";
     public static String qrString = "";
-
-    StateButton flashButton;
-    StateButton focusButton;
-    StateButton scanModeButton;
+    public static Detector.Detections<TextBlock> detections;
+    public static boolean isPaused = false;
     public boolean wordByWord = true;
     public boolean lineByLine = false;
     public boolean blockByBlock = false;
     public boolean translation;
     public String translateTo = "";
-
-    private CameraSource mCameraSource;
-    private CameraSourcePreview mPreview;
-    private GraphicOverlay<OcrGraphic> mGraphicOverlay;
-    RelativeLayout bottomView;
     public EditText textHolder;
+    StateButton flashButton;
+    StateButton focusButton;
+    StateButton scanModeButton;
+    RelativeLayout bottomView;
     boolean isExpanded;
-
     FloatingActionButton copyButton;
     FloatingActionButton cutButton;
     FloatingActionButton translateButton;
@@ -114,21 +108,43 @@ public final class OcrCaptureActivity extends AppCompatActivity {
     FloatingActionMenu fab;
     AVLoadingIndicatorView load;
     AVLoadingIndicatorView effect;
-
-    // Helper objects for detecting taps and pinches.
-    private ScaleGestureDetector scaleGestureDetector;
-    private GestureDetector gestureDetector;
     ExpandCollapseExtention animator = new ExpandCollapseExtention();
-
-    private Language fromLang;
-    private Language toLang;
     boolean frontFacing = false;
-    public static Detector.Detections<TextBlock> detections;
-    public static boolean isPaused = false;
-
     boolean autoFocus = true;
     boolean useFlash = false;
     int scanModeSelection = 1;
+    private CameraSource mCameraSource;
+    private CameraSourcePreview mPreview;
+    private GraphicOverlay<OcrGraphic> mGraphicOverlay;
+    // Helper objects for detecting taps and pinches.
+    private ScaleGestureDetector scaleGestureDetector;
+    private GestureDetector gestureDetector;
+    private Language fromLang;
+    private Language toLang;
+
+    public static void animateViewFromBottomToTop(final View view) {
+        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onGlobalLayout() {
+                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                final int TRANSLATION_Y = view.getHeight();
+                view.setTranslationY(TRANSLATION_Y);
+                view.setVisibility(View.GONE);
+                view.animate()
+                        .translationYBy(-TRANSLATION_Y)
+                        .setDuration(500)
+                        .setStartDelay(200)
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationStart(final Animator animation) {
+                                view.setVisibility(View.VISIBLE);
+                            }
+                        })
+                        .start();
+            }
+        });
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -280,7 +296,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         pdfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pdfString +=("\n" + textHolder.getText().toString());
+                pdfString += ("\n" + textHolder.getText().toString());
                 Intent intent = new Intent(OcrCaptureActivity.this, PdfActivity.class);
                 OcrCaptureActivity.this.startActivity(intent);
             }
@@ -311,8 +327,7 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 if (isPaused) {
                     isPaused = false;
                     ExpandCollapseExtention.collapse(bottomView);
-                }
-                else {
+                } else {
 
                     List textList = new ArrayList<BoxedText>();
                     textHolder.setText("");
@@ -322,20 +337,20 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                         int itemTop = item.getBoundingBox().top;
                         int itemLeft = item.getBoundingBox().left;
 
-                        textList.add(new BoxedText(itemTop,itemLeft, item.getValue()));
+                        textList.add(new BoxedText(itemTop, itemLeft, item.getValue()));
 //
                     }
                     Collections.sort(textList, new Comparator<BoxedText>() {
                         @Override
                         public int compare(BoxedText textOne, BoxedText textTwo) {
-                            if(textOne.top > textTwo.top)
+                            if (textOne.top > textTwo.top)
                                 return 1;
-                           else if(textOne.top < textTwo.top)
+                            else if (textOne.top < textTwo.top)
                                 return -1;
                             else {
-                                if(textOne.left > textTwo.left)
+                                if (textOne.left > textTwo.left)
                                     return 1;
-                                else if(textOne.left < textTwo.left)
+                                else if (textOne.left < textTwo.left)
                                     return -1;
                                 return 0;
                             }
@@ -467,7 +482,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         startCameraSource();
     }
 
-
     /**
      * Stops the camera.
      */
@@ -586,30 +600,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         return text != null;
     }
 
-    private class CaptureGestureListener extends GestureDetector.SimpleOnGestureListener {
-        @Override
-        public boolean onSingleTapConfirmed(MotionEvent e) {
-            return onTap(e.getRawX(), e.getRawY()) || super.onSingleTapConfirmed(e);
-        }
-    }
-
-    private class ScaleListener implements ScaleGestureDetector.OnScaleGestureListener {
-        @Override
-        public boolean onScale(ScaleGestureDetector detector) {
-            return false;
-        }
-
-        @Override
-        public boolean onScaleBegin(ScaleGestureDetector detector) {
-            return true;
-        }
-
-        @Override
-        public void onScaleEnd(ScaleGestureDetector detector) {
-            mCameraSource.doZoom(detector.getScaleFactor());
-        }
-    }
-
     public void copyToClipboard(String copyText) {
         int sdk = Build.VERSION.SDK_INT;
         if (sdk < Build.VERSION_CODES.HONEYCOMB) {
@@ -631,30 +621,6 @@ public final class OcrCaptureActivity extends AppCompatActivity {
                 "Text copied to clipboard", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.BOTTOM | Gravity.START, 50, 50);
         toast.show();
-    }
-
-    public static void animateViewFromBottomToTop(final View view) {
-        view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-            @Override
-            public void onGlobalLayout() {
-                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                final int TRANSLATION_Y = view.getHeight();
-                view.setTranslationY(TRANSLATION_Y);
-                view.setVisibility(View.GONE);
-                view.animate()
-                        .translationYBy(-TRANSLATION_Y)
-                        .setDuration(500)
-                        .setStartDelay(200)
-                        .setListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationStart(final Animator animation) {
-                                view.setVisibility(View.VISIBLE);
-                            }
-                        })
-                        .start();
-            }
-        });
     }
 
     @Override
@@ -770,6 +736,30 @@ public final class OcrCaptureActivity extends AppCompatActivity {
         super.onBackPressed();
         OcrCaptureActivity.pdfString = "";
         this.finish();
+    }
+
+    private class CaptureGestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent e) {
+            return onTap(e.getRawX(), e.getRawY()) || super.onSingleTapConfirmed(e);
+        }
+    }
+
+    private class ScaleListener implements ScaleGestureDetector.OnScaleGestureListener {
+        @Override
+        public boolean onScale(ScaleGestureDetector detector) {
+            return false;
+        }
+
+        @Override
+        public boolean onScaleBegin(ScaleGestureDetector detector) {
+            return true;
+        }
+
+        @Override
+        public void onScaleEnd(ScaleGestureDetector detector) {
+            mCameraSource.doZoom(detector.getScaleFactor());
+        }
     }
 }
 

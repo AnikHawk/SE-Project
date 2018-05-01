@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="BaseTheme" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/app_primary</item>
         <item name="colorPrimaryDark">@color/app_primary_dark</item>
         <item name="actionBarStyle">@style/ActionBarStyle</item>
@@ -8,6 +8,9 @@
 
     <style name="AppTheme" parent="BaseTheme">
 
+        <item name="android:colorBackground">@color/background_material_light</item>
+        <item name="android:colorForeground">@color/foreground_material_light</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
     </style>
 
     <style name="ActionBarStyle" parent="Widget.AppCompat.ActionBar.Solid">
@@ -47,6 +50,17 @@
 
     <style name="DrawerItemTextAppearance">
         <item name="android:fontFamily" tools:ignore="NewApi">sans-serif-light</item>
+    </style>
+
+    <style name="RedNeck" parent="AppTheme" />
+
+    <style name="RedBlack" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary_material_dark_1</item>
+        <item name="android:colorBackground">@color/background_material_dark</item>
+    </style>
+
+    <style name="Theme.AppCompact.RedBlack" parent="Theme.AppCompat">
+        <item name="android:colorBackground">@color/background_material_dark</item>
     </style>
 
 </resources>

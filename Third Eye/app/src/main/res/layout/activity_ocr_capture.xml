@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/tools"
     android:id="@+id/topLayout"
@@ -31,13 +30,13 @@
         <EditText
             android:id="@+id/textHolder"
             android:layout_width="match_parent"
-            android:scrollHorizontally="false"
             android:layout_height="match_parent"
             android:background="#CC000000"
-            android:text=""
             android:hint="@string/empty"
             android:inputType="text|textMultiLine|textCapSentences|textAutoCorrect"
-            android:visibility="invisible"/>
+            android:scrollHorizontally="false"
+            android:text=""
+            android:visibility="invisible" />
 
 
         <com.wang.avi.AVLoadingIndicatorView
@@ -48,47 +47,47 @@
             android:visibility="gone"
             app:indicatorName="BallPulseIndicator" />
     </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#CC000000"
         android:layout_gravity="top"
-        android:orientation="horizontal"
-        >
+        android:background="#CC000000"
+        android:orientation="horizontal">
 
         <mazouri.statebutton.StateButton
             android:id="@+id/flashButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="50dp"
-            android:layout_alignParentStart="true"
             app:enabledBackground="@drawable/flashon"
             app:selectedBackground="@drawable/flashoff"
-            app:state="selected"/>
+            app:state="selected" />
 
 
         <mazouri.statebutton.StateButton
             android:id="@+id/scanModeButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="50dp"
             app:enabledBackground="@drawable/more"
-            android:layout_alignParentEnd="true"
             app:selectedBackground="@drawable/more"
-            app:state="enabled"/>
+            app:state="enabled" />
 
 
         <mazouri.statebutton.StateButton
             android:id="@+id/focusButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             app:enabledBackground="@drawable/focuson"
-            android:layout_centerInParent="true"
             app:selectedBackground="@drawable/focusoff"
-            app:state="enabled"/>
+            app:state="enabled" />
 
 
     </RelativeLayout>
@@ -97,18 +96,18 @@
         android:id="@+id/effect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
         android:layout_gravity="end|bottom"
-        android:layout_marginEnd="19dp"
         android:layout_marginBottom="21dp"
+        android:layout_marginEnd="19dp"
+        android:visibility="visible"
         app:indicatorName="BallScaleMultipleIndicator" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
         android:layout_gravity="bottom|end"
         android:layout_margin="20dp"
+        android:visibility="visible"
         app:indicatorName="BallScaleMultipleIndicator" />
 
 
@@ -116,60 +115,64 @@
         android:id="@+id/fab"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingRight="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="10dp"
-        fab:menu_labels_singleLine="true"
+        android:paddingRight="10dp"
+        app:menu_colorNormal="@color/md_indigo_500"
+        app:menu_colorPressed="@color/md_indigo_400"
+        app:menu_colorRipple="@color/md_indigo_A100"
         fab:menu_animationDelayPerItem="0"
-        app:menu_colorNormal="@color/md_light_blue_A700"
-        app:menu_colorPressed="@color/md_light_blue_500"
-        app:menu_colorRipple="@color/md_light_blue_A100"
+        fab:menu_labels_ellipsize="end"
         fab:menu_labels_maxLines="2"
-        fab:menu_labels_ellipsize="end">
-
+        fab:menu_labels_singleLine="true">
 
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/cutButton"
+            style="@style/MenuButtonsSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/cut_padded"
-            android:scaleType="fitCenter"
-            android:padding="10dp"
             android:layout_margin="10dp"
-            style="@style/MenuButtonsSmall"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cut_padded"
+            app:fab_colorNormal="@color/md_indigo_500"
             app:fab_size="mini"
+            app:rippleColor="@color/md_indigo_400"
             fab:fab_label="Cut" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/copyButton"
+            style="@style/MenuButtonsSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/copy_padded"
-            style="@style/MenuButtonsSmall"
-            app:rippleColor="@color/md_teal_600"
+            app:fab_colorNormal="@color/md_indigo_500"
             app:fab_size="mini"
+            app:rippleColor="@color/md_indigo_400"
             fab:fab_label="Copy" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/translateButton"
+            style="@style/MenuButtonsSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:rippleColor="@color/md_teal_700"
-            style="@style/MenuButtonsSmall"
             android:src="@drawable/translate_padded"
+            app:fab_colorNormal="@color/md_indigo_500"
             app:fab_size="mini"
+            app:rippleColor="@color/md_indigo_400"
             fab:fab_label="Translate" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/pdf_button"
+            style="@style/MenuButtonsSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/MenuButtonsSmall"
-            app:rippleColor="@color/md_teal_800"
             android:src="@drawable/pdf_padded"
-            fab:fab_label="PDF"
-            app:fab_size="mini" />
+            app:fab_colorNormal="@color/md_indigo_500"
+            app:fab_size="mini"
+            app:rippleColor="@color/md_indigo_400"
+            fab:fab_label="PDF" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/qr_generator_fab_button"
@@ -177,29 +180,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/qr_padded"
+            app:fab_colorNormal="@color/md_indigo_500"
             app:fab_size="mini"
-            app:rippleColor="@color/md_teal_800"
+            app:rippleColor="@color/md_indigo_400"
             fab:fab_label="qrGenerator" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/share_button"
+            style="@style/MenuButtonsSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/MenuButtonsSmall"
-            app:rippleColor="@color/md_teal_800"
             android:src="@drawable/share_padded"
-            fab:fab_label="Share"
-            app:fab_size="mini" />
+            app:fab_colorNormal="@color/md_indigo_500"
+            app:fab_size="mini"
+            app:rippleColor="@color/md_indigo_400"
+            fab:fab_label="Share" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/pause_button"
+            style="@style/MenuButtonsSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/MenuButtonsSmall"
-            app:rippleColor="@color/md_teal_800"
             android:src="@drawable/pause_padded"
-            fab:fab_label="Pause"
-            app:fab_size="mini" />
+            app:fab_colorNormal="@color/md_indigo_500"
+            app:fab_size="mini"
+            app:rippleColor="@color/md_indigo_400"
+            fab:fab_label="Pause" />
 
     </com.github.clans.fab.FloatingActionMenu>
 

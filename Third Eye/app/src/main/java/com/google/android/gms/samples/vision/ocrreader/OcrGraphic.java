@@ -1,4 +1,3 @@
-
 package com.google.android.gms.samples.vision.ocrreader;
 
 import android.graphics.Canvas;
@@ -18,16 +17,15 @@ import com.google.android.gms.vision.text.TextBlock;
 import java.util.List;
 
 
-public class OcrGraphic extends GraphicOverlay.Graphic{
+public class OcrGraphic extends GraphicOverlay.Graphic {
 
-    private int mId;
     private static final int TEXT_COLOR = Color.WHITE;
-
     private static Paint sRectPaint;
     private static Paint sTextPaint;
     private final TextBlock mText;
     public GraphicOverlay transitionOverlay;
     public boolean translation;
+    private int mId;
     private boolean wordByWord;
     private boolean lineByLine;
     private boolean blockByBlock;
@@ -61,7 +59,26 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
         postInvalidate();
     }
 
+    private static void setTextSizeForWidth(Paint paint, float desiredWidth,
+                                            String text) {
 
+        // Pick a reasonably large value for the test. Larger values produce
+        // more accurate results, but may cause problems with hardware
+        // acceleration. But there are workarounds for that, too; refer to
+        // http://stackoverflow.com/questions/6253528/font-size-too-large-to-fit-in-cache
+        final float testTextSize = 48f;
+
+        // Get the bounds of the text, using our testTextSize.
+        paint.setTextSize(testTextSize);
+        Rect bounds = new Rect();
+        paint.getTextBounds(text, 0, text.length(), bounds);
+
+        // Calculate the desired size as a proportion of our testTextSize.
+        float desiredTextSize = testTextSize * desiredWidth / bounds.width();
+
+        // Set the paint for that size.
+        paint.setTextSize(desiredTextSize);
+    }
 
     public int getId() {
         return mId;
@@ -74,7 +91,6 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
     public TextBlock getTextBlock() {
         return mText;
     }
-
 
     public boolean contains(float x, float y) {
         TextBlock text = mText;
@@ -123,7 +139,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
 
 //  Word by Word
         else if (wordByWord) {
-            if(translation) try {
+            if (translation) try {
                 fromLang = Detect.execute(text.getValue());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -149,7 +165,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
                     rect.bottom = translateY(rect.bottom);
                     //canvas.drawRect(rect, sRectPaint);
 
-                    if(translation) {
+                    if (translation) {
                         String textToBeTranslated = currentText.getValue();
                         String translatedText = "";
                         try {
@@ -168,8 +184,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
 
                         setTextSizeForWidth(sTextPaint, rect.width(), translatedText);
                         canvas.drawText(translatedText, left, bottom, sTextPaint);
-                    }
-                    else {
+                    } else {
                         setTextSizeForWidth(sTextPaint, rect.width(), currentText.getValue());
                         canvas.drawText(currentText.getValue(), left, bottom, sTextPaint);
                     }
@@ -181,7 +196,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
 
 //        Line by Line
         else if (lineByLine) {
-            if(translation) try {
+            if (translation) try {
                 fromLang = Detect.execute(text.getValue());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -231,7 +246,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
 
 
 //       //Block by Block
-        else if(blockByBlock){
+        else if (blockByBlock) {
             float left = translateX(text.getBoundingBox().left);
             float bottom = translateY(text.getBoundingBox().top);
             // Draws the bounding box around the TextBlock.
@@ -241,7 +256,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
             rect.right = translateX(rect.right);
             rect.bottom = translateY(rect.top);
             canvas.drawRect(rect, sRectPaint);
-            if(translation) {
+            if (translation) {
                 String textToBeTranslated = text.getValue();
                 String translatedText = "";
                 try {
@@ -259,17 +274,16 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
                 }
                 String s = squeezeText(translatedText);
                 for (String line : s.split("\n")) {
-                    setTextSizeForWidth(sTextPaint,rect.width(),line);
+                    setTextSizeForWidth(sTextPaint, rect.width(), line);
                     canvas.drawText(line, left, bottom, sTextPaint);
                     bottom += sTextPaint.descent() - sTextPaint.ascent();
                 }
                 //setTextSizeForWidth(sTextPaint, rect.width(), translatedText);
                 //canvas.drawText(translatedText, left, bottom, sTextPaint);
-            }
-            else{
+            } else {
                 String s = squeezeText(text.getValue());
                 for (String line : s.split("\n")) {
-                    setTextSizeForWidth(sTextPaint,rect.width(),line);
+                    setTextSizeForWidth(sTextPaint, rect.width(), line);
                     canvas.drawText(line, left, bottom, sTextPaint);
                     bottom += sTextPaint.descent() - sTextPaint.ascent();
                 }
@@ -279,30 +293,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
         }
     }
 
-
-
-    private static void setTextSizeForWidth(Paint paint, float desiredWidth,
-                                            String text) {
-
-        // Pick a reasonably large value for the test. Larger values produce
-        // more accurate results, but may cause problems with hardware
-        // acceleration. But there are workarounds for that, too; refer to
-        // http://stackoverflow.com/questions/6253528/font-size-too-large-to-fit-in-cache
-        final float testTextSize = 48f;
-
-        // Get the bounds of the text, using our testTextSize.
-        paint.setTextSize(testTextSize);
-        Rect bounds = new Rect();
-        paint.getTextBounds(text, 0, text.length(), bounds);
-
-        // Calculate the desired size as a proportion of our testTextSize.
-        float desiredTextSize = testTextSize * desiredWidth / bounds.width();
-
-        // Set the paint for that size.
-        paint.setTextSize(desiredTextSize);
-    }
-
-    private String squeezeText(String s){
+    private String squeezeText(String s) {
         StringBuilder sb = new StringBuilder(s);
         int i = 0;
         while ((i = sb.indexOf(" ", i + 80)) != -1) {
@@ -311,7 +302,6 @@ public class OcrGraphic extends GraphicOverlay.Graphic{
         return sb.toString();
 
     }
-
 
 
 }

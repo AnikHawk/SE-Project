@@ -1,4 +1,4 @@
-#Mon Apr 23 21:37:23 BDT 2018
-base.0=/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/transforms/dexMerger/debug/24
+#Wed May 02 00:42:33 BDT 2018
+base.0=D\:\\Android Studio Projects\\SE-Project-master\\SE-Project\\Third Eye\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\9
 path.0=classes.dex
 renamed.0=classes.dex

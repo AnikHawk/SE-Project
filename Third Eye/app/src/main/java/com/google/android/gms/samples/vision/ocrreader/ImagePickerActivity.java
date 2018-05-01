@@ -9,11 +9,11 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -47,6 +47,8 @@ import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 
 public class ImagePickerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    public static String pdfString = "";
+    public static String qrString = "";
     FloatingActionButton copyButton;
     FloatingActionButton cutButton;
     FloatingActionButton pdfButton;
@@ -58,16 +60,14 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
     CustomToggleButton getTextButton, selectImageButton;
     HashMap<String, String> mp = new HashMap<>();
     String language = "eng";
-    public static String pdfString = "";
-    public static String qrString = "";
     Bitmap image;
     Spinner selectLang;
-    private TessBaseAPI tesseractBase;
     String dataPath = "";
     ImageView imv;
     TextToSpeech textToSpeech;
     EditText textHolder;
     boolean isSpeaking = false;
+    private TessBaseAPI tesseractBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,8 +136,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
                 if (isSpeaking) {
                     textToSpeech.stop();
                     isSpeaking = false;
-                }
-                else {
+                } else {
                     isSpeaking = true;
                     String toSpeak = textHolder.getText().toString();
                     textToSpeech.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, map);
@@ -152,7 +151,7 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         pdfButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OcrCaptureActivity.pdfString +=("\n" + textHolder.getText().toString());
+                OcrCaptureActivity.pdfString += ("\n" + textHolder.getText().toString());
                 Intent intent = new Intent(ImagePickerActivity.this, PdfActivity.class);
                 ImagePickerActivity.this.startActivity(intent);
             }
@@ -349,8 +348,6 @@ public class ImagePickerActivity extends AppCompatActivity implements AdapterVie
         OcrCaptureActivity.pdfString = "";
         this.finish();
     }
-
-
 
 
 }

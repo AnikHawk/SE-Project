@@ -1,4 +1,3 @@
-
 package com.google.android.gms.samples.vision.ocrreader;
 
 import android.util.SparseArray;
@@ -11,14 +10,14 @@ import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.text.TextBlock;
 
 public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
-    private GraphicOverlay<OcrGraphic> mGraphicOverlay;
-    View view;
+    private static boolean frameDone = true;
     public boolean translation;
+    View view;
+    private GraphicOverlay<OcrGraphic> mGraphicOverlay;
     private boolean wordByWord;
     private boolean lineByLine;
     private boolean blockByBlock;
     private String translateTo;
-    private static boolean frameDone = true;
 
     OcrDetectorProcessor(GraphicOverlay<OcrGraphic> ocrGraphicOverlay, View view, boolean translation, boolean wordByWord, boolean lineByLine, boolean blockByBlock, String translateTo) {
         mGraphicOverlay = ocrGraphicOverlay;

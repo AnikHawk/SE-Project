@@ -35,13 +35,26 @@ public class PdfActivity extends AppCompatActivity {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-    private EditText editName;
-    private EditText editText;
     public CustomToggleButton createButton;
     public CustomToggleButton resetButton;
-    private String fileName;
     public String fileContent;
     public String value;
+    private EditText editName;
+    private EditText editText;
+    private String fileName;
+
+    public static void verifyStoragePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +71,11 @@ public class PdfActivity extends AppCompatActivity {
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                createButton.setChecked(false);
                 fileName = editName.getText().toString().trim();
-                if(fileName.length() == 0)
-                {
-                    Random r = new java.util.Random ();
-                    fileName = Long.toString (r.nextLong () & Long.MAX_VALUE, 36);
+                if (fileName.length() == 0) {
+                    Random r = new java.util.Random();
+                    fileName = Long.toString(r.nextLong() & Long.MAX_VALUE, 36);
                 }
                 GeneratePDF(view, fileName);
             }
@@ -70,6 +83,7 @@ public class PdfActivity extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                resetButton.setChecked(false);
                 editName.setText("");
                 editText.setText("");
                 OcrCaptureActivity.pdfString = "";
@@ -105,19 +119,6 @@ public class PdfActivity extends AppCompatActivity {
         } catch (DocumentException e) {
             e.printStackTrace();
             Toast.makeText(getApplicationContext(), "Document Exception", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public static void verifyStoragePermissions(Activity activity) {
-        // Check if we have write permission
-        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (permission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
-            ActivityCompat.requestPermissions(
-                    activity,
-                    PERMISSIONS_STORAGE,
-                    REQUEST_EXTERNAL_STORAGE
-            );
         }
     }
 

@@ -17,30 +17,38 @@ import android.widget.TextView;
 
 import com.google.android.gms.samples.vision.ocrreader.ui.camera.GraphicOverlay;
 import com.nightonke.jellytogglebutton.JellyToggleButton;
-import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
+
 import java.io.IOException;
+
+import me.rishabhkhanna.customtogglebutton.CustomToggleButton;
 
 public class MainActivity extends AppCompatActivity implements SurfaceHolder.Callback, View.OnClickListener {
     private static final String TAG = "MainActivity";
-
-    private GraphicOverlay<OcrGraphic> mGraphicOverlay;
     private static final int RC_HANDLE_CAMERA_PERM = 212;
-
+    private static final int RC_OCR_CAPTURE = 9003;
+    //LayoutInflater controlInflater = null;
+    public TextView statusMessage;
+    Camera camera;
+    SurfaceView surfaceView;
+    SurfaceHolder surfaceHolder;
+    boolean previewing = false;
+    private GraphicOverlay<OcrGraphic> mGraphicOverlay;
     private CustomToggleButton realTimeButton;
     private CustomToggleButton imagePickerButton;
     private CustomToggleButton qrButton;
     private JellyToggleButton translation;
     private Spinner langSpinner;
-
-    Camera camera;
-    SurfaceView surfaceView;
-    SurfaceHolder surfaceHolder;
-    boolean previewing = false;
-    //LayoutInflater controlInflater = null;
-    public TextView statusMessage;
-
-    private static final int RC_OCR_CAPTURE = 9003;
     //private static final int RC_IMAGE_PICKER = 9004;
+    JellyToggleButton.OnCheckedChangeListener langChoice = new JellyToggleButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+            if (isChecked) {
+                langSpinner.setVisibility(View.VISIBLE);
+            } else {
+                langSpinner.setVisibility(View.INVISIBLE);
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         setContentView(R.layout.activity_main);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[] {Manifest.permission.CAMERA}, 1);
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, 1);
             }
         }
 
@@ -70,12 +78,14 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         qrButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                qrButton.setChecked(false);
                 startActivity(new Intent(MainActivity.this, QrCodeScannerActivity.class));
             }
         });
         imagePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imagePickerButton.setChecked(false);
                 startActivity(new Intent(MainActivity.this, ImagePickerActivity.class));
             }
         });
@@ -85,18 +95,6 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
         findViewById(R.id.real_time).setOnClickListener(this);
     }
-
-    JellyToggleButton.OnCheckedChangeListener langChoice = new JellyToggleButton.OnCheckedChangeListener() {
-        @Override
-        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-            if (isChecked) {
-                langSpinner.setVisibility(View.VISIBLE);
-            } else {
-                langSpinner.setVisibility(View.INVISIBLE);
-            }
-        }
-    };
-
 
     @Override
     public void onClick(View v) {
@@ -116,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         super.onResume();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[] {Manifest.permission.CAMERA}, 1);
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, 1);
             }
         }
 
@@ -143,7 +141,8 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {}
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    }
 
     public void onBackPressed() {
         super.onBackPressed();
@@ -152,12 +151,12 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        if(previewing){
+        if (previewing) {
             camera.stopPreview();
             previewing = false;
         }
 
-        if (camera != null){
+        if (camera != null) {
             try {
                 camera.setPreviewDisplay(surfaceHolder);
                 camera.startPreview();
@@ -170,10 +169,12 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        while (!isCameraPermissionGranted()){}
+        while (!isCameraPermissionGranted()) {
+        }
         camera = Camera.open();
         camera.setDisplayOrientation(90);
     }
+
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         camera.stopPreview();
@@ -182,13 +183,12 @@ public class MainActivity extends AppCompatActivity implements SurfaceHolder.Cal
         previewing = false;
     }
 
-    boolean isCameraPermissionGranted(){
+    boolean isCameraPermissionGranted() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[] {Manifest.permission.CAMERA}, 1);
+                requestPermissions(new String[]{Manifest.permission.CAMERA}, 1);
                 return false;
-            }
-            else return true;
+            } else return true;
         }
         return false;
     }

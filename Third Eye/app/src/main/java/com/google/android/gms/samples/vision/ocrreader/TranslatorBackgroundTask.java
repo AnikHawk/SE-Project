@@ -18,8 +18,9 @@ public class TranslatorBackgroundTask extends AsyncTask<String, Void, String> {
     //Declare Context
     @SuppressLint("StaticFieldLeak")
     Context context;
+
     //Set Context
-    TranslatorBackgroundTask(){
+    TranslatorBackgroundTask() {
     }
 
     @Override
@@ -56,11 +57,11 @@ public class TranslatorBackgroundTask extends AsyncTask<String, Void, String> {
             //Making result human readable
             String resultString = jsonStringBuilder.toString().trim();
             //Getting the characters between [ and ]
-            resultString = resultString.substring(resultString.indexOf('[')+1);
-            resultString = resultString.substring(0,resultString.indexOf("]"));
+            resultString = resultString.substring(resultString.indexOf('[') + 1);
+            resultString = resultString.substring(0, resultString.indexOf("]"));
             //Getting the characters between " and "
-            resultString = resultString.substring(resultString.indexOf("\"")+1);
-            resultString = resultString.substring(0,resultString.indexOf("\""));
+            resultString = resultString.substring(resultString.indexOf("\"") + 1);
+            resultString = resultString.substring(0, resultString.indexOf("\""));
 
             Log.d("Translation Result:", resultString);
             return jsonStringBuilder.toString().trim();

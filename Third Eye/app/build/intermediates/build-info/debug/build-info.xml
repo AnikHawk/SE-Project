@@ -2,96 +2,103 @@
 <instant-run
     abi="armeabi-v7a,armeabi"
     api-level="23"
-    build-mode="COLD"
+    build-mode="FULL"
     density="xhdpi"
     format="10"
-    ir-eligibility="COMPATIBLE"
     plugin-version="3.1.1"
-    timestamp="1524500506726"
-    token="7082765405854486133"
+    timestamp="1525200141257"
+    token="725529489022386152"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="438" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="39" />
+        duration="0" />
     <task
         name="verifier"
-        duration="41" />
+        duration="0" />
 
     <artifact
-        location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
         type="SPLIT" />
     <artifact
-        location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
         type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1524497816038"
+        timestamp="1525200141257"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/dep/dependencies.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_1.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_0.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_2.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_5.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_7.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_6.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_8.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_9.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
-            type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="R_CLASS_CHANGE"
-        timestamp="1524500189983"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
-            type="SPLIT_MAIN" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1524500506726"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="/home/samiul_siddiqui/Documents/0ASE/SE-Project/Third Eye/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+            location="D:\Android Studio Projects\SE-Project-master\SE-Project\Third Eye\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
 

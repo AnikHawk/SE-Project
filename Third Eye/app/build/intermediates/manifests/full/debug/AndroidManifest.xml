@@ -24,14 +24,16 @@
         android:icon="@drawable/eye"
         android:label="THIRD EYE"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat" >
+        android:testOnly="true"
+        android:theme="@style/Theme.AppCompact.RedBlack" >
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="ocr" />
 
         <activity
             android:name="com.google.android.gms.samples.vision.ocrreader.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,25 +42,30 @@
         </activity>
         <activity
             android:name="com.google.android.gms.samples.vision.ocrreader.OcrCaptureActivity"
-            android:label="@string/title_activity_ocr_capture" />
+            android:label="@string/title_activity_ocr_capture"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.google.android.gms.samples.vision.ocrreader.PdfActivity"
-            android:label="@string/title_activity_pdf" >
+            android:label="@string/title_activity_pdf"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.google.android.gms.samples.vision.ocrreader.ImagePickerActivity"
-            android:label="@string/title_activity_image_picker" >
+            android:label="@string/title_activity_image_picker"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat" />
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.google.android.gms.samples.vision.ocrreader.QrCodeScannerActivity"
-            android:label="@string/title_activity_qr_code_scanner" >
+            android:label="@string/title_activity_qr_code_scanner"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.google.android.gms.samples.vision.ocrreader.QrCodeGeneratorActivity"
-            android:label="@string/title_activity_qr_code_generator" >
+            android:label="@string/title_activity_qr_code_generator"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"

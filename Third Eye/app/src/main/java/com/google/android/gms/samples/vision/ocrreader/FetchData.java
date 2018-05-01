@@ -1,11 +1,13 @@
 package com.google.android.gms.samples.vision.ocrreader;
 
 //import android.app.ProgressDialog;
+
 import android.os.AsyncTask;
-//import android.widget.EditText;
 
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Language;
 import com.google.android.gms.samples.vision.ocrreader.yandexpackage.Translate;
+
+//import android.widget.EditText;
 
 //import java.net.URL;
 
@@ -31,9 +33,8 @@ public class FetchData extends AsyncTask<String, Integer, String> {
     }
 
 
-
     protected void onPostExecute(String result) {
-       //super.onPostExecute(result);
+        //super.onPostExecute(result);
         //EditText textHolder = findViewById(R.id.textHolder);
     }
 }

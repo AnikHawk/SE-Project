@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,29 +14,31 @@
         android:id="@+id/app_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/ocr_header"
         android:textAlignment="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30sp"/>
+        android:textSize="30sp" />
 
     <SurfaceView
         android:id="@+id/preview"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_below="@id/app_name"
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
-        android:paddingHorizontal="30dp" />
+        android:paddingHorizontal="40dp" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_below="@id/app_name"
         android:contentDescription="@string/back_cam_view"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo" />
 
     <RelativeLayout
         android:id="@+id/modes"
@@ -52,16 +53,16 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:text="@string/real_time"
             android:textOff="@string/real_time"
             android:textOn="@string/real_time"
             app:borderWidth="3dp"
-            app:checkedColor="@color/md_light_blue_A700"
+            app:checkedColor="@color/md_indigo_500"
             app:checkedTextColor="#ffffff"
             app:radius="7dp"
-            app:uncheckedColor="@color/md_light_blue_A700"
-            app:uncheckedTextColor="#ffffff"
-            android:layout_marginTop="10dp">
+            app:uncheckedColor="@color/md_indigo_500"
+            app:uncheckedTextColor="#ffffff">
         </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
         <me.rishabhkhanna.customtogglebutton.CustomToggleButton
@@ -71,16 +72,16 @@
             android:layout_below="@+id/real_time"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:text="@string/qr"
             android:textOff="@string/qr"
             android:textOn="@string/qr"
             app:borderWidth="3dp"
-            app:checkedColor="@color/md_light_blue_A700"
+            app:checkedColor="@color/md_indigo_500"
             app:checkedTextColor="#ffffff"
             app:radius="20dp"
-            app:uncheckedColor="@color/md_light_blue_A700"
-            app:uncheckedTextColor="#ffffff"
-            android:layout_marginTop="10dp">
+            app:uncheckedColor="@color/md_indigo_500"
+            app:uncheckedTextColor="#ffffff">
         </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
         <me.rishabhkhanna.customtogglebutton.CustomToggleButton
@@ -90,40 +91,41 @@
             android:layout_below="@+id/qr_button"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:text="@string/image"
             android:textOff="@string/image"
             android:textOn="@string/image"
             app:borderWidth="3dp"
-            app:checkedColor="@color/md_light_blue_A700"
+            app:checkedColor="@color/md_indigo_500"
             app:checkedTextColor="#ffffff"
             app:radius="7dp"
-            app:uncheckedColor="@color/md_light_blue_A700"
-            app:uncheckedTextColor="#ffffff"
-            android:layout_marginTop="10dp">
+            app:uncheckedColor="@color/md_indigo_500"
+            app:uncheckedTextColor="#ffffff">
         </me.rishabhkhanna.customtogglebutton.CustomToggleButton>
 
         <com.nightonke.jellytogglebutton.JellyToggleButton
             android:id="@+id/translation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/image_picker_button"
             android:layout_alignEnd="@+id/image_picker_button"
+            android:layout_below="@+id/image_picker_button"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:checked="false"
             app:jtbDuration="250"
-            app:jtbLeftBackgroundColor="@color/md_red_900"
-            android:layout_marginTop="10dp"/>
+            app:jtbLeftBackgroundColor="@color/md_indigo_500"
+            app:jtbRightBackgroundColor="@color/md_grey_700" />
 
         <TextView
             android:id="@+id/translation_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/image_picker_button"
             android:layout_alignStart="@+id/image_picker_button"
+            android:layout_below="@+id/image_picker_button"
+            android:layout_marginTop="10dp"
             android:paddingTop="7dp"
             android:text="@string/translation"
-            android:textColor="#ffffff"
-            android:layout_marginTop="10dp"/>
+            android:textColor="#ffffff" />
 
         <Spinner
             android:id="@+id/lang_spinner"
@@ -131,14 +133,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/translation"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:alwaysDrawnWithCache="true"
             android:dropDownSelector="@color/md_light_blue_900"
             android:entries="@array/lang_arrays"
             android:padding="5dp"
             android:prompt="@string/lang_prompt"
             android:textAlignment="center"
-            android:visibility="invisible"
-            android:layout_marginTop="10dp"/>
+            android:visibility="invisible" />
     </RelativeLayout>
 
 </RelativeLayout>

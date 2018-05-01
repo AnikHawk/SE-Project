@@ -18,7 +18,7 @@
         android:icon="@drawable/eye"
         android:label="THIRD EYE"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat"
+        android:theme="@style/Theme.AppCompact.RedBlack"
         tools:replace="android:label">
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
@@ -26,34 +26,44 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main">
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".OcrCaptureActivity"
-            android:label="@string/title_activity_ocr_capture" />
+            android:label="@string/title_activity_ocr_capture"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".PdfActivity"
-            android:label="@string/title_activity_pdf">
+            android:label="@string/title_activity_pdf"
+            android:screenOrientation="portrait">
         </activity>
+
         <activity
             android:name=".ImagePickerActivity"
-            android:label="@string/title_activity_image_picker">
+            android:label="@string/title_activity_image_picker"
+            android:screenOrientation="portrait">
         </activity>
+
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".QrCodeScannerActivity"
-            android:label="@string/title_activity_qr_code_scanner">
+            android:label="@string/title_activity_qr_code_scanner"
+            android:screenOrientation="portrait">
         </activity>
+
         <activity
             android:name=".QrCodeGeneratorActivity"
-            android:label="@string/title_activity_qr_code_generator">
+            android:label="@string/title_activity_qr_code_generator"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
